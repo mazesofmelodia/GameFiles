@@ -18,7 +18,7 @@
                     "type": "Value",
                     "id": "a9091e97-5f24-45eb-bf80-a7c3e28ad588",
                     "expectedControlType": "Axis",
-                    "processors": "",
+                    "processors": "Clamp(min=-1,max=1)",
                     "interactions": ""
                 },
                 {
@@ -26,6 +26,30 @@
                     "type": "Value",
                     "id": "f251a810-dbc5-4493-93b8-b578fe48cae0",
                     "expectedControlType": "Axis",
+                    "processors": "Clamp(min=-1,max=1)",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "80a3211e-3172-4089-ba77-3b37034d30f0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "d5af676d-c5d4-48af-9987-033f679fc735",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "9ebcb6e8-c6f4-4a0b-965f-621c513e8bbf",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -193,6 +217,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1bb6ebcc-176b-4dff-b5e2-9fb406c00929",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8efe1b7d-9331-4b12-89d4-15acdd927f1f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ba5e7de-be61-45b9-af8a-25f4fccbd03c",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8726b827-5942-4b42-88dc-3faf4ff39ea6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a3bf68a-2dee-4dd5-a7e8-56dee5e82da9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb406a86-c33e-4eca-9efd-c9dc6c9e75a7",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

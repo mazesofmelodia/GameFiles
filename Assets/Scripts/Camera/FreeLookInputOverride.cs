@@ -19,20 +19,31 @@ public class FreeLookInputOverride : MonoBehaviour
     }
 
     // Update is called once per frame
-    /*void Update()
+    void LateUpdate()
     {
         //Update the free look x and y axis to the new x and y inputs
         freeLookCam.m_XAxis.Value = newXInput;
         freeLookCam.m_YAxis.Value = newYInput;
-    }*/
+    }
 
     public void OnRotate(InputAction.CallbackContext context){
         //Change new x input to the rotate input value
-        newXInput = context.ReadValue<float>();
+        newXInput = ClampValue(context.ReadValue<float>());
     }
 
     public void OnZoom(InputAction.CallbackContext context){
         //Change new y input to the rotate input value
-        newYInput = context.ReadValue<float>();
+        newYInput = ClampValue(context.ReadValue<float>());
+        Debug.Log(newYInput);
     }
+
+    public float ClampValue(float delta)
+        {
+            if (delta <= -1)
+                return -1;
+            else if (delta >= 1)
+                return 1;
+            else
+                return delta;
+        }
 }

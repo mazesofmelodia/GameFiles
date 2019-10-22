@@ -5,8 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 4;               //Movement speed
+    [Header("Player Movement Values")]
+    [SerializeField] private float moveSpeed = 4f;               //Movement speed
+
+    [Header("Camera Controls")]
     [SerializeField] private Camera playerCam;                  //Player camera
+
+    [Header("Player Rotation Properties")]
 	[SerializeField] private bool blockRotationPlayer = false;  //Incase we want to prevent the player from rotating
 	[SerializeField] private float desiredRotationSpeed = 0.1f; //Speed of the rotating player
     [SerializeField] private float allowPlayerRotation = 0.1f;  //
@@ -28,6 +33,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         InputMagnitude();
+
+		//If you don't need the character grounded then get rid of this part.
+
     }
 
     void InputMagnitude(){
