@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,9 +15,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float desiredRotationSpeed = 0.1f; //Speed of the rotating player
     [SerializeField] private float allowPlayerRotation = 0.1f;  //
 
+    private float inputX;
+    private float inputZ;
     private Vector3 desiredMoveDirection;                       //The intended movement of the player
     private CharacterController controller;                     //Reference to character controller
-    private Vector2 moveDirection;                              //Player move direction
 
     // Start is called before the first frame update
     void Start()
@@ -34,22 +34,23 @@ public class PlayerController : MonoBehaviour
     {
         InputMagnitude();
 
-		//If you don't need the character grounded then get rid of this part.
-
     }
 
     void InputMagnitude(){
+        inputX = Input.GetAxis("Horizontal");
+        inputZ = Input.GetAxis("Vertical");
+
         //Calculate the Input Magnitude based on the moveDirection Vector2
-		float Speed = new Vector2(moveDirection.x, moveDirection.y).sqrMagnitude;
+		float Speed = new Vector2(inputX, inputZ).sqrMagnitude;
 
         //Check if the Speed is greater than the allowed movement
         if(Speed > allowPlayerRotation){
             //Move the player in that case
-            Move();
+            Move(inputX,inputZ);
         }
     }
 
-    void Move(){
+    void Move(float horizontal, float vertical){
         //Get the forward and right values of the camera
 		var forward = playerCam.transform.forward;
 		var right = playerCam.transform.right;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 		right.Normalize ();
 
         //Move the player based on the player input relative to the camera direction
-		desiredMoveDirection = forward * moveDirection.y + right * moveDirection.x;
+		desiredMoveDirection = forward * vertical + right * horizontal;
 
         //If the player's rotation isn't false
 		if (blockRotationPlayer == false) {
@@ -74,10 +75,5 @@ public class PlayerController : MonoBehaviour
 
         //Move the controller in the desiredMoveDirection taking the moveSpeed and Time into account
         controller.Move(desiredMoveDirection * Time.deltaTime * moveSpeed);
-    }
-
-    public void OnMove(InputAction.CallbackContext context){
-        //Get the vector2 of move value
-        moveDirection = context.ReadValue<Vector2>();
     }
 }
