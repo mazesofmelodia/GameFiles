@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement Values")]
-    [SerializeField] private float moveSpeed = 4f;               //Movement speed
+    [SerializeField] private float moveSpeed = 4f;              //Movement speed
+    [SerializeField] private float jumpSpeed = 8f;              //Determines how high the player will jump
 
     [Header("Camera Controls")]
     [SerializeField] private Camera playerCam;                  //Player camera
@@ -17,8 +18,10 @@ public class PlayerController : MonoBehaviour
 
     private float inputX;
     private float inputZ;
+    private float verticalVel;                                  //Vertical velocity of the player
     private Vector3 desiredMoveDirection;                       //The intended movement of the player
     private CharacterController controller;                     //Reference to character controller
+    private Animator anim;                                      //Reference to Animator component
 
     // Start is called before the first frame update
     void Start()
@@ -27,18 +30,24 @@ public class PlayerController : MonoBehaviour
         playerCam = Camera.main;
         //Get the character controller component
         controller = GetComponent<CharacterController>();
+        //Get the animator component
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Get the direction the character is moving to
         InputMagnitude();
 
+        desiredMoveDirection = new Vector3 (0f,Physics.gravity.y,0f);
+        controller.Move(desiredMoveDirection);
+        
     }
 
     void InputMagnitude(){
-        inputX = Input.GetAxis("Horizontal");
-        inputZ = Input.GetAxis("Vertical");
+        inputX = Input.GetAxis("MoveHorizontal");
+        inputZ = Input.GetAxis("MoveVertical");
 
         //Calculate the Input Magnitude based on the moveDirection Vector2
 		float Speed = new Vector2(inputX, inputZ).sqrMagnitude;
@@ -47,6 +56,11 @@ public class PlayerController : MonoBehaviour
         if(Speed > allowPlayerRotation){
             //Move the player in that case
             Move(inputX,inputZ);
+            //Play the running animation
+            anim.SetBool("IsMoving", true);
+        }else{
+            //Play the idle animation
+            anim.SetBool("IsMoving", false);
         }
     }
 
