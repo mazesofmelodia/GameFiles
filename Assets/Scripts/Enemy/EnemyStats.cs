@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    [SerializeField] private int health;
-    [SerializeField] private int maxHealth = 100;
+    private int health;
+    [SerializeField] private int maxHealth = 100;   //Max health of enemy
+    [SerializeField] private int damage;            //Enemy Damage
 
     // Start is called before the first frame update
     void Start()
