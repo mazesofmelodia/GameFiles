@@ -41,7 +41,6 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public void Attack(){
-        Debug.Log("Attacking");
 
         //Emit a sphere to hurt objects in the scene
         Collider[] attackedObjects = Physics.OverlapSphere(attackPoint.position, range);
@@ -55,6 +54,7 @@ public class PlayerAttack : MonoBehaviour
             if(hitEnemy != null){
                 //Damage the enemy
                 hitEnemy.TakeDamage(damage);
+                Debug.Log("Enemy damaged");
             }
         }
     }

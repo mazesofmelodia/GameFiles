@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff79a5239897c340b3bd6d4fd783e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
   jumpSpeed: 8
   playerCam: {fileID: 0}
   blockRotationPlayer: 0
@@ -733,7 +733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5faed7ade41ff74a86f9741b927becf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   maxHealth: 100
   score: 0
 --- !u!114 &1693624612
@@ -748,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4278d0a3f78ca44bb793ea23ac33057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 20
   attackSpeed: 1
   range: 0.75
   attackPoint: {fileID: 332435377}

@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15006
+  m_Name: pb_Mesh14664
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -475,10 +475,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693624612, guid: 534732e1869d52740aed32dd468cf9e8, type: 3}
-      propertyPath: damage
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534732e1869d52740aed32dd468cf9e8, type: 3}
@@ -5251,7 +5247,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15060
+  m_Name: pb_Mesh14716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5428,12 +5424,12 @@ PrefabInstance:
     - target: {fileID: 4461001878551566290, guid: aa287dece1e0cb74c95a697207bb7a47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 0.262
       objectReference: {fileID: 0}
     - target: {fileID: 4461001878551566290, guid: aa287dece1e0cb74c95a697207bb7a47,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7532232
+      value: 0.212
       objectReference: {fileID: 0}
     - target: {fileID: 4461001878551566290, guid: aa287dece1e0cb74c95a697207bb7a47,
         type: 3}
@@ -5477,22 +5473,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa287dece1e0cb74c95a697207bb7a47, type: 3}
---- !u!1 &5507736335536202149 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 843281757326042561, guid: aa287dece1e0cb74c95a697207bb7a47,
-    type: 3}
-  m_PrefabInstance: {fileID: 5178182232977294436}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5507736335536202150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5507736335536202149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da47ef7bc7d6f504093a1dbec787f7a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100

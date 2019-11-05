@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [HideInInspector] public bool isDead;
     private int health;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int score = 0;
@@ -32,6 +33,8 @@ public class PlayerStats : MonoBehaviour
     private void Die(){
         //Player death animation
         anim.SetTrigger("Dying");
+        //Player is dead
+        isDead = true;
         //Disable movement to ensure that the player can't move while they're dead
         PlayerController playerMovement = GetComponent<PlayerController>();
         playerMovement.enabled = false;
