@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int damage;        //Player damage
     [SerializeField] private float attackSpeed; //Attack speed
     [SerializeField] private float range;       //Attack range
+    [SerializeField] private AudioClip attackSound; //Sound that plays when the player attacks
 
     [Space]
     [SerializeField] private Transform attackPoint; //For melee attacks
@@ -29,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
             if(Input.GetButtonDown("Attack")){
                 //Play the attacking animation
                 anim.SetTrigger("Attacking");
+                //Play attack sound
+                AudioManager.Instance.PlaySFX(attackSound);
 
                 //Set time between attack to be the attack speed value
                 timeBetweenAttack = attackSpeed;
@@ -54,7 +57,6 @@ public class PlayerAttack : MonoBehaviour
             if(hitEnemy != null){
                 //Damage the enemy
                 hitEnemy.TakeDamage(damage);
-                Debug.Log("Enemy damaged");
             }
         }
     }

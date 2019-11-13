@@ -736,6 +736,9 @@ MonoBehaviour:
   isDead: 0
   maxHealth: 100
   score: 0
+  gameUI: {fileID: 0}
+  damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
+  deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
 --- !u!114 &1693624612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,6 +754,7 @@ MonoBehaviour:
   damage: 20
   attackSpeed: 1
   range: 0.75
+  attackSound: {fileID: 8300000, guid: b5ee594d217775e419e477413a2414a8, type: 3}
   attackPoint: {fileID: 332435377}
 --- !u!1 &5500811698307933057
 GameObject:
