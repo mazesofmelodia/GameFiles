@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private int damage;        //Player damage
+    /*[SerializeField] private int damage;        //Player damage
     [SerializeField] private float attackSpeed; //Attack speed
-    [SerializeField] private float range;       //Attack range
+    [SerializeField] private float range;       //Attack range*/
+    [SerializeField] private Weapon currentWeapon;  //Current Weapon the player is holding
     [SerializeField] private AudioClip attackSound; //Sound that plays when the player attacks
 
     [Space]
     [SerializeField] private Transform attackPoint; //For melee attacks
+    [SerializeField] private Transform weaponPoint; //Point to move the weapon Towards
 
+    private GameObject currentWeaponModel;      //Current weapon model in scene
     private Animator anim;                      //Reference to animator component
     private float timeBetweenAttack;            //Time passed since attack
 
@@ -20,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
     {
         //Get reference to animator component
         anim = GetComponent<Animator>();
+        //Position the starting weapon of the character
+        PositionWeapon(currentWeapon);
     }
 
     // Update is called once per frame
@@ -34,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
                 AudioManager.Instance.PlaySFX(attackSound);
 
                 //Set time between attack to be the attack speed value
-                timeBetweenAttack = attackSpeed;
+                timeBetweenAttack = currentWeapon.attackSpeed;
             }
 
         }else{
@@ -43,10 +48,15 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void ChangeWeapon(){
+
+    }
+
+    //Function activated as part of an animation event
     public void Attack(){
 
         //Emit a sphere to hurt objects in the scene
-        Collider[] attackedObjects = Physics.OverlapSphere(attackPoint.position, range);
+        Collider[] attackedObjects = Physics.OverlapSphere(attackPoint.position, currentWeapon.range);
 
         //Loop through all hit objects
         for (int i = 0; i < attackedObjects.Length; i++)
@@ -56,14 +66,16 @@ public class PlayerAttack : MonoBehaviour
 
             if(hitEnemy != null){
                 //Damage the enemy
-                hitEnemy.TakeDamage(damage);
+                hitEnemy.TakeDamage(currentWeapon.damage);
             }
         }
     }
 
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawWireSphere(attackPoint.position, range);
+    private void PositionWeapon(Weapon weaponToPosition, float scaleFactor = 0.005f){
+        //Spawn the model at the weaponPoint
+        //Will also make the spawned model a child of the weapon point
+        GameObject weaponModel = Instantiate(weaponToPosition.weaponModel, weaponPoint.position, weaponPoint.rotation, weaponPoint);
+        //Change the scale of the object in scene
+        weaponModel.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e63b98e90f8d04bbc03e620a1b2a72, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  itemName: Sword
+  cost: 100
+  description: A fine standard sword
+  damage: 20
+  attackSpeed: 1
+  range: 0.75
+  weaponModel: {fileID: 2522945504120786247, guid: 4e4c6c64ab5b1fe41bace07c1532e102,
+    type: 3}
