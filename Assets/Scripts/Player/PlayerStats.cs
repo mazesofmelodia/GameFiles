@@ -47,6 +47,29 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void RecoverHealth(int recoverAmount){
+        //Recover health
+        health += recoverAmount;
+        //Clamp health value so it doesn't go above max health
+        health = Mathf.Clamp(health, 0, maxHealth);
+
+        //Update the health bar
+        gameUI.UpdateHealthBar(health);
+    }
+
+    public void UpdateScore(int scorePoints){
+        //Change the players score to reflect changes
+        score += scorePoints;
+
+        //Update score UI
+        gameUI.UpdateScore(score);
+    }
+
+    public int GetScore(){
+        //Return the current score value
+        return score;
+    }
+
     //Player has lost all of their health
     private void Die(){
         //Player death animation
@@ -59,17 +82,12 @@ public class PlayerStats : MonoBehaviour
         PlayerController playerMovement = GetComponent<PlayerController>();
         //Also disable the attack script
         PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+        //And the interact script
+        PlayerInteractor playerInteractor = GetComponent<PlayerInteractor>();
 
         playerAttack.enabled = false;
         playerMovement.enabled = false;
+        playerInteractor.enabled = false;
     }
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            //Increase score to test score manager
-            score += 10;
-            //Update ui
-            gameUI.UpdateScore(score);
-        }
-    }
 }

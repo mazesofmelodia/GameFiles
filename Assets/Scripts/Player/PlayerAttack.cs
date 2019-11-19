@@ -48,8 +48,15 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon(){
+    public void ChangeWeapon(Weapon newWeapon){
+        //Destroy the current weapon on the character
+        Destroy(currentWeaponModel);
 
+        //Change the weapon on the character
+        currentWeapon = newWeapon;
+
+        //Update the model on the character
+        PositionWeapon(currentWeapon);
     }
 
     //Function activated as part of an animation event
@@ -74,8 +81,8 @@ public class PlayerAttack : MonoBehaviour
     private void PositionWeapon(Weapon weaponToPosition, float scaleFactor = 0.005f){
         //Spawn the model at the weaponPoint
         //Will also make the spawned model a child of the weapon point
-        GameObject weaponModel = Instantiate(weaponToPosition.weaponModel, weaponPoint.position, weaponPoint.rotation, weaponPoint);
+        currentWeaponModel = Instantiate(weaponToPosition.weaponModel, weaponPoint.position, weaponPoint.rotation, weaponPoint);
         //Change the scale of the object in scene
-        weaponModel.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+        currentWeaponModel.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
     }
 }
