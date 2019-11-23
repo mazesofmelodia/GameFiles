@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   itemName: Hammer
-  cost: 100
-  description: You've got a hammer, and there's a whole lot of nails around.
+  cost: 200
+  description: You've got a hammer, and there's a whole lot of nails around here.
   damage: 40
   attackSpeed: 2
   range: 0.75

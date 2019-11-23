@@ -6,6 +6,8 @@ public class Treasure : Interactable
 {
     [SerializeField] private Weapon weaponTreasure;     //Weapon treasure on this object
     [SerializeField] private bool isShopItem = false;   //Is this an Item in a shop
+    [SerializeField] private AudioClip pickupSound;     //Item pickup sound
+    [SerializeField] private AudioClip purchaseFailSound;   //Sound that plays when the player doesn't have enough money
 
     public override void Interact(GameObject playerObject){
         //Get references to both the player stats and attack scripts
@@ -21,7 +23,8 @@ public class Treasure : Interactable
                 //Change the weapon on the character
                 ChangeWeapon(playerWeapon);
             }else{
-                Debug.Log("Not enough score");
+                //Play a sound informing the player that they don't have enough money
+                AudioManager.Instance.PlaySFX(purchaseFailSound);
             }
         }else{
             //Change the weapon on the character
@@ -30,6 +33,8 @@ public class Treasure : Interactable
     }
 
     private void ChangeWeapon(PlayerAttack playerWeapon){
+        //Play the pickup sound
+        AudioManager.Instance.PlaySFX(pickupSound);
         //Change the weapon on the character for the new weapon
         playerWeapon.ChangeWeapon(weaponTreasure);
         //Destroy the game object

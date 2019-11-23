@@ -27,6 +27,8 @@ public class EnemyStats : MonoBehaviour
         anim = GetComponent<Animator>();
         //Get reference to collider
         col = GetComponent<Collider>();
+        //Increase the number of enemies in the scene by one
+        GameManager.Instance.AdjustEnemyCountInScene(1);
     }
 
     public void TakeDamage(int damageAmount){
@@ -46,6 +48,8 @@ public class EnemyStats : MonoBehaviour
     private void Die(){
         //Play the death animation
         anim.SetTrigger("Dying");
+        //Decrease the number of enemies in the scene by one
+        GameManager.Instance.AdjustEnemyCountInScene(-1);
         //Play death sound
         AudioManager.Instance.PlaySFX(deathSound);
         //Disable collider
