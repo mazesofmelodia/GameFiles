@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
                 instance = FindObjectOfType<GameManager>();
                 //If we still didn't find a game manager
                 if(instance == null){
-                    //Create a new game object with an audio manager and set that as the instance
+                    //Create a new game object with a game manager and set that as the instance
                     instance = new GameObject("NewGameManager", typeof(GameManager)).GetComponent<GameManager>();
+                    //Add a scene transition to the gameobject
+                    instance.gameObject.AddComponent(typeof (SceneTransition));
                 }
             }
 
@@ -65,12 +67,16 @@ public class GameManager : MonoBehaviour
                 AudioManager.Instance.PlayMusicWithFade(battleTheme);
                 //Set the battle engaged to true
                 battleEngaged = true;
+                //Hide the win treasure
+                winTreasure.SetActive(false);
             }
         }else{
             //Play the level theme
             AudioManager.Instance.PlayMusicWithFade(bgm);
             //Player is no longer fighting an enemy
             battleEngaged = false;
+            //Show the win treasure
+            winTreasure.SetActive(true);
         }
     }
 

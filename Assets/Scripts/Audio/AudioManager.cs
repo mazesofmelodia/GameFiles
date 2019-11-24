@@ -68,6 +68,17 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Stops the music that's currently playing
+    /// </summary>
+    public void StopMusic(){
+        //Check which audio source is playing, if musicSourceAPlaying is true use musicSourceA, otherwise use musicSourceB
+        AudioSource activeSource = (musicSourceAPlaying) ? musicSourceA : musicSourceB;
+
+        //Stops the music
+        activeSource.Stop();
+    }
+
+    /// <summary>
     /// Play music sound and fade out the previous music sound
     /// </summary>
     /// <param name="newClip">New music to play</param>
