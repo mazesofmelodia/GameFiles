@@ -6635,7 +6635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1f6ca934f39ed4797c4ab08ce20bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm: {fileID: 8300000, guid: 891168a9d4caca64c96cfb6a52fedc6b, type: 3}
+  bgm: {fileID: 8300000, guid: 9e820c451d9247b4ebd8488dc6aad607, type: 3}
   battleTheme: {fileID: 8300000, guid: 9707588369c4a7648a3b99b3725cdd5d, type: 3}
   winTreasure: {fileID: 723468092}
 --- !u!4 &645224149
@@ -7541,7 +7541,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710566579}
-  m_LocalRotation: {x: 0.030736314, y: 0.9622789, z: -0.122822836, w: 0.24080946}
+  m_LocalRotation: {x: 0.03073632, y: 0.9622789, z: -0.12282284, w: 0.24080949}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
