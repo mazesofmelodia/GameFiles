@@ -5,6 +5,8 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "DungeonGenerationData.asset", menuName = "DungeonGenerationData/Dungeon Data")]
 public class DungeonGenerationData : ScriptableObject
 {
+    public string levelName;
+
     public int numberOfCrawlers = 0;   //How many crawlers are in the level
     public int iterationMin = 0;        //Minimum number of iterations
     public int iterationMax = 0;        //Maximum number of iterations

@@ -14,6 +14,9 @@ public class DungeonGenerator : MonoBehaviour
         //Generate the list of room positions
         dungeonRooms = DungeonCrawlerController.GenerateDungeon(generationData);
 
+        //Set the boss room for this dungeon
+        RoomController.instance.SetBossRoom(generationData.endRoomPrefab);
+
         //Spawn the rooms
         SpawnRooms(dungeonRooms);
     }

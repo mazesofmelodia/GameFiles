@@ -18,9 +18,7 @@ public class RoomController : MonoBehaviour
 {
     public static RoomController instance;      //Singleton Instance of the Room Controller
 
-    public string currentWorldName = "TestLevel";      //Name of the current level
-
-    public GameObject endRoomObject;
+    private GameObject endRoomObject;
 
     RoomInfo currentLoadRoomData;               //Info of room being loaded
 
@@ -100,6 +98,12 @@ public class RoomController : MonoBehaviour
         SpawnRoom(currentLoadRoomData.roomObject);
     }
 
+    //Sets the boss room object to spawn at the end
+    public void SetBossRoom(GameObject bossRoomPrefab)
+    {
+        endRoomObject = bossRoomPrefab;
+    }
+
     //Loads in new room info
     public void LoadRoom(GameObject roomObject, int x, int y)
     {
@@ -167,7 +171,7 @@ public class RoomController : MonoBehaviour
             //Sets the position of the room based on coordinates, width and height of the room
             room.transform.position = new Vector3(
                 currentLoadRoomData.X * room.width,
-                currentLoadRoomData.Y * room.height, 0);
+                0, currentLoadRoomData.Y * room.height);
 
             //Set the x and y coordinates of the room based on the load room data
             room.X = currentLoadRoomData.X;

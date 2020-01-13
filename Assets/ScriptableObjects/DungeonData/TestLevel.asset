@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e7570f0f256c1498d8bd58fd4c9653, type: 3}
+  m_Name: TestLevel
+  m_EditorClassIdentifier: 
+  levelName: Test World
+  numberOfCrawlers: 2
+  iterationMin: 10
+  iterationMax: 20
+  startRoomPrefab: {fileID: 1544045279223225553, guid: 83ed6a6057cbecf4b8171695b4b3b09c,
+    type: 3}
+  endRoomPrefab: {fileID: 6068073274723879728, guid: 0dc42c380ab955b4c9201ee53a56b62f,
+    type: 3}
+  randomRoomPrefabs:
+  - {fileID: 2366091288277203766, guid: 31b1ef8f47960754ca1a1828040d9aeb, type: 3}
+  - {fileID: 2325781639443582811, guid: 97c13dcb29f8ce746ae37540c721ef7a, type: 3}
+  - {fileID: 8122266652477853623, guid: 1b9f1b36edd34e4498597629e5fca366, type: 3}
+  - {fileID: 1181055937770953218, guid: 65ade3133c9a4c1498d8eb494a39d312, type: 3}
+  - {fileID: 4401564744365558489, guid: 0990bf0fb2e6a2b4cbb377e77a8f4efa, type: 3}
+  - {fileID: 8068626579079234249, guid: 8807f74346dce4741b6955f0834153fe, type: 3}
