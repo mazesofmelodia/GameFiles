@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private float inputX;
     private float inputZ;
-    private float verticalVel;                                  //Vertical velocity of the player
     private Vector3 desiredMoveDirection;                       //The intended movement of the player
     private CharacterController controller;                     //Reference to character controller
     private Animator anim;                                      //Reference to Animator component
@@ -38,11 +37,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Get the direction the character is moving to
-        InputMagnitude();
-
-        desiredMoveDirection = new Vector3 (0f,Physics.gravity.y,0f);
-        controller.Move(desiredMoveDirection);
-        
+        InputMagnitude();       
     }
 
     void InputMagnitude(){
