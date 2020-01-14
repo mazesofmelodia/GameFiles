@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    Default,
+    Battle,
+    Win,
+    Lose
+}
+
 public class GameManager : MonoBehaviour
 {
     /* Static instance */
-    private static GameManager instance;      //GameManager in scene
+    public static GameManager Instance;      //GameManager in scene
     //Public referance to the GameManager for other scripts to access
-    public static GameManager Instance{
+    /*public static GameManager Instance{
         get{
             //Check if there is no instance of the game manager in the scene
             if(instance == null){
@@ -29,26 +37,37 @@ public class GameManager : MonoBehaviour
             //Set the instance to a value
             instance = value;
         }
-    }
+    }*/
 
     /* Other variables */
     [SerializeField] private AudioClip bgm;         //Reference to background music
     [SerializeField] private AudioClip battleTheme; //Battle theme when there are enemies in the scene
     [SerializeField] private GameObject winTreasure;    //Treasure to appear when all enemies are defeated
 
+    public GameState gameState = GameState.Default;     //Current state of the game
+
     private int enemiesInScene = 0;                     //Number of enemies currently in the scene
-    private bool battleEngaged = false;                 //Has the player encountered enemies?
 
     private void Awake() {
-        //Ensure the instance of the GameManager isn't destroyed
-        DontDestroyOnLoad(this.gameObject);
+        //Check if there is no instance in the scene
+        if (Instance == null)
+        {
+            //Make this Manager the instance
+            Instance = this;
+        }
+        //If there's already an instance
+        else if (Instance != null)
+        {
+            //Destroy this game object
+            Destroy(this.gameObject);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         //Play the background music
-        AudioManager.Instance.PlayMusic(bgm);
+        AudioManager.Instance.PlayDungeonMusic(bgm, battleTheme);
     }
 
     public void AdjustEnemyCountInScene(int number){
@@ -62,21 +81,21 @@ public class GameManager : MonoBehaviour
         //If there are any enemies in scene
         if(enemiesInScene > 0){
             //Check if the player has already encountered an enemy
-            if(!battleEngaged){
+            if(gameState != GameState.Battle){
                 //Play the battle theme
-                AudioManager.Instance.PlayMusicWithFade(battleTheme);
+                AudioManager.Instance.FadeToBattleMusic();
                 //Set the battle engaged to true
-                battleEngaged = true;
+                gameState = GameState.Battle;
                 //Hide the win treasure
-                winTreasure.SetActive(false);
+                //winTreasure.SetActive(false);
             }
         }else{
             //Play the level theme
-            AudioManager.Instance.PlayMusicWithFade(bgm);
+            AudioManager.Instance.FadeToDungeonMusic();
             //Player is no longer fighting an enemy
-            battleEngaged = false;
+            gameState = GameState.Default;
             //Show the win treasure
-            winTreasure.SetActive(true);
+            //winTreasure.SetActive(true);
         }
     }
 

@@ -9,6 +9,15 @@ public class Room : MonoBehaviour
     public int X;           //X coordinate
     public int Y;           //Y coordinate
 
+    [SerializeField] private EnemyStats enemyPrefab;    //Enemy to spawn
+    //List of spawnpoints in the room
+    [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
+
+    //List of enemies in the room
+    private List<EnemyStats> enemies = new List<EnemyStats>();
+
+    private bool enemiesSpawned = false;    //Have the enemies already been spawned
+
     //Door objects
     public Door leftDoor;
     public Door rightDoor;
@@ -188,5 +197,23 @@ public class Room : MonoBehaviour
     {
         //Return a vector 3 based on the width, height, x and y values of the room
         return new Vector3(X * width, 0, Y * height);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //If a player enters the room and the enemies have not been spawned
+        if (other.CompareTag("Player") && !enemiesSpawned)
+        {
+            //Spawn an enemy at each spawnpoint
+            foreach (Transform spawnPoint in spawnPoints)
+            {
+                EnemyStats newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+
+                //Add the enemy to the enemies list
+                //enemies.Add(newEnemy);
+            }
+            //Enemies have been spawned
+            enemiesSpawned = true;
+        }
     }
 }

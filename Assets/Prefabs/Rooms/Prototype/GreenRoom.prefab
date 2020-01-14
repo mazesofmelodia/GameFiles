@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 840396841894881150}
   - component: {fileID: 4777285910899204523}
   - component: {fileID: 1221745915985247440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UpDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1108520108015682340}
   - component: {fileID: 4606732375037060472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RoomLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 7469641808951987543}
   - component: {fileID: 5051854102397714107}
   - component: {fileID: 1221745915985247454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 4067370712801549399}
   - component: {fileID: 8693832334848425586}
   - component: {fileID: 1221745915985247443}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DownDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 7622762151580497804}
   - component: {fileID: 8356898594349071680}
   - component: {fileID: 1221745915985247441}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 6661071330459029580}
   - component: {fileID: 8948463877575035198}
   - component: {fileID: 1221745915985247442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

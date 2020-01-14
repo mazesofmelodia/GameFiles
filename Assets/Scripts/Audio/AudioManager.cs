@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     /* Static instance */
-    private static AudioManager instance;      //AudioManager in scene
+    public static AudioManager Instance;      //AudioManager in scene
     //Public referance to the AudioManager for other scripts to access
-    public static AudioManager Instance{
+    /*public static AudioManager Instance{
         get{
             //Check if there is no instance of the audio manager in the scene
             if(instance == null){
@@ -27,29 +28,54 @@ public class AudioManager : MonoBehaviour
             //Set the instance to a value
             instance = value;
         }
-    }
+    }*/
 
     /* Other Variables */
     [SerializeField] private float managerMusicVolume;     //Music Volume of the audiomanager
     [SerializeField] private float managerSFXVolume;     //SFX Volume of the audiomanager
 
-    private AudioSource musicSourceA;       //Audio source for playing music
-    private AudioSource musicSourceB;       //Audio source for cross fading music
+    [Header("Snapshots and output groups")]
+    [SerializeField] private AudioMixerSnapshot dungeonAudioSnapshot;   //Dungeon audio snapshot
+    [SerializeField] private AudioMixerSnapshot battleAudioSnapshot;    //Battle audio snapshot
+
+    [Space]
+    [SerializeField] private AudioMixerGroup dungeonOutputGroup;        //Dungeon audio output
+    [SerializeField] private AudioMixerGroup battleOutputGroup;         //Battle audio output
+
+    private AudioSource musicSource;       //Audio source for playing music
+    private AudioSource dungeonMusicSource;       //Audio source for cross fading music
+    private AudioSource battleMusicSource;
     private AudioSource sfxSource;          //Audio source for playing sound effects
     private bool musicSourceAPlaying;       //Check if music source a is playing
 
     private void Awake() {
-        //Ensure the instance of the AudioManager isn't destroyed
-        DontDestroyOnLoad(this.gameObject);
+        //Check if there is no instance in the scene
+        if (Instance == null)
+        {
+            //Make this Manager the instance
+            Instance = this;
+        }
+        //If there's already an instance
+        else if (Instance != null)
+        {
+            //Destroy this game object
+            Destroy(this.gameObject);
+        }
 
         //Add the Audiosources as components to the AudioManager
-        musicSourceA = this.gameObject.AddComponent<AudioSource>();
-        musicSourceB = this.gameObject.AddComponent<AudioSource>();
+        musicSource = this.gameObject.AddComponent<AudioSource>();
+        dungeonMusicSource = this.gameObject.AddComponent<AudioSource>();
+        battleMusicSource = this.gameObject.AddComponent<AudioSource>();
         sfxSource = this.gameObject.AddComponent<AudioSource>();
 
+        //Set the output group for the dungeon and battle audio sources
+        dungeonMusicSource.outputAudioMixerGroup = dungeonOutputGroup;
+        battleMusicSource.outputAudioMixerGroup = battleOutputGroup;
+
         //Loop the music tracks
-        musicSourceA.loop = true;
-        musicSourceB.loop = true;
+        musicSource.loop = true;
+        dungeonMusicSource.loop = true;
+        battleMusicSource.loop = true;
     }
 
     /// <summary>
@@ -58,7 +84,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="musicClip">Music audio to play</param>
     public void PlayMusic(AudioClip musicClip){
         //Check which audio source is playing, if musicSourceAPlaying is true use musicSourceA, otherwise use musicSourceB
-        AudioSource activeSource = (musicSourceAPlaying) ? musicSourceA : musicSourceB;
+        AudioSource activeSource = (musicSourceAPlaying) ? musicSource : dungeonMusicSource;
 
         //Set the audio clip on the music source and play it
         activeSource.clip = musicClip;
@@ -67,12 +93,70 @@ public class AudioManager : MonoBehaviour
         activeSource.Play();
     }
 
+    public void PlayDungeonMusic(AudioClip dungeonTheme, AudioClip battleTheme)
+    {
+        //Set the music for both sources
+        dungeonMusicSource.clip = dungeonTheme;
+        battleMusicSource.clip = battleTheme;
+
+        //Set the volume of both music sources
+        dungeonMusicSource.volume = managerMusicVolume;
+        battleMusicSource.volume = managerMusicVolume;
+
+        //Play both
+        dungeonMusicSource.Play();
+        battleMusicSource.Play();
+    }
+
+    public void StopDungeonMusic(float transitionTime = 1.0f)
+    {
+        //Fade out float
+        float t = 0.0f;
+
+        //Fade out over time
+        for (t = 0; t < transitionTime; t += Time.deltaTime)
+        {
+            //Reduce the volume of the sources
+            dungeonMusicSource.volume = (managerMusicVolume - (t / transitionTime));
+            battleMusicSource.volume = (managerMusicVolume - (t / transitionTime));
+        }
+
+        //Stops the music
+        dungeonMusicSource.Stop();
+        battleMusicSource.Stop();
+    }
+
+    //Transitions to the battle music snapshot
+    public void FadeToBattleMusic(float transitionTime = 1.0f)
+    {
+        //Fade to the battle theme
+        battleAudioSnapshot.TransitionTo(transitionTime);
+    }
+
+    //Transition to dungeon music snapshot
+    public void FadeToDungeonMusic(float transitionTime = 1.0f)
+    {
+        //Fade to the dungeon theme
+        dungeonAudioSnapshot.TransitionTo(transitionTime);
+    }
+
     /// <summary>
     /// Stops the music that's currently playing
     /// </summary>
-    public void StopMusic(){
+    public void StopMusic(float transitionTime = 1.0f)
+    {
         //Check which audio source is playing, if musicSourceAPlaying is true use musicSourceA, otherwise use musicSourceB
-        AudioSource activeSource = (musicSourceAPlaying) ? musicSourceA : musicSourceB;
+        AudioSource activeSource = (musicSourceAPlaying) ? musicSource : dungeonMusicSource;
+
+        //Fade out float
+        float t = 0.0f;
+
+        //Fade out over time
+        for (t = 0; t < transitionTime; t += Time.deltaTime)
+        {
+            //Reduce the volume of the active source
+            activeSource.volume = (managerMusicVolume - (t / transitionTime));
+        }
 
         //Stops the music
         activeSource.Stop();
@@ -85,7 +169,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="transitionTime">Transition time between music sounds</param>
     public void PlayMusicWithFade(AudioClip newClip, float transitionTime = 1.0f){
         //Check which audio source is playing, if musicSourceAPlaying is true use musicSourceA, otherwise use musicSourceB
-        AudioSource activeSource = (musicSourceAPlaying) ? musicSourceA : musicSourceB;
+        AudioSource activeSource = (musicSourceAPlaying) ? musicSource : dungeonMusicSource;
 
         //Start UpdateMusic coroutine
         StartCoroutine(UpdateMusicWithFade(activeSource, newClip, transitionTime));
@@ -98,9 +182,9 @@ public class AudioManager : MonoBehaviour
     /// <param name="transitionTime">Time of transition between music</param>
     public void PlayMusicWithCrossFade(AudioClip newClip, float transitionTime = 1.0f){
         //Determine which source is active
-        AudioSource activeSource = (musicSourceAPlaying) ? musicSourceA : musicSourceB;
+        AudioSource activeSource = (musicSourceAPlaying) ? musicSource : dungeonMusicSource;
         //Set new source
-        AudioSource newSource = (musicSourceAPlaying) ? musicSourceB : musicSourceA;
+        AudioSource newSource = (musicSourceAPlaying) ? dungeonMusicSource : musicSource;
 
         //Swap the source
         musicSourceAPlaying = !musicSourceAPlaying;
@@ -206,8 +290,8 @@ public class AudioManager : MonoBehaviour
     /// <param name="volume">Volume level</param>
     public void SetMusicVolume(float volume){
         //Set the volume level of both music sources
-        musicSourceA.volume = volume;
-        musicSourceB.volume = volume;
+        musicSource.volume = volume;
+        dungeonMusicSource.volume = volume;
 
         //Change the manager music level to volume
         managerMusicVolume = volume;

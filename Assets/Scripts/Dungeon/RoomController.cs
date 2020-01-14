@@ -158,8 +158,6 @@ public class RoomController : MonoBehaviour
 
             //Load the end room
             LoadRoom(bossRoomObject, tempRoom.X, tempRoom.Y);
-
-            Debug.Log("Spawning Boss Room");
         }
     }
 

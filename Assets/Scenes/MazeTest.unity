@@ -1165,9 +1165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1f6ca934f39ed4797c4ab08ce20bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm: {fileID: 8300000, guid: 9e820c451d9247b4ebd8488dc6aad607, type: 3}
-  battleTheme: {fileID: 8300000, guid: 9707588369c4a7648a3b99b3725cdd5d, type: 3}
+  bgm: {fileID: 8300000, guid: 4f307fc0ea201524cb8e4ee29233956f, type: 3}
+  battleTheme: {fileID: 8300000, guid: 5f2044d95b131bd49bf49e67eb1d029b, type: 3}
   winTreasure: {fileID: 0}
+  gameState: 0
 --- !u!4 &645224149
 Transform:
   m_ObjectHideFlags: 0
@@ -1389,7 +1390,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710566579}
-  m_LocalRotation: {x: 0.0296478, y: 0.9635791, z: -0.120630704, w: 0.23682193}
+  m_LocalRotation: {x: 0.029647792, y: 0.9635791, z: -0.120630704, w: 0.2368219}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1465,7 +1466,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842437501}
-  m_LocalRotation: {x: 0.038230766, y: 0.9585613, z: -0.15555303, w: 0.23558868}
+  m_LocalRotation: {x: 0.038230795, y: 0.9585613, z: -0.15555303, w: 0.23558864}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2045,6 +2046,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerMusicVolume: 0.75
   managerSFXVolume: 1
+  dungeonAudioSnapshot: {fileID: 24500006, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
+    type: 2}
+  battleAudioSnapshot: {fileID: -4779660066898522048, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
+    type: 2}
+  dungeonOutputGroup: {fileID: 981213991370517482, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
+    type: 2}
+  battleOutputGroup: {fileID: -2196465259432589324, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
+    type: 2}
 --- !u!4 &1263390791
 Transform:
   m_ObjectHideFlags: 0
@@ -2654,7 +2663,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561019327}
-  m_LocalRotation: {x: 0.033939205, y: 0.9612321, z: -0.13809158, w: 0.23624507}
+  m_LocalRotation: {x: 0.0339392, y: 0.9612321, z: -0.13809158, w: 0.23624507}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
