@@ -208,9 +208,6 @@ public class Room : MonoBehaviour
             foreach (Transform spawnPoint in spawnPoints)
             {
                 EnemyStats newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-
-                //Add the enemy to the enemies list
-                //enemies.Add(newEnemy);
             }
             //Enemies have been spawned
             enemiesSpawned = true;

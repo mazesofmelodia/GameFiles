@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7012915885788869189}
   - component: {fileID: 2020400343911532659}
   - component: {fileID: 5707589065384621194}
-  - component: {fileID: 2605425951800071775}
   - component: {fileID: 2605425951800071774}
   - component: {fileID: 2605425951800071760}
+  - component: {fileID: 4525086433233169912}
   m_Layer: 0
   m_Name: healthcoin
   m_TagString: Untagged
@@ -80,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2605425951800071775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2605425951800071774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +113,16 @@ MonoBehaviour:
   ReverseX: 1
   ReverseY: 0
   ReverseZ: 0
+--- !u!135 &4525086433233169912
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271746332729622614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}

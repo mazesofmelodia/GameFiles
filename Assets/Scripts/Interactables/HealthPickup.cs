@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : Interactable
+public class HealthPickup : Pickup
 {
     [SerializeField] private int restoreHealthValue = 0;    //Amount of health the pickup restores
     [SerializeField] private AudioClip pickupSound;         //Sound that plays when the player picks up the item
 
-    public override void Interact(GameObject playerObject){
-        //Get the player stats component on the player
-        PlayerStats playerHealth = playerObject.GetComponent<PlayerStats>();
-        //Increase the player's health by the value of this pickup
-        playerHealth.RecoverHealth(restoreHealthValue);
+    protected override void PickupObject(PlayerStats player)
+    {
+        //Increase the players health
+        player.RecoverHealth(restoreHealthValue);
+
         //Play the pickup sound
         AudioManager.Instance.PlaySFX(pickupSound);
-        //Destroy this object
+
+        //Destroy the object
         Destroy(this.gameObject);
     }
 }

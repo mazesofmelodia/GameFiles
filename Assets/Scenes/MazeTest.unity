@@ -2046,14 +2046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerMusicVolume: 0.75
   managerSFXVolume: 1
-  dungeonAudioSnapshot: {fileID: 24500006, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
-    type: 2}
-  battleAudioSnapshot: {fileID: -4779660066898522048, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
-    type: 2}
-  dungeonOutputGroup: {fileID: 981213991370517482, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
-    type: 2}
-  battleOutputGroup: {fileID: -2196465259432589324, guid: 8e139f5fea8d5e74c9d049deed4cf9e5,
-    type: 2}
+  audioMixer: {fileID: 0}
 --- !u!4 &1263390791
 Transform:
   m_ObjectHideFlags: 0

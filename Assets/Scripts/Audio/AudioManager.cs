@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
     /* Other Variables */
     [SerializeField] private float managerMusicVolume;     //Music Volume of the audiomanager
     [SerializeField] private float managerSFXVolume;     //SFX Volume of the audiomanager
+    [SerializeField] private AudioMixerGroup audioMixer;
 
     private AudioSource mainMusicSource;            //Audio source for playing music
     private AudioSource secondaryMusicSource;       //Audio source for cross fading music
@@ -57,6 +58,11 @@ public class AudioManager : MonoBehaviour
         mainMusicSource = this.gameObject.AddComponent<AudioSource>();
         secondaryMusicSource = this.gameObject.AddComponent<AudioSource>();
         sfxSource = this.gameObject.AddComponent<AudioSource>();
+
+        //Add an output channel to the audio sources
+        mainMusicSource.outputAudioMixerGroup = audioMixer;
+        secondaryMusicSource.outputAudioMixerGroup = audioMixer;
+        sfxSource.outputAudioMixerGroup = audioMixer;
 
         //Loop the music tracks
         mainMusicSource.loop = true;

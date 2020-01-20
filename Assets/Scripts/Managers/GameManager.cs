@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip battleTheme; //Battle theme when there are enemies in the scene
     [SerializeField] private GameObject winTreasure;    //Treasure to appear when all enemies are defeated
 
-    public GameState gameState = GameState.Default;     //Current state of the game
+    [HideInInspector] public GameState gameState = GameState.Default;     //Current state of the game
 
     private int enemiesInScene = 0;                     //Number of enemies currently in the scene
 

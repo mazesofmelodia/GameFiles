@@ -1126,8 +1126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8520a4bf3ddf46a7d2a4c81617a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerMusicVolume: 0.75
+  managerMusicVolume: 1
   managerSFXVolume: 1
+  audioMixer: {fileID: 24300002, guid: 8e139f5fea8d5e74c9d049deed4cf9e5, type: 2}
 --- !u!4 &580607987
 Transform:
   m_ObjectHideFlags: 0
