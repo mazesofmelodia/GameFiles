@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Play the background music
-        AudioManager.Instance.PlayDungeonMusic(bgm, battleTheme);
+        AudioManager.Instance.PlayMusic(bgm);
     }
 
     public void AdjustEnemyCountInScene(int number){
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             //Check if the player has already encountered an enemy
             if(gameState != GameState.Battle){
                 //Play the battle theme
-                AudioManager.Instance.FadeToBattleMusic();
+                AudioManager.Instance.PlayMusicWithCrossFade(battleTheme);
                 //Set the battle engaged to true
                 gameState = GameState.Battle;
                 //Hide the win treasure
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
             }
         }else{
             //Play the level theme
-            AudioManager.Instance.FadeToDungeonMusic();
+            AudioManager.Instance.PlayMusicWithCrossFade(bgm);
             //Player is no longer fighting an enemy
             gameState = GameState.Default;
             //Show the win treasure
