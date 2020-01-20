@@ -15,6 +15,8 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.PlayMusic(menuMusic);
     }
 
+
+
     public void QuitGame(){
         //If we are using the Unity editor, then the scene will stop playing.
 		#if UNITY_EDITOR 
