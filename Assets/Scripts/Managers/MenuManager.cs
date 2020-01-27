@@ -7,7 +7,8 @@ using UnityEditor;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip menuMusic;   //Music to play for menu scene
+    [SerializeField] private AudioClip menuMusic;       //Music to play for menu scene
+    [SerializeField] private LevelLoader levelLoader;   //Level Loader
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,10 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.PlayMusic(menuMusic);
     }
 
-
+    public void StartGame(string levelName)
+    {
+        levelLoader.LoadLevel(levelName);
+    }
 
     public void QuitGame(){
         //If we are using the Unity editor, then the scene will stop playing.
