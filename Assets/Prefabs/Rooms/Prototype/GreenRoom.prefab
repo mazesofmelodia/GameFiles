@@ -653,6 +653,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
+--- !u!1 &2671092382129312683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3507792607083769654}
+  m_Layer: 8
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3507792607083769654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2671092382129312683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4965013544047453220}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5302719021799938852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1259,7 @@ GameObject:
   - component: {fileID: 6661071330459029580}
   - component: {fileID: 8948463877575035198}
   - component: {fileID: 1221745915985247442}
+  - component: {fileID: 4441489814713053962}
   m_Layer: 8
   m_Name: GreenRoom
   m_TagString: Untagged
@@ -1244,7 +1275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8122266652477853623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.448017, y: 1.630635, z: 9.786293}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1108520108015682340}
@@ -1252,6 +1283,7 @@ Transform:
   - {fileID: 306439976576025848}
   - {fileID: 5678661612456554599}
   - {fileID: 6053291479702218672}
+  - {fileID: 3507792607083769654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14433,8 +14465,25 @@ MonoBehaviour:
   height: 10
   X: 0
   Y: 0
+  enemyPrefab: {fileID: 5507736335536202150, guid: aa287dece1e0cb74c95a697207bb7a47,
+    type: 3}
+  spawnPoints:
+  - {fileID: 3507792607083769654}
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}
   bottomDoor: {fileID: 0}
   doors: []
+--- !u!65 &4441489814713053962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8122266652477853623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 5, z: 9}
+  m_Center: {x: 0, y: 2.5, z: 0}

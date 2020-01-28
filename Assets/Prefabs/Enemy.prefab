@@ -317,6 +317,13 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
+  lootItems:
+  - dropItem: {fileID: 6271746332729622614, guid: eb7a49ac7f4c39544a65cfa5b8c13642,
+      type: 3}
+    dropChance: 100
+  - dropItem: {fileID: 3545523730079268904, guid: 6c0e71cea96f4e243b413c1486cb19c2,
+      type: 3}
+    dropChance: 100
   stopDistance: 1
   attackPoint: {fileID: 47224316}
   range: 0.5

@@ -12,6 +12,9 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private AudioClip damageSound; //Damage sound on player
     [SerializeField] private AudioClip deathSound;  //Death Sound on player
 
+    [Header("Item Drops")]
+    [SerializeField] protected List<Loot> lootItems = new List<Loot>();
+
     protected PlayerStats playerTarget;                       //Player to target
     protected Animator anim;                                //Reference to animator
     private Collider col;
@@ -48,6 +51,13 @@ public class EnemyStats : MonoBehaviour
     private void Die(){
         //Play the death animation
         anim.SetTrigger("Dying");
+
+        //Check if the enemy has any potential items to drop
+        if(lootItems.Count > 0)
+        {
+            //Drop a random loot
+            DropItem();
+        }
         //Decrease the number of enemies in the scene by one
         GameManager.Instance.AdjustEnemyCountInScene(-1);
         //Play death sound
@@ -59,5 +69,22 @@ public class EnemyStats : MonoBehaviour
     public void RemoveEnemy(){
         //Destroy the gameobject
         Destroy(gameObject);
+    }
+
+    //Functionality for dropping an item
+    private void DropItem()
+    {
+        //Select a random loot from the list
+        Loot randomLoot = lootItems[Random.Range(0, lootItems.Count)];
+
+        //Generate a random number from 0 to 100
+        int randomChance = Random.Range(0, 101);
+
+        //Check if the random chance is lower than the drop items drop chance
+        if(randomChance < randomLoot.dropChance)
+        {
+            //Spawn the item when the enemy died
+            Instantiate(randomLoot.dropItem, transform.position, transform.rotation);
+        }
     }
 }
