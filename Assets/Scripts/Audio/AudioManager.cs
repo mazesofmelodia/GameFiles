@@ -41,6 +41,19 @@ public class AudioManager : MonoBehaviour
     private bool mainMusicSourcePlaying = true;               //Check if music source a is playing
 
     private void Awake() {
+        //Check for PlayerPrefs values
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            //Set the manager music volume to the saved value
+            managerMusicVolume = PlayerPrefs.GetFloat("MusicVolume");
+        }
+
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            //Set the manager sfx volume to the saved value
+            managerSFXVolume = PlayerPrefs.GetFloat("SFXVolume");
+        }
+
         //Check if there is no instance in the scene
         if (Instance == null)
         {
