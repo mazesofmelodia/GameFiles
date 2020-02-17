@@ -9,11 +9,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Slider healthBar;      //Player Healthbar
     [SerializeField] TextMeshProUGUI scoreText;     //Player Score text
 
-    public void InitalizeHealthbar(int maxHealth, int currentHealth){
+    public void InitalizeHealthbar(int maxHealth){
         //Set the max value to be the maximum health
         healthBar.maxValue = maxHealth;
-        //Make sure the current value is set to current health
-        healthBar.value = currentHealth;
     }
 
     public void UpdateHealthBar(int currentHealth){

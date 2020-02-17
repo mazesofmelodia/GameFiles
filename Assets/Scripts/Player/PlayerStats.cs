@@ -8,21 +8,16 @@ public class PlayerStats : MonoBehaviour
     private int health;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int score = 0;
-    [SerializeField] private PlayerUI gameUI;       //Reference to the player UI in the scene
     [SerializeField] private AudioClip damageSound; //Damage sound on player
     [SerializeField] private AudioClip deathSound;  //Death Sound on player
 
     [Header("Event Data")]
     [SerializeField] private AudioClipEvent playSFXEvent;
+    [SerializeField] private IntEvent setMaxHealthEvent;
+    [SerializeField] private IntEvent setHealthEvent;
+    [SerializeField] private IntEvent setScoreEvent;
 
     private Animator anim;
-
-    private void Awake() {
-        //Incase the player UI wasn't set on the player
-        if(gameUI == null){
-            gameUI = FindObjectOfType<PlayerUI>().GetComponent<PlayerUI>();
-        }    
-    }
 
     private void Start() {
         //Set health to maxHealth
@@ -30,8 +25,9 @@ public class PlayerStats : MonoBehaviour
         //Get reference to animator component
         anim = GetComponent<Animator>();
         //Set up the player UI
-        gameUI.InitalizeHealthbar(maxHealth, health);
-        gameUI.UpdateScore(score);
+        setMaxHealthEvent.Raise(maxHealth);
+        setHealthEvent.Raise(health);
+        setScoreEvent.Raise(score);
     }
 
     public void TakeDamage(int damageAmount){
@@ -41,10 +37,10 @@ public class PlayerStats : MonoBehaviour
         playSFXEvent.Raise(damageSound);
 
         //Update the health UI of the player
-        gameUI.UpdateHealthBar(health);
+        setHealthEvent.Raise(health);
 
         //Check if the player has lost all of their health
-        if(health <= 0){
+        if (health <= 0){
             //Player is dead
             Die();
         }
@@ -57,7 +53,7 @@ public class PlayerStats : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
 
         //Update the health bar
-        gameUI.UpdateHealthBar(health);
+        setHealthEvent.Raise(health);
     }
 
     public void UpdateScore(int scorePoints){
@@ -65,7 +61,7 @@ public class PlayerStats : MonoBehaviour
         score += scorePoints;
 
         //Update score UI
-        gameUI.UpdateScore(score);
+        setScoreEvent.Raise(score);
     }
 
     public int GetScore(){
