@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27518b03a5f12f446b264308030bc66d, type: 3}
-  m_Name: Common
+  m_Name: Legendary
   m_EditorClassIdentifier: 
-  name: Common
-  textColour: {r: 1, g: 1, b: 1, a: 1}
+  name: Legendary
+  textColour: {r: 0.9622642, g: 0.63533163, b: 0.13163051, a: 1}

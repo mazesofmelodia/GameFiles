@@ -14,6 +14,9 @@ public class ConsumableItem : InventoryItem
         //Create a string builder
         StringBuilder textBuilder = new StringBuilder();
 
+        //Append the rarity name to the string builder
+        textBuilder.Append(Rarity.name).AppendLine();
+
         //Append the use text to the string builder, color of text is dependent on use/rarity
         textBuilder.Append("<color=green>Use: ").Append(useText).Append("</color>").AppendLine();
 

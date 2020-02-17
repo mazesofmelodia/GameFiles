@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27518b03a5f12f446b264308030bc66d, type: 3}
-  m_Name: Common
+  m_Script: {fileID: 11500000, guid: e4ee0a49573bbf847995c32c7b4ef91d, type: 3}
+  m_Name: OnPlaySFX
   m_EditorClassIdentifier: 
-  name: Common
-  textColour: {r: 1, g: 1, b: 1, a: 1}

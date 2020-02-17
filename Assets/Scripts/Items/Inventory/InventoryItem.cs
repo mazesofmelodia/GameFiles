@@ -23,4 +23,6 @@ public abstract class InventoryItem : HotbarItem
     public int SellPrice => sellPrice;
     //Public reference to the max stack of the item
     public int MaxStack => maxStack;
+    //Public reference to rarity
+    public Rarity Rarity => rarity;
 }

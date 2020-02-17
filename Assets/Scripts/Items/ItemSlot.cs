@@ -28,6 +28,6 @@ public struct ItemSlot
     public int CheckRemainingItemSpace()
     {
         //Take away the quantity from the max stack
-        return this.inventoryItem.MaxStack - this.quantity;
+        return inventoryItem.MaxStack - this.quantity;
     }
 }
