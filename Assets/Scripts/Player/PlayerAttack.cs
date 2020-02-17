@@ -14,6 +14,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform attackPoint; //For melee attacks
     [SerializeField] private Transform weaponPoint; //Point to move the weapon Towards
 
+    [Header("Event Data")]
+    [SerializeField] AudioClipEvent playSFXEvent;
+
     private GameObject currentWeaponModel;      //Current weapon model in scene
     private Animator anim;                      //Reference to animator component
     private float timeBetweenAttack;            //Time passed since attack
@@ -36,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
                 //Play the attacking animation
                 anim.SetTrigger("Attacking");
                 //Play attack sound
-                AudioManager.Instance.PlaySFX(attackSound);
+                playSFXEvent.Raise(attackSound);
 
                 //Set time between attack to be the attack speed value
                 timeBetweenAttack = currentWeapon.attackSpeed;

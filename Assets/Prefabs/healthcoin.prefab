@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restoreHealthValue: 100
   pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
 --- !u!114 &2605425951800071760
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -324,6 +324,7 @@ MonoBehaviour:
   - dropItem: {fileID: 3545523730079268904, guid: 6c0e71cea96f4e243b413c1486cb19c2,
       type: 3}
     dropChance: 100
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   stopDistance: 1
   attackPoint: {fileID: 47224316}
   range: 0.5

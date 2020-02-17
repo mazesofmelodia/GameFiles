@@ -110,6 +110,7 @@ MonoBehaviour:
   isShopItem: 1
   pickupSound: {fileID: 8300000, guid: 06a22998956b65e4b90f253c71781de1, type: 3}
   purchaseFailSound: {fileID: 8300000, guid: feec76fa303e4c14eb03991d6096274b, type: 3}
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
 --- !u!1001 &3722404595981851663
 PrefabInstance:
   m_ObjectHideFlags: 0

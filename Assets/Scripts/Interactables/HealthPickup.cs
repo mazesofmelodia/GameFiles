@@ -6,6 +6,7 @@ public class HealthPickup : Pickup
 {
     [SerializeField] private int restoreHealthValue = 0;    //Amount of health the pickup restores
     [SerializeField] private AudioClip pickupSound;         //Sound that plays when the player picks up the item
+    [SerializeField] private AudioClipEvent playSFXEvent;
 
     protected override void PickupObject(PlayerStats player)
     {
@@ -13,7 +14,7 @@ public class HealthPickup : Pickup
         player.RecoverHealth(restoreHealthValue);
 
         //Play the pickup sound
-        AudioManager.Instance.PlaySFX(pickupSound);
+        playSFXEvent.Raise(pickupSound);
 
         //Destroy the object
         Destroy(this.gameObject);

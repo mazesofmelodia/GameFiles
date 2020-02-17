@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     /* Static instance */
-    public static AudioManager Instance;      //AudioManager in scene
+    //public static AudioManager Instance;      //AudioManager in scene
     //Public referance to the AudioManager for other scripts to access
     /*public static AudioManager Instance{
         get{
@@ -52,19 +52,6 @@ public class AudioManager : MonoBehaviour
         {
             //Set the manager sfx volume to the saved value
             managerSFXVolume = PlayerPrefs.GetFloat("SFXVolume");
-        }
-
-        //Check if there is no instance in the scene
-        if (Instance == null)
-        {
-            //Make this Manager the instance
-            Instance = this;
-        }
-        //If there's already an instance
-        else if (Instance != null)
-        {
-            //Destroy this game object
-            Destroy(this.gameObject);
         }
 
         //Add the Audiosources as components to the AudioManager
@@ -124,7 +111,9 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="newClip">New music to play</param>
     /// <param name="transitionTime">Transition time between music sounds</param>
-    public void PlayMusicWithFade(AudioClip newClip, float transitionTime = 1.0f){
+    public void PlayMusicWithFade(AudioClip newClip)
+    {
+        float transitionTime = 1.0f;
         //Check which audio source is playing, if musicSourceAPlaying is true use musicSourceA, otherwise use musicSourceB
         AudioSource activeSource = (mainMusicSourcePlaying) ? mainMusicSource : secondaryMusicSource;
 
@@ -137,7 +126,9 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="newClip">New music track to play</param>
     /// <param name="transitionTime">Time of transition between music</param>
-    public void PlayMusicWithCrossFade(AudioClip newClip, float transitionTime = 1.0f){
+    public void PlayMusicWithCrossFade(AudioClip newClip){
+        float transitionTime = 1.0f;
+
         //Determine which source is active
         AudioSource activeSource = (mainMusicSourcePlaying) ? mainMusicSource : secondaryMusicSource;
         //Set new source

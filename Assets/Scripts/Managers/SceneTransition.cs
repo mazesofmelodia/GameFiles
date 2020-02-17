@@ -48,8 +48,6 @@ public class SceneTransition : MonoBehaviour
     //Fades out from the scene to move to a different scene
     IEnumerator FadeOut(string scene)
     {
-        //Stops whatever music is playing
-        AudioManager.Instance.StopMusic();
         
         Time.timeScale = 1;
         

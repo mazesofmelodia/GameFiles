@@ -28,6 +28,11 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider;    //Sliders
     [SerializeField] private Slider sfxSlider;
 
+    [Header("Event Data")]
+    [SerializeField] private AudioClipEvent playSFXEvent;
+    [SerializeField] private FloatEvent changeMusicVolumeEvent;
+    [SerializeField] private FloatEvent changeSFXVolumeEvent;
+
     private int selectedResolution = 7;                 //Index number of the currently selected resolution
 
     private void Start()
@@ -173,7 +178,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetMusicVolume (float newVolume)
     {
         //Set the audio manager volume
-        AudioManager.Instance.SetMusicVolume(newVolume);
+        changeMusicVolumeEvent.Raise(newVolume);
 
         //Save the music volume in PlayerPrefs
         PlayerPrefs.SetFloat("MusicVolume", newVolume);
@@ -183,13 +188,13 @@ public class SettingsMenu : MonoBehaviour
     public void SetSFXVolume(float newVolume)
     {
         //Set the audio manager volume
-        AudioManager.Instance.SetSFXVolume(newVolume);
+        changeSFXVolumeEvent.Raise(newVolume);
 
         //Save the sfx volume in PlayerPrefs
         PlayerPrefs.SetFloat("SFXVolume", newVolume);
 
         //Play a sound to indicate the volume change
-        AudioManager.Instance.PlaySFX(soundTest);
+        playSFXEvent.Raise(soundTest);
     }
 
     public void SetQuality(int qualityIndex)

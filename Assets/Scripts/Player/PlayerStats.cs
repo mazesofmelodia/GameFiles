@@ -11,11 +11,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private PlayerUI gameUI;       //Reference to the player UI in the scene
     [SerializeField] private AudioClip damageSound; //Damage sound on player
     [SerializeField] private AudioClip deathSound;  //Death Sound on player
-    [Header("Win/Lose Management, Change for Final Game")]
-    [SerializeField] private GameObject winUI;      //Win UI to display
-    [SerializeField] private GameObject loseUI;     //Lose UI to display
-    [SerializeField] private AudioClip winSound;    //Win Sound
-    [SerializeField] private AudioClip loseSound;   //lose Sound
+
+    [Header("Event Data")]
+    [SerializeField] private AudioClipEvent playSFXEvent;
 
     private Animator anim;
 
@@ -40,7 +38,7 @@ public class PlayerStats : MonoBehaviour
         //Player takes damage based on damage amount
         health -= damageAmount;
         //Play damage sound
-        AudioManager.Instance.PlaySFX(damageSound);
+        playSFXEvent.Raise(damageSound);
 
         //Update the health UI of the player
         gameUI.UpdateHealthBar(health);
@@ -80,22 +78,14 @@ public class PlayerStats : MonoBehaviour
         //Player death animation
         anim.SetTrigger("Dying");
         //Play death sound
-        AudioManager.Instance.PlaySFX(deathSound);
+        playSFXEvent.Raise(deathSound);
         //Player is dead
         isDead = true;
         //Disable player
         DisablePlayer();
-
-        //Display the lose screen and play the lose sound
-        loseUI.SetActive(true);
-        AudioManager.Instance.PlaySFX(loseSound);
     }
 
     public void WinGame(){
-        //Display the win screen and play the win sound
-        winUI.SetActive(true);
-        AudioManager.Instance.PlaySFX(winSound);
-
         //Disable player actions
         DisablePlayer();
     }

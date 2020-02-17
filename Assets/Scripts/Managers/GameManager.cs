@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public GameState gameState = GameState.Default;     //Current state of the game
 
+    [Header("Event Data")]
+    [SerializeField] private AudioClipEvent playMusicEvent;
+    [SerializeField] private AudioClipEvent playMusicCrossfadeEvent;
+
     private int enemiesInScene = 0;                     //Number of enemies currently in the scene
 
     private void Awake() {
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Play the background music
-        AudioManager.Instance.PlayMusic(bgm);
+        playMusicEvent.Raise(bgm);
     }
 
     public void AdjustEnemyCountInScene(int number){
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour
             //Check if the player has already encountered an enemy
             if(gameState != GameState.Battle){
                 //Play the battle theme
-                AudioManager.Instance.PlayMusicWithCrossFade(battleTheme);
+                playMusicCrossfadeEvent.Raise(battleTheme);
                 //Set the battle engaged to true
                 gameState = GameState.Battle;
                 //Hide the win treasure
@@ -91,7 +95,7 @@ public class GameManager : MonoBehaviour
             }
         }else{
             //Play the level theme
-            AudioManager.Instance.PlayMusicWithCrossFade(bgm);
+            playMusicCrossfadeEvent.Raise(bgm);
             //Player is no longer fighting an enemy
             gameState = GameState.Default;
             //Show the win treasure

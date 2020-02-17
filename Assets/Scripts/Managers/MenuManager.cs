@@ -10,6 +10,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject menuPanel;      //Menu panel
     [SerializeField] private GameObject optionsPanel;   //Options panel
 
+    [Header("Event data")]
+    [SerializeField] private AudioClipEvent playMusicEvent;
+
     [Header("Objects to highlight for Event system")]
     [SerializeField] private GameObject firstMenuButton;    //First menu button to highlight
     [SerializeField] private GameObject firstOptionButton;  //First option button to highlight
@@ -19,7 +22,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         //Play the menu music
-        AudioManager.Instance.PlayMusic(menuMusic);
+        playMusicEvent.Raise(menuMusic);
     }
 
     public void StartGame(string levelName)

@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreIncreaseValue: 100
   pickupSound: {fileID: 8300000, guid: eb0f087d0a1917044a4401d860af10db, type: 3}
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
 --- !u!114 &4761947589532428269
 MonoBehaviour:
   m_ObjectHideFlags: 0

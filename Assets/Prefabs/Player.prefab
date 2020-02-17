@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 1693624609}
   - component: {fileID: 1693624611}
   - component: {fileID: 1693624612}
+  - component: {fileID: 2023818451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -926,6 +927,7 @@ MonoBehaviour:
   gameUI: {fileID: 0}
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
 --- !u!114 &1693624612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,6 +944,21 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: b5ee594d217775e419e477413a2414a8, type: 3}
   attackPoint: {fileID: 332435377}
   weaponPoint: {fileID: 2076179032}
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
+--- !u!114 &2023818451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312095819882376753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3a04e2756f3e3478a52a626ea67592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 1
+  interactPoint: {fileID: 332435377}
 --- !u!1 &5500811698307933057
 GameObject:
   m_ObjectHideFlags: 0

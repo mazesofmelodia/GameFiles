@@ -15,6 +15,9 @@ public class EnemyStats : MonoBehaviour
     [Header("Item Drops")]
     [SerializeField] protected List<Loot> lootItems = new List<Loot>();
 
+    [Header("Event Data")]
+    [SerializeField] private AudioClipEvent playSFXEvent;
+
     protected PlayerStats playerTarget;                       //Player to target
     protected Animator anim;                                //Reference to animator
     private Collider col;
@@ -38,7 +41,7 @@ public class EnemyStats : MonoBehaviour
         //Player takes damage based on damage amount
         health -= damageAmount;
         //Play damage sound
-        AudioManager.Instance.PlaySFX(damageSound);
+        playSFXEvent.Raise(damageSound);
 
         //Check if the player has lost all of their health
         if(health <= 0){
@@ -61,7 +64,7 @@ public class EnemyStats : MonoBehaviour
         //Decrease the number of enemies in the scene by one
         GameManager.Instance.AdjustEnemyCountInScene(-1);
         //Play death sound
-        AudioManager.Instance.PlaySFX(deathSound);
+        playSFXEvent.Raise(deathSound);
         //Disable collider
         col.enabled = false;
     }
