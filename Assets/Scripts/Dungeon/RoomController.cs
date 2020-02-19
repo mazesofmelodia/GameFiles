@@ -28,6 +28,8 @@ public class RoomController : MonoBehaviour
     //List of rooms loaded
     public List<Room> loadedRooms = new List<Room>();
 
+    public VoidEvent voidEvent;
+
     bool isLoadingRoom = false;                 //Check if a room is being loaded
     bool spawnedBossRoom = false;               //Check if the boos room has spawned
     bool updatedRooms = false;                  //Check to see if we updated the rooms
@@ -82,6 +84,8 @@ public class RoomController : MonoBehaviour
                 }
                 //Rooms have now been updated
                 updatedRooms = true;
+
+                voidEvent.Raise();
             }
             //Exit the function
             return;

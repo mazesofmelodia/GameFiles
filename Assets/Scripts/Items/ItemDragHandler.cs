@@ -75,7 +75,7 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             //Zero the position of the item
             transform.localPosition = Vector3.zero;
 
-            //Canvas group now blacks raycasts again
+            //Canvas group now blocks raycasts again
             canvasGroup.blocksRaycasts = true;
         }
     }
@@ -87,6 +87,9 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         //Item is now hovering
         isHovering = true;
+
+        //Log the name
+        Debug.Log(itemSlotUI.SlotItem.ItemName);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -96,5 +99,8 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         //Item is not hovering
         isHovering = false;
+
+        //Exit debug
+        Debug.Log("Moving away from item");
     }
 }
