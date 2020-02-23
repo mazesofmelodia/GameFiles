@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [HideInInspector] public bool isDead;
+    public Inventory inventory;   //Player inventory
     private int health;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int score = 0;

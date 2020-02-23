@@ -9,12 +9,12 @@ public class Room : MonoBehaviour
     public int X;           //X coordinate
     public int Y;           //Y coordinate
 
-    [SerializeField] private EnemyStats enemyPrefab;    //Enemy to spawn
+    [SerializeField] private Enemy enemyPrefab;    //Enemy to spawn
     //List of spawnpoints in the room
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
 
     //List of enemies in the room
-    private List<EnemyStats> enemies = new List<EnemyStats>();
+    private List<Enemy> enemies = new List<Enemy>();
 
     private bool enemiesSpawned = false;    //Have the enemies already been spawned
 
@@ -207,7 +207,7 @@ public class Room : MonoBehaviour
             //Spawn an enemy at each spawnpoint
             foreach (Transform spawnPoint in spawnPoints)
             {
-                EnemyStats newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                Enemy newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
             }
             //Enemies have been spawned
             enemiesSpawned = true;

@@ -23,6 +23,10 @@ public class MenuManager : MonoBehaviour
     {
         //Play the menu music
         playMusicEvent.Raise(menuMusic);
+
+        //Hide the mouse cursor and lock it in place
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void StartGame(string levelName)

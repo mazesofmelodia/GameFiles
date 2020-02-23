@@ -10,14 +10,14 @@ public class Pickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Get the player script from the other object
-            PlayerStats player = other.GetComponent<PlayerStats>();
+            Player player = other.GetComponent<Player>();
 
             //Pickup the object
             PickupObject(player);
         }
     }
 
-    protected virtual void PickupObject(PlayerStats player)
+    protected virtual void PickupObject(Player player)
     {
         Debug.Log("Player is picking up this object");
     }

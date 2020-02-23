@@ -72,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < attackedObjects.Length; i++)
         {
             //Check if the hit object has an Enemy stats component
-            EnemyStats hitEnemy = attackedObjects[i].GetComponent<EnemyStats>();
+            Enemy hitEnemy = attackedObjects[i].GetComponent<Enemy>();
 
             if(hitEnemy != null){
                 //Damage the enemy

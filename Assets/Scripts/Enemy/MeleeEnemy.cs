@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class MeleeEnemy : EnemyStats
+public class MeleeEnemy : Enemy
 {
     [Header("Melee Enemy Stats")]
-    [SerializeField] private float stopDistance;    //Stopping Distance
     [SerializeField] private Transform attackPoint; //Enemy Attack point
     [SerializeField] private float range;           //Enemy attack range
 
@@ -15,16 +15,18 @@ public class MeleeEnemy : EnemyStats
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         //Check if there was a player in the scene
         if(!playerTarget.isDead){
             //Turn the enemy towards the player
-            transform.LookAt(playerTarget.transform);
+            agent.destination = playerTarget.transform.position;
             //Check if the distance between the enemy and the player is greater than the stop distance
-            if(Vector3.Distance(transform.position, playerTarget.transform.position) > stopDistance){
+            if(Vector3.Distance(transform.position, playerTarget.transform.position) > agent.stoppingDistance){
                 //Toggle enemy animation
                 anim.SetBool("IsMoving",true);
-                //Move the enemy towards the player
-                transform.position = Vector3.MoveTowards(transform.position, playerTarget.transform.position, speed * Time.deltaTime);
             }else{
                 //If time passed is greater than attack time
                 if(Time.time >= attackTime){
@@ -36,6 +38,14 @@ public class MeleeEnemy : EnemyStats
                     attackTime = Time.time + timeBetweenAttacks;
                 }
             }
+        }
+        else
+        {
+            //Stop the enemy from moving
+            agent.isStopped = true;
+
+            //Play enemy idle animation
+            anim.SetBool("IsMoving", false);
         }
     }
 
@@ -52,7 +62,7 @@ public class MeleeEnemy : EnemyStats
         for (int i = 0; i < attackedObjects.Length; i++)
         {
             //Check if the hit object has a Player stats component
-            PlayerStats hitPlayer = attackedObjects[i].GetComponent<PlayerStats>();
+            Player hitPlayer = attackedObjects[i].GetComponent<Player>();
 
             if(hitPlayer != null){
                 //Damage the player

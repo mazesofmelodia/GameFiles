@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement Values")]
     [SerializeField] private float moveSpeed = 4f;              //Movement speed
-    [SerializeField] private float jumpSpeed = 8f;              //Determines how high the player will jump
+    [SerializeField] private float fallSpeed = 0.981f;          //How fast the player falls
 
     [Header("Camera Controls")]
     [SerializeField] private Camera playerCam;                  //Player camera
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private float inputX;
     private float inputZ;
+    private float gravity;
     private Vector3 desiredMoveDirection;                       //The intended movement of the player
     private CharacterController controller;                     //Reference to character controller
     private Animator anim;                                      //Reference to Animator component
@@ -37,7 +38,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Get the direction the character is moving to
-        InputMagnitude();       
+        InputMagnitude();
+
+        if (!controller.isGrounded)
+        {
+            gravity -= fallSpeed * Time.deltaTime;
+
+            controller.Move(new Vector3(0, gravity, 0));
+        }
+        else
+        {
+            gravity = 0;
+        }
     }
 
     void InputMagnitude(){

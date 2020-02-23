@@ -13,7 +13,7 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     /* Static instance */
-    public static GameManager Instance;      //GameManager in scene
+    //public static GameManager Instance;      //GameManager in scene
     //Public referance to the GameManager for other scripts to access
     /*public static GameManager Instance{
         get{
@@ -51,21 +51,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClipEvent playMusicCrossfadeEvent;
 
     private int enemiesInScene = 0;                     //Number of enemies currently in the scene
-
-    private void Awake() {
-        //Check if there is no instance in the scene
-        if (Instance == null)
-        {
-            //Make this Manager the instance
-            Instance = this;
-        }
-        //If there's already an instance
-        else if (Instance != null)
-        {
-            //Destroy this game object
-            Destroy(this.gameObject);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()

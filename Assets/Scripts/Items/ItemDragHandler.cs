@@ -87,9 +87,6 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         //Item is now hovering
         isHovering = true;
-
-        //Log the name
-        Debug.Log(itemSlotUI.SlotItem.ItemName);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -99,8 +96,5 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         //Item is not hovering
         isHovering = false;
-
-        //Exit debug
-        Debug.Log("Moving away from item");
     }
 }

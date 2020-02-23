@@ -8,7 +8,7 @@ public class WinHandler : MonoBehaviour
         //Check if the object that collided with it was a player
         if(other.CompareTag("Player")){
             //Get a reference to the player stats
-            PlayerStats player = other.gameObject.GetComponent<PlayerStats>();
+            Player player = other.gameObject.GetComponent<Player>();
 
             //Player wins the game
             player.WinGame();

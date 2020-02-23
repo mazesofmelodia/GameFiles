@@ -8,7 +8,7 @@ public class HealthPickup : Pickup
     [SerializeField] private AudioClip pickupSound;         //Sound that plays when the player picks up the item
     [SerializeField] private AudioClipEvent playSFXEvent;
 
-    protected override void PickupObject(PlayerStats player)
+    protected override void PickupObject(Player player)
     {
         //Increase the players health
         player.RecoverHealth(restoreHealthValue);

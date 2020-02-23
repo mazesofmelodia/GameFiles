@@ -25,6 +25,12 @@ public class Inventory : ScriptableObject
         ItemContainer.OnItemsUpdated -= onInventoryItemsUpdated.Raise;
     }
 
+    public void AddItem(ItemSlot newItem)
+    {
+        //Define a new Inventory Slot and add it to the inventory
+        ItemContainer.AddItem(newItem);
+    }
+
     [ContextMenu("Test Add")]
     public void TestAdd()
     {
