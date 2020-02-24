@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class WinHandler : MonoBehaviour
 {
+    [SerializeField] private VoidEvent winGameEvent;
+
     private void OnTriggerEnter(Collider other) {
         //Check if the object that collided with it was a player
         if(other.CompareTag("Player")){
-            //Get a reference to the player stats
-            Player player = other.gameObject.GetComponent<Player>();
-
-            //Player wins the game
-            player.WinGame();
+            //Raise the win event
+            winGameEvent.Raise();
         }
     }
 }

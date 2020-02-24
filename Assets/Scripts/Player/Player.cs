@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private IntEvent setMaxHealthEvent;
     [SerializeField] private IntEvent setHealthEvent;
     [SerializeField] private IntEvent setScoreEvent;
+    [SerializeField] private VoidEvent loseGameEvent;
 
     private Animator anim;
 
@@ -78,6 +79,8 @@ public class Player : MonoBehaviour
         playSFXEvent.Raise(deathSound);
         //Player is dead
         isDead = true;
+        //Call the lose game event
+        loseGameEvent.Raise();
         //Disable player
         DisablePlayer();
     }
