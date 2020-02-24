@@ -42,6 +42,9 @@ public class Hotbar : MonoBehaviour
 
     private void ToggleHotbarItem(int toggle)
     {
+        //Store a reference to the previous hotbar slot
+        int previousHotbarSlot = selectedHotbarSlot;
+
         //Toggle the selected hotbar slot
         selectedHotbarSlot += toggle;
 
@@ -58,6 +61,10 @@ public class Hotbar : MonoBehaviour
             selectedHotbarSlot = 0;
         }
 
-        Debug.Log("Selected Hotbar item is: " + selectedHotbarSlot);
+        //Unhighlight the previous slot
+        hotbarSlots[previousHotbarSlot].UnHighlightSlot();
+
+        //Highlight the selected slot
+        hotbarSlots[selectedHotbarSlot].HighlightSlot();
     }
 }

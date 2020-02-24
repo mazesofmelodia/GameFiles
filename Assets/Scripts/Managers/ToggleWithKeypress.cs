@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ToggleWithKeypress : MonoBehaviour
 {
-    [SerializeField] private KeyCode keyCode = KeyCode.None;
     [SerializeField] private GameObject objectToToggle = null;
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyCode))
+        if (Input.GetButtonDown("Inventory"))
         {
             objectToToggle.SetActive(!objectToToggle.activeSelf);
 

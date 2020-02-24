@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
@@ -11,6 +12,13 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
 
     //Quantity Text for the hotbar, shows how many items total are in the inventory
     [SerializeField] private TextMeshProUGUI itemQuantityText = null;
+
+    [Header("Hotbar highlighting")]
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private Color highlightColor;
+    [SerializeField] private Color defaultColor;
+    [SerializeField] private AudioClip highlightSFX;
+    [SerializeField] private AudioClipEvent playSFXEvent;
 
     private HotbarItem slotItem = null;       //Hotbar item this slot is referring to
 
@@ -159,5 +167,20 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
         base.EnableSlotUI(enable);
         //Enable or disable the quantity text
         itemQuantityText.enabled = enable;
+    }
+
+    public void HighlightSlot()
+    {
+        //Change the background image color to the highlight color
+        backgroundImage.color = highlightColor;
+
+        //Play the highlight sfx event
+        playSFXEvent.Raise(highlightSFX);
+    }
+
+    public void UnHighlightSlot()
+    {
+        //Change the background image color to the default color
+        backgroundImage.color = defaultColor;
     }
 }
