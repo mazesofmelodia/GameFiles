@@ -57,6 +57,10 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
         }
 
         //Use item
+        if (slotItem != null)
+        {
+            Debug.Log("Using " + slotItem.ItemName);
+        }
     }
 
     public override void OnDrop(PointerEventData eventData)

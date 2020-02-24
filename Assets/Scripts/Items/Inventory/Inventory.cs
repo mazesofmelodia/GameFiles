@@ -7,7 +7,7 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     //Item container for the inventory
-    public ItemContainer ItemContainer { get; } = new ItemContainer(20);
+    public ItemContainer ItemContainer { get; } = new ItemContainer(12);
 
     //Event for updating the inventory
     [SerializeField] VoidEvent onInventoryItemsUpdated = null;
