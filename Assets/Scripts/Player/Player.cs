@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     [HideInInspector] public bool isDead;
     public Inventory inventory;   //Player inventory
-    private int health;
+    public Animator anim;         //Player animator
+
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int score = 0;
     [SerializeField] private AudioClip damageSound; //Damage sound on player
@@ -19,13 +20,13 @@ public class Player : MonoBehaviour
     [SerializeField] private IntEvent setScoreEvent;
     [SerializeField] private VoidEvent loseGameEvent;
 
-    private Animator anim;
+    private int health;
 
     private void Start() {
         //Set health to maxHealth
         health = maxHealth;
         //Get reference to animator component
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         //Set up the player UI
         setMaxHealthEvent.Raise(maxHealth);
         setHealthEvent.Raise(health);

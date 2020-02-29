@@ -67,7 +67,7 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
         //Use item
         if (slotItem != null)
         {
-            Debug.Log("Using " + slotItem.ItemName);
+            slotItem.UseItem();
         }
     }
 
@@ -141,10 +141,10 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
         if(SlotItem is InventoryItem inventoryItem)
         {
             //If the inventory has the item
-            if (inventory.ItemContainer.HasItem(inventoryItem))
+            if (inventory.HasItem(inventoryItem))
             {
                 //Get the total quantity of the inventory item in the inventory
-                int quantity = inventory.ItemContainer.GetTotalQuantity(inventoryItem);
+                int quantity = inventory.GetTotalQuantity(inventoryItem);
 
                 //Set the quantity text to the quantity, leave empty if quantity is 1
                 itemQuantityText.text = quantity > 1 ? quantity.ToString() : "";

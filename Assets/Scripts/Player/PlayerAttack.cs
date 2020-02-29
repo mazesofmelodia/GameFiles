@@ -17,15 +17,18 @@ public class PlayerAttack : MonoBehaviour
     [Header("Event Data")]
     [SerializeField] AudioClipEvent playSFXEvent;
 
+    private Player player;                      //Get a reference to the player
     private GameObject currentWeaponModel;      //Current weapon model in scene
-    private Animator anim;                      //Reference to animator component
+    //private Animator anim;                      //Reference to animator component
     private float timeBetweenAttack;            //Time passed since attack
 
     // Start is called before the first frame update
     void Start()
     {
+        //Get a reference to the player component
+        player = GetComponent<Player>();
         //Get reference to animator component
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         //Position the starting weapon of the character
         PositionWeapon(currentWeapon);
     }
@@ -37,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
             //Check if the player has clicked the attack button
             if(Input.GetButtonDown("Attack")){
                 //Play the attacking animation
-                anim.SetTrigger("Attacking");
+                player.anim.SetTrigger("Attacking");
                 //Play attack sound
                 playSFXEvent.Raise(attackSound);
 
@@ -52,14 +55,34 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public void ChangeWeapon(Weapon newWeapon){
+        //Check if the time between attack is greater than 0
+        if (timeBetweenAttack > 0)
+        {
+            Debug.Log("Wait until you are ready to attack");
+            //Exit the function as we don't want to change weapon inbetween attacking
+            return;
+        }
+
         //Destroy the current weapon on the character
         Destroy(currentWeaponModel);
+
+        //Record the old weapon
+        Weapon oldWeapon = currentWeapon;
 
         //Change the weapon on the character
         currentWeapon = newWeapon;
 
         //Update the model on the character
         PositionWeapon(currentWeapon);
+
+        //Define an inventory slot for the old weapon
+        ItemSlot oldWeaponItem = new ItemSlot(oldWeapon, 1);
+
+        //Add the old weapon to the inventory
+        player.inventory.AddItem(oldWeaponItem);
+
+        //Remove the new Weapon from the inventory
+        player.inventory.RemoveItem(new ItemSlot(newWeapon, 1));
     }
 
     //Function activated as part of an animation event

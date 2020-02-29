@@ -7,10 +7,11 @@ using UnityEngine;
 public class Weapon : InventoryItem
 {
     [Header("Weapon Details")]
-    public int damage;                  //Weapon Damage
-    public float attackSpeed;           //Time between attacks
-    public float range;                 //Attack Range of weapon
-    public GameObject weaponModel;      //Weapon model
+    public int damage;                      //Weapon Damage
+    public float attackSpeed;               //Time between attacks
+    public float range;                     //Attack Range of weapon
+    public GameObject weaponModel;          //Weapon model
+    public WeaponEvent weaponChangeEvent;   //Event which is called to switch the weapon
 
     public override string GetInfoDisplayText()
     {
@@ -29,5 +30,10 @@ public class Weapon : InventoryItem
         textBuilder.Append("Sell Price ").Append(SellPrice).AppendLine();
 
         return textBuilder.ToString();
+    }
+
+    public override void UseItem()
+    {
+        weaponChangeEvent.Raise(this);
     }
 }

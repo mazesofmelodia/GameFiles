@@ -31,7 +31,7 @@ public class ItemDestroyer : MonoBehaviour
     public void Destroy()
     {
         //Remove the item from the item container
-        inventory.ItemContainer.RemoveAt(slotIndex);
+        inventory.RemoveAt(slotIndex);
 
         //Deactivate the item destroyer
         gameObject.SetActive(false);

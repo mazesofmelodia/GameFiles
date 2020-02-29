@@ -21,17 +21,20 @@ public class PlayerController : MonoBehaviour
     private float gravity;
     private Vector3 desiredMoveDirection;                       //The intended movement of the player
     private CharacterController controller;                     //Reference to character controller
-    private Animator anim;                                      //Reference to Animator component
+    private Player player;
+    //private Animator anim;                                      //Reference to Animator component
 
     // Start is called before the first frame update
     void Start()
     {
+        //Get the player component
+        player = GetComponent<Player>();
         //Set the main camera as the main camera, I'll need to change this later
         playerCam = Camera.main;
         //Get the character controller component
         controller = GetComponent<CharacterController>();
         //Get the animator component
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -64,10 +67,10 @@ public class PlayerController : MonoBehaviour
             //Move the player in that case
             Move(inputX,inputZ);
             //Play the running animation
-            anim.SetBool("IsMoving", true);
+            player.anim.SetBool("IsMoving", true);
         }else{
             //Play the idle animation
-            anim.SetBool("IsMoving", false);
+            player.anim.SetBool("IsMoving", false);
         }
     }
 

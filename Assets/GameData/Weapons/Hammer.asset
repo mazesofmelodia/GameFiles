@@ -22,3 +22,4 @@ MonoBehaviour:
   range: 0.75
   weaponModel: {fileID: 3561857164473382715, guid: 786b30d76b75e76428496cfcb1f0ee11,
     type: 3}
+  weaponChangeEvent: {fileID: 11400000, guid: 72cd00bd590a104478fccde9c66089cf, type: 2}

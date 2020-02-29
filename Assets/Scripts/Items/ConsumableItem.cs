@@ -26,4 +26,9 @@ public class ConsumableItem : InventoryItem
 
         return textBuilder.ToString();
     }
+
+    public override void UseItem()
+    {
+        Debug.Log($"Using {name}");
+    }
 }

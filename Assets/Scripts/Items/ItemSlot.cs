@@ -12,18 +12,6 @@ public struct ItemSlot
         this.quantity = quantity;
     }
 
-    //Function to define what happens using the comparator operator between 2 item slots
-    public static bool operator ==(ItemSlot a, ItemSlot b)
-    {
-        return a.Equals(b);
-    }
-
-    //Function to define what happens using the not comparator operator between 2 item slots
-    public static bool operator !=(ItemSlot a, ItemSlot b)
-    {
-        return !a.Equals(b);
-    }
-
     //Function to check how much space is left in an item slot
     public int CheckRemainingItemSpace()
     {

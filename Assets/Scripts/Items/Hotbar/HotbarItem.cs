@@ -16,4 +16,6 @@ public abstract class HotbarItem : ScriptableObject
     //Display info text, will vary between children
     public abstract string GetInfoDisplayText();
 
+    public abstract void UseItem();
+
 }
