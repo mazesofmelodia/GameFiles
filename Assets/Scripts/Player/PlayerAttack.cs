@@ -80,9 +80,6 @@ public class PlayerAttack : MonoBehaviour
 
         //Add the old weapon to the inventory
         player.inventory.AddItem(oldWeaponItem);
-
-        //Remove the new Weapon from the inventory
-        player.inventory.RemoveItem(new ItemSlot(newWeapon, 1));
     }
 
     //Function activated as part of an animation event

@@ -8,6 +8,9 @@ public class ConsumableItem : InventoryItem
 {
     [Header("Consumable Data")]
     [SerializeField] private string useText = "Use item";
+    [SerializeField] private int recoverValue;              //Recovery value
+    [SerializeField] private IntEvent restoreEvent;         //Event called to restore the player
+    [SerializeField] ItemSlotEvent useItemEvent;                      //Event to use the item
 
     public override string GetInfoDisplayText()
     {
@@ -29,6 +32,10 @@ public class ConsumableItem : InventoryItem
 
     public override void UseItem()
     {
-        Debug.Log($"Using {name}");
+        //Raise the restore item event
+        restoreEvent.Raise(recoverValue);
+
+        //Call event to use item
+        useItemEvent.Raise(new ItemSlot(this, 1));
     }
 }

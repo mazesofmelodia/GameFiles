@@ -68,6 +68,8 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
         if (slotItem != null)
         {
             slotItem.UseItem();
+
+            UpdateSlotUI();
         }
     }
 

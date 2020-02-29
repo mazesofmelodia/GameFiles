@@ -11,7 +11,8 @@ public class Weapon : InventoryItem
     public float attackSpeed;               //Time between attacks
     public float range;                     //Attack Range of weapon
     public GameObject weaponModel;          //Weapon model
-    public WeaponEvent weaponChangeEvent;   //Event which is called to switch the weapon
+    [SerializeField] private WeaponEvent weaponChangeEvent;   //Event which is called to switch the weapon
+    [SerializeField] private ItemSlotEvent useItemEvent;      //Event to use the item
 
     public override string GetInfoDisplayText()
     {
@@ -34,6 +35,10 @@ public class Weapon : InventoryItem
 
     public override void UseItem()
     {
+        //Call event to change weapons
         weaponChangeEvent.Raise(this);
+
+        //Call event to use item
+        useItemEvent.Raise(new ItemSlot(this, 1));
     }
 }

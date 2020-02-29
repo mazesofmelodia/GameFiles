@@ -17,4 +17,7 @@ MonoBehaviour:
   rarity: {fileID: 11400000, guid: 364282c6e451cc44fa8c46a7637faea9, type: 2}
   sellPrice: 1
   maxStack: 5
-  useText: Use item
+  useText: Recovers 20 Health
+  recoverValue: 20
+  restoreEvent: {fileID: 11400000, guid: fea98f541e901024dada5e15e2d5306a, type: 2}
+  useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}
