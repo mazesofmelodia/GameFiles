@@ -37,7 +37,10 @@ public class Weapon : InventoryItem
     {
         //Call event to change weapons
         weaponChangeEvent.Raise(this);
+    }
 
+    public void RemoveFromInventory()
+    {
         //Call event to use item
         useItemEvent.Raise(new ItemSlot(this, 1));
     }

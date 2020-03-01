@@ -67,7 +67,6 @@ public class MeleeEnemy : Enemy
             if(hitPlayer != null){
                 //Damage the player
                 hitPlayer.TakeDamage(damage);
-                Debug.Log("Player damaged");
             }
         }
     }

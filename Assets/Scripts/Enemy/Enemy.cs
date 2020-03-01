@@ -15,7 +15,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected NavMeshAgent agent;    //Enemy Navigation agent
 
     [Header("Item Drops")]
+    //List of Loot from the enemy
     [SerializeField] protected List<Loot> lootItems = new List<Loot>();
+    [SerializeField] protected float itemDropRange = 2;     //Range of item drops
 
     [Header("Event Data")]
     [SerializeField] private AudioClipEvent playSFXEvent;
@@ -70,7 +72,7 @@ public class Enemy : MonoBehaviour
         if(lootItems.Count > 0)
         {
             //Drop a random loot
-            DropItem();
+            DropItems();
         }
         //Decrease the number of enemies in the scene by one
         enemyCountEvent.Raise(-1);
@@ -86,19 +88,24 @@ public class Enemy : MonoBehaviour
     }
 
     //Functionality for dropping an item
-    private void DropItem()
+    private void DropItems()
     {
-        //Select a random loot from the list
-        Loot randomLoot = lootItems[Random.Range(0, lootItems.Count)];
-
-        //Generate a random number from 0 to 100
-        int randomChance = Random.Range(0, 101);
-
-        //Check if the random chance is lower than the drop items drop chance
-        if(randomChance < randomLoot.dropChance)
+        foreach (Loot lootItem in lootItems)
         {
-            //Spawn the item when the enemy died
-            Instantiate(randomLoot.dropItem, transform.position, transform.rotation);
+            //Generate a random number from 0 to 100
+            int randomChance = Random.Range(0, 101);
+
+            //Check if the random chance is lower than the drop items drop chance
+            if (randomChance < lootItem.dropChance)
+            {
+                //Spawn the item when the enemy died
+                Vector3 randomPos = Random.insideUnitSphere * itemDropRange;
+
+                //Make sure the y position is 0
+                randomPos.y = 0;
+
+                Instantiate(lootItem.dropItem, transform.position + randomPos, Quaternion.identity);
+            }
         }
     }
 }
