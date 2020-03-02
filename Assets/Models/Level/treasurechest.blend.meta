@@ -4,6 +4,15 @@ ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
+      74: -3999578356269874737
+    second: Cube|CubeAction
+  - first:
+      74: -4438923420132555670
+    second: Cube|CylinderAction
+  - first:
+      74: 1376692994432503559
+    second: Cylinder|CubeAction
+  - first:
       74: -88723805440604879
     second: Cylinder|CylinderAction
   externalObjects: {}
@@ -34,6 +43,35 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
+    - serializedVersion: 16
+      name: Cube|CubeAction
+      takeName: Cube|CubeAction
+      internalID: -3999578356269874737
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Cylinder|CylinderAction
       takeName: Cylinder|CylinderAction
