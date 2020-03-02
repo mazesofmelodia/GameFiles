@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Treasure : Interactable
+public class Treasure : MonoBehaviour, IInteractable
 {
     [SerializeField] private ItemSlot itemTreasure;     //Weapon treasure on this object
     [SerializeField] private bool isShopItem = false;   //Is this an Item in a shop
@@ -11,10 +11,16 @@ public class Treasure : Interactable
 
     [Header("Event data")]
     [SerializeField] private AudioClipEvent playSFXEvent;
+    [SerializeField] private VoidEvent onDestroyEvent;
 
-    public override void Interact(GameObject playerObject){
+    public void Interact(GameObject playerObject){
         //Get references to both the player stats and attack scripts
         Player player = playerObject.GetComponent<Player>();
+
+        if(player == null)
+        {
+            return;
+        }
 
         //Check if this is a shop item
         if(isShopItem){
@@ -41,5 +47,10 @@ public class Treasure : Interactable
         player.inventory.AddItem(itemTreasure);
         //Destroy the game object
         Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        onDestroyEvent.Raise();
     }
 }

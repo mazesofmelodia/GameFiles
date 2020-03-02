@@ -5,31 +5,69 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private float interactDistance = 1f;   //How close the player needs to be to interact with an object
-    [SerializeField] private Transform interactPoint;       //Point that the interact raycast comes from
+    private IInteractable currentInteractable = null;
 
     // Update is called once per frame
     void Update()
     {
-        //When the player presses the interact button
-        if(Input.GetButtonDown("Interact")){
-            //Check for an interaction
-            CheckForInteraction();
+        //Check for an interaction
+        CheckForInteraction();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Check if the other object is interactable
+        var interactable = other.GetComponent<IInteractable>();
+
+        //if the object is not interactable
+        if(interactable == null)
+        {
+            return;
         }
+
+        //Otherwise set the interactable as the current interactable
+        currentInteractable = interactable;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //Check if the other object is interactable
+        var interactable = other.GetComponent<IInteractable>();
+
+        //if the object is not interactable
+        if (interactable == null)
+        {
+            return;
+        }
+
+        //Check if the interactable is the current interactable
+        if(interactable != currentInteractable)
+        {
+            return;
+        }
+
+        //Set the current interactable to null
+        currentInteractable = null;
     }
 
     private void CheckForInteraction()
     {
-        //Define raycast variable
-        RaycastHit hit;
-
-        Debug.DrawRay(interactPoint.position, interactPoint.forward * interactDistance, Color.green);
-        //Check if the raycast hit an object
-        if(Physics.Raycast(interactPoint.position, interactPoint.forward, out hit, interactDistance)){
-
-            Interactable interactObject = hit.collider.gameObject.GetComponent<Interactable>();
-
-            interactObject.Interact(this.gameObject);
+        //Check if the current interactable is null
+        if(currentInteractable == null)
+        {
+            return;
         }
+
+        //When the player presses the interact button
+        if (Input.GetButtonDown("Interact"))
+        {
+            //Interact with the Interactable
+            currentInteractable.Interact(transform.root.gameObject);
+        }
+    }
+
+    public void SetInteractableToNull()
+    {
+        currentInteractable = null;
     }
 }
