@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private IntEvent setHealthEvent;
     [SerializeField] private IntEvent setScoreEvent;
     [SerializeField] private VoidEvent loseGameEvent;
+    [SerializeField] private InventoryEvent inventoryEvent;
 
     private int health;
 
@@ -31,6 +32,9 @@ public class Player : MonoBehaviour
         setMaxHealthEvent.Raise(maxHealth);
         setHealthEvent.Raise(health);
         setScoreEvent.Raise(score);
+
+        //Link the player inventory to any relevant components
+        inventoryEvent.Raise(inventory);
     }
 
     public void TakeDamage(int damageAmount){

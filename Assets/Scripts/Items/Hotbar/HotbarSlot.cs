@@ -39,6 +39,12 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
         }
     }
 
+    public void SetInventoryReference(Inventory newInventory)
+    {
+        //Set the inventory to be the new inventory
+        inventory = newInventory;
+    }
+
     public bool AddItem(HotbarItem itemToAdd)
     {
         //If there is an item in the slot

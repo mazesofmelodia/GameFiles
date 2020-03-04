@@ -21,6 +21,16 @@ public class Hotbar : MonoBehaviour
         }
     }
 
+    public void SetInventoryReference(Inventory newInventory)
+    {
+        //Loop through all hotbar slots
+        for (int i = 0; i < hotbarSlots.Length; i++)
+        {
+            //Link the inventory to the hotbar slot
+            hotbarSlots[i].SetInventoryReference(newInventory);
+        }
+    }
+
     private void Update()
     {
         //If the toggle buttons have been pressed

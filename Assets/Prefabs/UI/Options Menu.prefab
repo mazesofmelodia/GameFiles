@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_SelectOnUp: {fileID: 7754942281511720197}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 7754942280304731099}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

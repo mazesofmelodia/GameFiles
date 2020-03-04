@@ -27,6 +27,12 @@ public class InventorySlot : ItemSlotUI, IDropHandler
     //Get the item slot based on its position within the index
     public ItemSlot ItemSlot => inventory.GetItemByIndex(SlotIndex);
 
+    public void SetInventoryReference(Inventory newInventory)
+    {
+        //Link the inventory to this inventory slot
+        inventory = newInventory;
+    }
+
     public override void OnDrop(PointerEventData eventData)
     {
         //Get the item drag handler from the event data
