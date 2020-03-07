@@ -6,6 +6,12 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour
 {
     private IInteractable currentInteractable = null;
+    private Player player;
+
+    private void Start()
+    {
+        player = GetComponentInParent<Player>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -59,7 +65,7 @@ public class PlayerInteractor : MonoBehaviour
         }
 
         //When the player presses the interact button
-        if (Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Interact") && player.playerState == PlayerState.Active)
         {
             //Interact with the Interactable
             currentInteractable.Interact(transform.root.gameObject);

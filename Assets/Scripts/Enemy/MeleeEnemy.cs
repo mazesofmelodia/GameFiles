@@ -20,7 +20,7 @@ public class MeleeEnemy : Enemy
             return;
         }
         //Check if there was a player in the scene
-        if(!playerTarget.isDead){
+        if(playerTarget.playerState != PlayerState.Dead){
             //Turn the enemy towards the player
             agent.destination = playerTarget.transform.position;
             //Check if the distance between the enemy and the player is greater than the stop distance

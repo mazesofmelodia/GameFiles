@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    Active,
+    Win,
+    Dead,
+    InventoryOpen
+}
+
 public class Player : MonoBehaviour
 {
-    [HideInInspector] public bool isDead;
+    public PlayerState playerState;     //State of the player
     public Inventory inventory;   //Player inventory
     public Animator anim;         //Player animator
 
@@ -19,11 +27,16 @@ public class Player : MonoBehaviour
     [SerializeField] private IntEvent setHealthEvent;
     [SerializeField] private IntEvent setScoreEvent;
     [SerializeField] private VoidEvent loseGameEvent;
+    [SerializeField] private VoidEvent toggleInventoryEvent;
     [SerializeField] private InventoryEvent inventoryEvent;
 
     private int health;
 
     private void Start() {
+        //Hide the mouse cursor and lock it in place
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         //Set health to maxHealth
         health = maxHealth;
         //Get reference to animator component
@@ -35,6 +48,11 @@ public class Player : MonoBehaviour
 
         //Link the player inventory to any relevant components
         inventoryEvent.Raise(inventory);
+    }
+
+    private void Update()
+    {
+        InventoryToggle();
     }
 
     public void TakeDamage(int damageAmount){
@@ -83,7 +101,7 @@ public class Player : MonoBehaviour
         //Play death sound
         playSFXEvent.Raise(deathSound);
         //Player is dead
-        isDead = true;
+        playerState = PlayerState.Dead;
         //Call the lose game event
         loseGameEvent.Raise();
         //Disable player
@@ -93,6 +111,29 @@ public class Player : MonoBehaviour
     public void WinGame(){
         //Disable player actions
         DisablePlayer();
+    }
+
+    public void InventoryToggle()
+    {
+        if (Input.GetButtonDown("Inventory") && playerState != PlayerState.Dead)
+        {
+            if(playerState != PlayerState.InventoryOpen)
+            {
+                //Raise the inventory open event
+                toggleInventoryEvent.Raise();
+
+                //Change player state to inventory
+                playerState = PlayerState.InventoryOpen;
+            }
+            else
+            {
+                //Raise the inventory open event
+                toggleInventoryEvent.Raise();
+
+                //Change player state to inventory
+                playerState = PlayerState.Active;
+            }
+        }
     }
 
     private void DisablePlayer(){

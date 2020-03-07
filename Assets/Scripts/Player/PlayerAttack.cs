@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(timeBetweenAttack <= 0){
             //Check if the player has clicked the attack button
-            if(Input.GetButtonDown("Attack")){
+            if(Input.GetButtonDown("Attack") && player.playerState == PlayerState.Active){
                 //Play the attacking animation
                 player.anim.SetTrigger("Attacking");
                 //Play attack sound

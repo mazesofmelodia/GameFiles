@@ -648,6 +648,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b817bc8c375f39a43a758c7713a0bf61,
         type: 2}
+    - target: {fileID: 1693624611, guid: 534732e1869d52740aed32dd468cf9e8, type: 3}
+      propertyPath: toggleInventoryEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f73752fadcd6b9e4cad0ad29ba05be76,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534732e1869d52740aed32dd468cf9e8, type: 3}
 --- !u!1 &534081824
@@ -718,7 +723,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534081824}
-  m_LocalRotation: {x: 0.15108971, y: 0.35624617, z: -0.058490384, w: 0.92023885}
+  m_LocalRotation: {x: 0.15108974, y: 0.35624614, z: -0.058490388, w: 0.92023885}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1046,6 +1051,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835256995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4705697251650689499, guid: 9c0949a5438cbaf439bdc49590c71928,
+    type: 3}
+  m_PrefabInstance: {fileID: 4705697250019217149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835256996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4705697250019217152, guid: 9c0949a5438cbaf439bdc49590c71928,
+    type: 3}
+  m_PrefabInstance: {fileID: 4705697250019217149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835256995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833993e3ed03235459543022e6a1502f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &835256998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835256995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c715adb59ca2a5840b9fde4893deca31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: f73752fadcd6b9e4cad0ad29ba05be76, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 835256996}
+        m_MethodName: ToggleActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityVoidEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &850475352
 GameObject:
   m_ObjectHideFlags: 3

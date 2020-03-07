@@ -56,6 +56,12 @@ public class PlayerController : MonoBehaviour
     }
 
     void InputMagnitude(){
+        //Check if the player is not in the active state
+        if(player.playerState != PlayerState.Active)
+        {
+            return;
+        }
+
         inputX = Input.GetAxis("MoveHorizontal");
         inputZ = Input.GetAxis("MoveVertical");
 
