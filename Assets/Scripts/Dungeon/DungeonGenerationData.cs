@@ -14,6 +14,7 @@ public class DungeonGenerationData : ScriptableObject
     [Header("Room Prefabs for Level")]
     public GameObject startRoomPrefab;          //Start Room
     public GameObject endRoomPrefab;            //End room
+    public GameObject shopRoomPrefab;           //Shop room
     public List<GameObject> randomRoomPrefabs;  //Random rooms to select from
 
     public GameObject GetRandomRoom()

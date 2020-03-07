@@ -19,6 +19,7 @@ public class RoomController : MonoBehaviour
     public static RoomController instance;      //Singleton Instance of the Room Controller
 
     private GameObject endRoomObject;
+    private GameObject shopRoomObject;
 
     RoomInfo currentLoadRoomData;               //Info of room being loaded
 
@@ -28,10 +29,11 @@ public class RoomController : MonoBehaviour
     //List of rooms loaded
     public List<Room> loadedRooms = new List<Room>();
 
-    public VoidEvent voidEvent;
+    public VoidEvent navMeshEvent;
 
     bool isLoadingRoom = false;                 //Check if a room is being loaded
-    bool spawnedBossRoom = false;               //Check if the boos room has spawned
+    bool spawnedBossRoom = false;               //Check if the boss room has spawned
+    bool spawnedShopRoom = false;               //Check if the shop room has been spawned
     bool updatedRooms = false;                  //Check to see if we updated the rooms
 
     private void Awake()
@@ -73,8 +75,13 @@ public class RoomController : MonoBehaviour
             {
                 SpawnBossRoom(endRoomObject);
             }
-            //Check if the boos room has been added but the rooms have not been updated
-            else if(spawnedBossRoom && !updatedRooms)
+            //Check if the shop room has been spawned
+            else if (!spawnedShopRoom)
+            {
+                SpawnShopRoom(shopRoomObject);
+            }
+            //Check if the boss room has been added but the rooms have not been updated
+            else if(spawnedBossRoom && spawnedShopRoom && !updatedRooms)
             {
                 //Loop through all rooms
                 foreach (Room room in loadedRooms)
@@ -85,7 +92,7 @@ public class RoomController : MonoBehaviour
                 //Rooms have now been updated
                 updatedRooms = true;
 
-                voidEvent.Raise();
+                navMeshEvent.Raise();
             }
             //Exit the function
             return;
@@ -106,6 +113,12 @@ public class RoomController : MonoBehaviour
     public void SetBossRoom(GameObject bossRoomPrefab)
     {
         endRoomObject = bossRoomPrefab;
+    }
+
+    //Sets the shop room object to spawn within the dungeon
+    public void SetShopRoom(GameObject shopRoomPrefab)
+    {
+        shopRoomObject = shopRoomPrefab;
     }
 
     //Loads in new room info
@@ -164,6 +177,37 @@ public class RoomController : MonoBehaviour
             LoadRoom(bossRoomObject, tempRoom.X, tempRoom.Y);
         }
     }
+
+    public void SpawnShopRoom(GameObject bossRoomObject)
+    {
+        //The shop room has now been spawned
+        spawnedShopRoom = true;
+
+        //If the load room queue empty
+        if (loadRoomQueue.Count == 0)
+        {
+            //Set the shop room to be a room of the selected range
+            //Range is above halfway but before the boss room
+            Room shopRoom = loadedRooms[Random.Range(Mathf.RoundToInt(loadedRooms.Count / 2), loadedRooms.Count - 2)];
+
+            //Define a temporary room to record x and y values
+            Room tempRoom = new Room(shopRoom.X, shopRoom.Y);
+
+            //Destroy the boss room
+            Destroy(shopRoom.gameObject);
+
+            //Find the room to replace by comparing x and y values of the temp room
+            var roomToReplace = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
+
+            //Remove the room from the list
+            loadedRooms.Remove(roomToReplace);
+
+            //Load the end room
+            LoadRoom(bossRoomObject, tempRoom.X, tempRoom.Y);
+        }
+    }
+
+
 
     public void RegisterRoom(Room room)
     {

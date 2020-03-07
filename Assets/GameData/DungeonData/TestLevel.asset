@@ -20,6 +20,8 @@ MonoBehaviour:
     type: 3}
   endRoomPrefab: {fileID: 6068073274723879728, guid: 0dc42c380ab955b4c9201ee53a56b62f,
     type: 3}
+  shopRoomPrefab: {fileID: 8849219775660177922, guid: 86debdd6b7b352d42bce810ab329f926,
+    type: 3}
   randomRoomPrefabs:
   - {fileID: 2325781639443582811, guid: 2b131b469e188bc458cd3bf81429c0b7, type: 3}
   - {fileID: 2325781639443582811, guid: f626b54ec0222e6499879c72c5b65506, type: 3}

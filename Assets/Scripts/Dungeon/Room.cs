@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     [SerializeField] private Enemy enemyPrefab;    //Enemy to spawn
     //List of spawnpoints in the room
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
+    [SerializeField] private bool specialRoom = false;
 
     //List of enemies in the room
     private List<Enemy> enemies = new List<Enemy>();
@@ -19,10 +20,10 @@ public class Room : MonoBehaviour
     private bool enemiesSpawned = false;    //Have the enemies already been spawned
 
     //Door objects
-    public Door leftDoor;
-    public Door rightDoor;
-    public Door topDoor;
-    public Door bottomDoor;
+    [HideInInspector] public Door leftDoor;
+    [HideInInspector] public Door rightDoor;
+    [HideInInspector] public Door topDoor;
+    [HideInInspector] public Door bottomDoor;
 
     //List of doors
     public List<Door> doors = new List<Door>();
@@ -82,7 +83,7 @@ public class Room : MonoBehaviour
         //Register this room with the room controller
         RoomController.instance.RegisterRoom(this);
 
-        if (name.Contains("End"))
+        if (specialRoom)
         {
             RemoveUnconnectedDoors();
         }
