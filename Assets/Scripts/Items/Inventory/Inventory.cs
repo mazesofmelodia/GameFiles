@@ -25,6 +25,22 @@ public class Inventory : MonoBehaviour, IItemContainer
         return itemSlots[slotIndex];
     }
 
+    public bool CheckIfInventoryFull()
+    {
+        //Loop through all of the inventory slots
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            //Check if the item slot doesn't have an item
+            if(itemSlots[i].inventoryItem == null)
+            {
+                //Return false, the inventory still has space left
+                return false;
+            }
+        }
+
+        //Return true, inventory doesn't have any space left
+        return true;
+    }
 
     public ItemSlot AddItem(ItemSlot itemSlot)
     {
