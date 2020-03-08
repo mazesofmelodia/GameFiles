@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3833826932763040659}
   - component: {fileID: 1979888465601504852}
   - component: {fileID: 7898764680927491367}
+  - component: {fileID: 6704340879339586071}
   m_Layer: 0
   m_Name: BaseShopItem
   m_TagString: Untagged
@@ -133,6 +134,21 @@ MonoBehaviour:
   pickupFailSound: {fileID: 8300000, guid: feec76fa303e4c14eb03991d6096274b, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   onDestroyEvent: {fileID: 11400000, guid: 0e0fddc595d0d944da2c16d82ca11089, type: 2}
+  onApproachEvent: {fileID: 11400000, guid: b9825687346f8484f99cbe85709ecee8, type: 2}
+  onDistanceEvent: {fileID: 11400000, guid: fbba48a34e2c5044ca86b723191297c6, type: 2}
+--- !u!135 &6704340879339586071
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979888465601504850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: 0.000000059604645, y: 3.44, z: -0.00000008940697}
 --- !u!1 &3304869378399805723
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class ShopItem : MonoBehaviour, IInteractable
     [Header("Event data")]
     [SerializeField] private AudioClipEvent playSFXEvent;
     [SerializeField] private VoidEvent onDestroyEvent;
+    [SerializeField] private ItemSlotEvent onApproachEvent;
+    [SerializeField] private VoidEvent onDistanceEvent;
 
     public void Interact(GameObject playerObject)
     {
@@ -63,8 +65,34 @@ public class ShopItem : MonoBehaviour, IInteractable
         Destroy(this.gameObject);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (itemTreasure.inventoryItem == null)
+        {
+            return;
+        }
+
+        //If the player approaches the item
+        if (other.CompareTag("Player"))
+        {
+            //Display item information to the player
+            onApproachEvent.Raise(itemTreasure);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //If the player moves away from the shop item
+        if (other.CompareTag("Player"))
+        {
+            //Hide item information
+            onDistanceEvent.Raise();
+        }
+    }
+
     private void OnDestroy()
     {
         onDestroyEvent.Raise();
+        onDistanceEvent.Raise();
     }
 }
