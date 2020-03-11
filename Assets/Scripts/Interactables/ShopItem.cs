@@ -44,7 +44,7 @@ public class ShopItem : MonoBehaviour, IInteractable
         if (player.GetScore() >= itemTreasure.inventoryItem.SellPrice * itemTreasure.quantity)
         {
             //Reduce the score from the player
-            player.UpdateScore(-itemTreasure.inventoryItem.SellPrice);
+            player.UpdateScore(-itemTreasure.inventoryItem.SellPrice * itemTreasure.quantity);
             //Add the item to the player's inventory
             CollectItem(player);
         }
