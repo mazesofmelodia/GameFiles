@@ -5,19 +5,22 @@ using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip menuMusic;       //Music to play for menu scene
-    [SerializeField] private LevelLoader levelLoader;   //Level Loader
-    [SerializeField] private GameObject menuPanel;      //Menu panel
-    [SerializeField] private GameObject optionsPanel;   //Options panel
+    [SerializeField] private AudioClip menuMusic;           //Music to play for menu scene
+    [SerializeField] private LevelLoader levelLoader;       //Level Loader
+    [SerializeField] private GameObject menuPanel;          //Menu panel
+    [SerializeField] private GameObject optionsPanel;       //Options panel
+    [SerializeField] private GameObject scoreBoardPanel;    //High Scores Panel
 
     [Header("Event data")]
     [SerializeField] private AudioClipEvent playMusicEvent;
 
     [Header("Objects to highlight for Event system")]
-    [SerializeField] private GameObject firstMenuButton;    //First menu button to highlight
-    [SerializeField] private GameObject firstOptionButton;  //First option button to highlight
+    [SerializeField] private GameObject firstMenuButton;        //First menu button to highlight
+    [SerializeField] private GameObject secondMenuButton;       //Second menu Button to highlight
+    [SerializeField] private GameObject firstOptionButton;      //First option button to highlight
+    [SerializeField] private GameObject firstScoreBoardButton;  //First button to highlight for scoreboard
 
-    [SerializeField] private EventSystem eventSystem;                    //Event System in the Scene
+    [SerializeField] private EventSystem eventSystem;           //Event System in the Scene
     // Start is called before the first frame update
     void Start()
     {
@@ -60,5 +63,27 @@ public class MenuManager : MonoBehaviour
 
         //Set the first highlighted object to the first menu button
         eventSystem.SetSelectedGameObject(firstMenuButton);
+    }
+
+    public void OpenScoreBoard()
+    {
+        //Hide the menu panel
+        menuPanel.SetActive(false);
+        //Display the options panel
+        scoreBoardPanel.SetActive(true);
+
+        //Set the first highlighted object to the first options button
+        eventSystem.SetSelectedGameObject(firstScoreBoardButton);
+    }
+
+    public void CloseScoreBoard()
+    {
+        //Hide the options panel
+        scoreBoardPanel.SetActive(false);
+        //Show the menu panel
+        menuPanel.SetActive(true);
+
+        //Set the first highlighted object to the first menu button
+        eventSystem.SetSelectedGameObject(secondMenuButton);
     }
 }

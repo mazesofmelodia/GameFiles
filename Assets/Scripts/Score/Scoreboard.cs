@@ -43,6 +43,25 @@ public class Scoreboard : MonoBehaviour
         });
     }
 
+    [ContextMenu("Delete HighScore File")]
+    public void DeleteFile()
+    {
+        if (File.Exists(savePath))
+        {
+            //Delete the save path
+            File.Delete(savePath);
+
+            //Get the saved scores
+            ScoreboardSaveData savedScores = GetSavedScores();
+
+            //Save the scores immediately
+            SaveScores(savedScores);
+
+            //Update the score UI
+            UpdateUI(savedScores);
+        }
+    }
+
     public void AddEntry(ScoreEntryData entryData)
     {
         //Get the saved scores
@@ -154,6 +173,20 @@ public class Scoreboard : MonoBehaviour
 
     private void UpdateUI(ScoreboardSaveData savedScores)
     {
+        if(savedScores.highScores.Count == 0)
+        {
+            //Disable the highscores holder
+            scoreHolder.gameObject.SetActive(false);
+
+            return;
+        }
+
+        //If the holder game object is disabled
+        if(scoreHolder.gameObject.activeSelf == false)
+        {
+            //Activate the game object
+            scoreHolder.gameObject.SetActive(true);
+        }
         //Loop through all child objects in scoreHoler
         foreach (Transform child in scoreHolder)
         {
