@@ -5,7 +5,9 @@ public class Hotbar : MonoBehaviour
     //Array of hotbar items
     [SerializeField] private HotbarSlot[] hotbarSlots = new HotbarSlot[10];
 
-    private int selectedHotbarSlot;
+    private int selectedHotbarSlot;         //Which Hotbar was selected
+
+    private bool hotbarDisabled = false;    //is the hotbar disabled
 
     public void Add(HotbarItem itemToAdd)
     {
@@ -21,6 +23,12 @@ public class Hotbar : MonoBehaviour
         }
     }
 
+    //Function to disable the hotbar
+    public void HotbarToggle()
+    {
+        hotbarDisabled = !hotbarDisabled;
+    }
+
     public void SetInventoryReference(Inventory newInventory)
     {
         //Loop through all hotbar slots
@@ -33,15 +41,29 @@ public class Hotbar : MonoBehaviour
 
     private void Update()
     {
+        if (!hotbarDisabled)
+        {
+            ToggleCheck();
+            UseItem();
+        }
+        
+    }
+
+    private void ToggleCheck()
+    {
         //If the toggle buttons have been pressed
-        if(Input.GetAxisRaw("Toggle") > 0)
+        if (Input.GetAxisRaw("Toggle") > 0)
         {
             ToggleHotbarItem(1);
-        }else if(Input.GetAxisRaw("Toggle") < 0)
+        }
+        else if (Input.GetAxisRaw("Toggle") < 0)
         {
             ToggleHotbarItem(-1);
         }
+    }
 
+    private void UseItem()
+    {
         //Use the item
         if (Input.GetButtonDown("UseItem"))
         {

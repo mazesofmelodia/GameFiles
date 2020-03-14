@@ -62,7 +62,7 @@ public class MenuManager : MonoBehaviour
         menuPanel.SetActive(true);
 
         //Set the first highlighted object to the first menu button
-        eventSystem.SetSelectedGameObject(firstMenuButton);
+        eventSystem.SetSelectedGameObject(secondMenuButton);
     }
 
     public void OpenScoreBoard()
@@ -84,6 +84,6 @@ public class MenuManager : MonoBehaviour
         menuPanel.SetActive(true);
 
         //Set the first highlighted object to the first menu button
-        eventSystem.SetSelectedGameObject(secondMenuButton);
+        eventSystem.SetSelectedGameObject(firstMenuButton);
     }
 }

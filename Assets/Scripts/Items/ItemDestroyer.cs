@@ -16,6 +16,12 @@ public class ItemDestroyer : MonoBehaviour
         slotIndex = -1;
     }
 
+    public void SetInventoryReference(Inventory newInventory)
+    {
+        //Set the inventory to the new Inventory
+        inventory = newInventory;
+    }
+
     public void Activate(ItemSlot itemSlot, int slotIndex)
     {
         //set the slot index to the inventory slot index

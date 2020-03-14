@@ -5,9 +5,9 @@ using UnityEngine;
 public enum PlayerState
 {
     Active,
-    Win,
     Dead,
-    InventoryOpen
+    InventoryOpen,
+    Win
 }
 
 public class Player : MonoBehaviour
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private IntEvent setMaxHealthEvent;
     [SerializeField] private IntEvent setHealthEvent;
     [SerializeField] private IntEvent setScoreEvent;
+    [SerializeField] private IntEvent submitScoreEvent;
     [SerializeField] private VoidEvent loseGameEvent;
     [SerializeField] private VoidEvent toggleInventoryEvent;
     [SerializeField] private InventoryEvent inventoryEvent;
@@ -89,6 +90,12 @@ public class Player : MonoBehaviour
         setScoreEvent.Raise(score);
     }
 
+    public void SubmitScore()
+    {
+        //Submit the score
+        submitScoreEvent.Raise(score);
+    }
+
     public int GetScore(){
         //Return the current score value
         return score;
@@ -104,19 +111,20 @@ public class Player : MonoBehaviour
         playerState = PlayerState.Dead;
         //Call the lose game event
         loseGameEvent.Raise();
-        //Disable player
-        DisablePlayer();
-    }
-
-    public void WinGame(){
-        //Disable player actions
-        DisablePlayer();
+        //Submit the players score
+        SubmitScore();
     }
 
     public void InventoryToggle()
     {
-        if (Input.GetButtonDown("Inventory") && playerState != PlayerState.Dead)
+        if (Input.GetButtonDown("Inventory"))
         {
+            //If the player is dead or the player won
+            if(playerState == PlayerState.Dead || playerState == PlayerState.Win)
+            {
+                //Exit the function
+                return;
+            }
             if(playerState != PlayerState.InventoryOpen)
             {
                 //Raise the inventory open event
@@ -135,18 +143,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    private void DisablePlayer(){
-        //Disable movement to ensure that the player can't move while they're dead
-        PlayerController playerMovement = GetComponent<PlayerController>();
-        //Also disable the attack script
-        PlayerAttack playerAttack = GetComponent<PlayerAttack>();
-        //And the interact script
-        PlayerInteractor playerInteractor = GetComponent<PlayerInteractor>();
-
-        playerAttack.enabled = false;
-        playerMovement.enabled = false;
-        playerInteractor.enabled = false;
-    }
-
 }

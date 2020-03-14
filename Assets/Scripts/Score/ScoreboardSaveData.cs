@@ -10,15 +10,15 @@ public class ScoreboardSaveData
     public ScoreboardSaveData()
     {
         //Add initial scores to data
-        highScores.Add(new ScoreEntryData("AAAAAA", 8000));
-        highScores.Add(new ScoreEntryData("BBBBBB", 7000));
-        highScores.Add(new ScoreEntryData("CCCCCC", 6000));
-        highScores.Add(new ScoreEntryData("DDDDDD", 5000));
-        highScores.Add(new ScoreEntryData("EEEEEE", 4500));
-        highScores.Add(new ScoreEntryData("FFFFFF", 4000));
-        highScores.Add(new ScoreEntryData("GGGGGG", 3500));
-        highScores.Add(new ScoreEntryData("HHHHHH", 3000));
-        highScores.Add(new ScoreEntryData("IIIIII", 2500));
-        highScores.Add(new ScoreEntryData("JJJJJJ", 2000));
+        highScores.Add(new ScoreEntryData("AAAAAA", 5000));
+        highScores.Add(new ScoreEntryData("BBBBBB", 4500));
+        highScores.Add(new ScoreEntryData("CCCCCC", 4000));
+        highScores.Add(new ScoreEntryData("DDDDDD", 3500));
+        highScores.Add(new ScoreEntryData("EEEEEE", 3000));
+        highScores.Add(new ScoreEntryData("FFFFFF", 2500));
+        highScores.Add(new ScoreEntryData("GGGGGG", 2000));
+        highScores.Add(new ScoreEntryData("HHHHHH", 1500));
+        highScores.Add(new ScoreEntryData("IIIIII", 1000));
+        highScores.Add(new ScoreEntryData("JJJJJJ", 500));
     }
 }

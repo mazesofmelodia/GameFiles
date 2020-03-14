@@ -18,12 +18,13 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool optionsScreenOpen = false;
+    private bool gameOver = false;
 
     // Update is called once per frame
     void Update()
     {
         //If the pause button has been pressed
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !gameOver)
         {
             //Check if the options screen is open
             if (!optionsScreenOpen)
@@ -94,5 +95,12 @@ public class PauseManager : MonoBehaviour
 
         //Fade to the menu scene
         levelLoader.LoadLevel(menuLevelName);
+    }
+
+    //Function called when the player wins or loses
+    public void GameOver()
+    {
+        //Set game over bool to be true
+        gameOver = true;
     }
 }

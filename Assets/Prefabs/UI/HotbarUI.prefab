@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 806050053}
   - component: {fileID: 806050052}
   - component: {fileID: 1306663328}
+  - component: {fileID: 1081006910}
   m_Layer: 5
   m_Name: HotbarBackground
   m_TagString: Untagged
@@ -229,6 +230,35 @@ MonoBehaviour:
   - {fileID: 9041689780837040046}
   - {fileID: 9041689780897961741}
   - {fileID: 9041689780746658197}
+--- !u!114 &1081006910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806050050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c3ce65c75d71e4887ec265bb8a7b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b817bc8c375f39a43a758c7713a0bf61, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1306663328}
+        m_MethodName: SetInventoryReference
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityInventoryEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &8312757151956097144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,21 +1737,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7104245018022714871, guid: af735514e8394a3479be09bd23ea42cf,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.39607844
-      objectReference: {fileID: 0}
-    - target: {fileID: 7104245018022714871, guid: af735514e8394a3479be09bd23ea42cf,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.39607844
-      objectReference: {fileID: 0}
-    - target: {fileID: 7104245018022714871, guid: af735514e8394a3479be09bd23ea42cf,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.39607844
-      objectReference: {fileID: 0}
     - target: {fileID: 3952818037527722165, guid: af735514e8394a3479be09bd23ea42cf,
         type: 3}
       propertyPath: backgroundImage
@@ -1763,6 +1778,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8,
         type: 2}
+    - target: {fileID: 7104245018022714871, guid: af735514e8394a3479be09bd23ea42cf,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.39607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104245018022714871, guid: af735514e8394a3479be09bd23ea42cf,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.39607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104245018022714871, guid: af735514e8394a3479be09bd23ea42cf,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.39607844
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af735514e8394a3479be09bd23ea42cf, type: 3}
 --- !u!114 &7607313831735718044 stripped

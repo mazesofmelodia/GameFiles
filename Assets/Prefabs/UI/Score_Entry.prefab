@@ -91,6 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entryNameText: {fileID: 1702489093306200211}
   entryScoreText: {fileID: 3165099034819197967}
+  backgroundImage: {fileID: 3193927201622849721}
+  highlightColor: {r: 0.58431375, g: 0.93333334, b: 0.8784314, a: 0.78431374}
 --- !u!1 &687171081100089994
 GameObject:
   m_ObjectHideFlags: 0

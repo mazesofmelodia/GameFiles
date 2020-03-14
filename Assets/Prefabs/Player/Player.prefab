@@ -1009,6 +1009,7 @@ MonoBehaviour:
   setMaxHealthEvent: {fileID: 11400000, guid: 6e854de7573fa464c9956e011665c3bc, type: 2}
   setHealthEvent: {fileID: 11400000, guid: 67eb7229a9629f34885ba0d691bbc5ce, type: 2}
   setScoreEvent: {fileID: 11400000, guid: fb0c958fde78c9e4e89f6a54d694b8ac, type: 2}
+  submitScoreEvent: {fileID: 11400000, guid: eab38499a766d52458ce7bd2ef2b3e50, type: 2}
   loseGameEvent: {fileID: 11400000, guid: 330cfc773efb3bf40ad046ca310f1ca8, type: 2}
   toggleInventoryEvent: {fileID: 11400000, guid: f73752fadcd6b9e4cad0ad29ba05be76,
     type: 2}

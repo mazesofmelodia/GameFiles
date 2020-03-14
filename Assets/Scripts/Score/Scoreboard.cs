@@ -101,7 +101,7 @@ public class Scoreboard : MonoBehaviour
         }
 
         //Update the UI
-        UpdateUI(savedScores);
+        UpdateUI(savedScores,entryData);
 
         //Save the scores
         SaveScores(savedScores);
@@ -109,6 +109,8 @@ public class Scoreboard : MonoBehaviour
 
     private ScoreboardSaveData GetSavedScores()
     {
+        //Set the savepath for the score data
+        savePath = $"{Application.persistentDataPath}/highscores.dat";
         //If the file exists
         if (!File.Exists(savePath))
         {
@@ -144,6 +146,8 @@ public class Scoreboard : MonoBehaviour
 
     private void SaveScores(ScoreboardSaveData scoreboardSaveData)
     {
+        //Set the savepath for the score data
+        savePath = $"{Application.persistentDataPath}/highscores.dat";
         //Write the stream data to the stream path
         /*using (StreamWriter stream = new StreamWriter(savePath))
         {
@@ -199,6 +203,46 @@ public class Scoreboard : MonoBehaviour
         {
             //Spawn the entry UI and initalize the entry
             Instantiate(scoreEntryObject, scoreHolder).GetComponent<ScoreEntryUI>().Initialize(highScore);
+        }
+    }
+
+    private void UpdateUI(ScoreboardSaveData savedScores, ScoreEntryData newData)
+    {
+        if (savedScores.highScores.Count == 0)
+        {
+            //Disable the highscores holder
+            scoreHolder.gameObject.SetActive(false);
+
+            return;
+        }
+
+        //If the holder game object is disabled
+        if (scoreHolder.gameObject.activeSelf == false)
+        {
+            //Activate the game object
+            scoreHolder.gameObject.SetActive(true);
+        }
+        //Loop through all child objects in scoreHoler
+        foreach (Transform child in scoreHolder)
+        {
+            //Destroy the child object
+            Destroy(child.gameObject);
+        }
+
+        //Loop through all the entries in savedScores
+        foreach (ScoreEntryData highScore in savedScores.highScores)
+        {
+            //Spawn the entry UI
+            ScoreEntryUI scoreListing = Instantiate(scoreEntryObject, scoreHolder).GetComponent<ScoreEntryUI>();
+
+            //Initalise the UI
+            scoreListing.Initialize(highScore);
+
+            //check if the new data matches the current highscore
+            if (newData.Equals(highScore))
+            {
+                scoreListing.HighlightUI();
+            }
         }
     }
 }
