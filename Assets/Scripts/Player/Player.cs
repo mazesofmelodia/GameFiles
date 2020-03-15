@@ -16,10 +16,13 @@ public class Player : MonoBehaviour
     public Inventory inventory;   //Player inventory
     public Animator anim;         //Player animator
 
-    [SerializeField] private int maxHealth = 100;
+    //[SerializeField] private int maxHealth = 100;
     [SerializeField] private int score = 0;
     [SerializeField] private AudioClip damageSound; //Damage sound on player
     [SerializeField] private AudioClip deathSound;  //Death Sound on player
+
+    [Header("Character Stats")]
+    public CharacterStat maxHealth;   //Max Health of the player
 
     [Header("Event Data")]
     [SerializeField] private AudioClipEvent playSFXEvent;
@@ -39,11 +42,12 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         //Set health to maxHealth
-        health = maxHealth;
+        health = (int) maxHealth.Value;
+
         //Get reference to animator component
         //anim = GetComponent<Animator>();
         //Set up the player UI
-        setMaxHealthEvent.Raise(maxHealth);
+        setMaxHealthEvent.Raise((int) maxHealth.Value);
         setHealthEvent.Raise(health);
         setScoreEvent.Raise(score);
 
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
         //Recover health
         health += recoverAmount;
         //Clamp health value so it doesn't go above max health
-        health = Mathf.Clamp(health, 0, maxHealth);
+        health = Mathf.Clamp(health, 0, (int) maxHealth.Value);
 
         //Update the health bar
         setHealthEvent.Raise(health);

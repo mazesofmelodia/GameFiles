@@ -20,7 +20,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject firstOptionButton;      //First option button to highlight
     [SerializeField] private GameObject firstScoreBoardButton;  //First button to highlight for scoreboard
 
+    [Header("Event System")]
     [SerializeField] private EventSystem eventSystem;           //Event System in the Scene
+
+    [Header("Scoreboard")]
+    [SerializeField] private Scoreboard scoreboard;             //Scoreboard object
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +75,9 @@ public class MenuManager : MonoBehaviour
         menuPanel.SetActive(false);
         //Display the options panel
         scoreBoardPanel.SetActive(true);
+
+        //List the scores in the scoreboard
+        scoreboard.ListScores();
 
         //Set the first highlighted object to the first options button
         eventSystem.SetSelectedGameObject(firstScoreBoardButton);

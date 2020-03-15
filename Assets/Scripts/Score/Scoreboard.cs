@@ -28,9 +28,6 @@ public class Scoreboard : MonoBehaviour
 
         //Save the scores immediately
         SaveScores(savedScores);
-
-        //Update the score UI
-        UpdateUI(savedScores);
     }
 
     [ContextMenu("Add Test Entry")]
@@ -60,6 +57,15 @@ public class Scoreboard : MonoBehaviour
             //Update the score UI
             UpdateUI(savedScores);
         }
+    }
+
+    public void ListScores()
+    {
+        //Get the saved scores
+        ScoreboardSaveData savedScores = GetSavedScores();
+
+        //Display the UI
+        UpdateUI(savedScores);
     }
 
     public void AddEntry(ScoreEntryData entryData)
@@ -100,11 +106,11 @@ public class Scoreboard : MonoBehaviour
             savedScores.highScores.RemoveRange(maxEntries, savedScores.highScores.Count - maxEntries);
         }
 
-        //Update the UI
-        UpdateUI(savedScores,entryData);
-
         //Save the scores
         SaveScores(savedScores);
+
+        //Update the UI
+        UpdateUI(savedScores,entryData);
     }
 
     private ScoreboardSaveData GetSavedScores()

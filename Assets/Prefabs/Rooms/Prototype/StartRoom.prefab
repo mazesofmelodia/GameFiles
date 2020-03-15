@@ -11949,6 +11949,7 @@ MonoBehaviour:
   Y: 0
   enemyPrefab: {fileID: 0}
   spawnPoints: []
+  specialRoom: 0
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}

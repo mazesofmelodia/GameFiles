@@ -1001,10 +1001,11 @@ MonoBehaviour:
   playerState: 0
   inventory: {fileID: 1231241443}
   anim: {fileID: 1254535180860748120}
-  maxHealth: 100
   score: 0
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
+  maxHealth:
+    BaseValue: 100
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   setMaxHealthEvent: {fileID: 11400000, guid: 6e854de7573fa464c9956e011665c3bc, type: 2}
   setHealthEvent: {fileID: 11400000, guid: 67eb7229a9629f34885ba0d691bbc5ce, type: 2}
