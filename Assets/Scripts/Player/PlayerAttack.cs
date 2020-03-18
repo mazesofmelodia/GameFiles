@@ -58,7 +58,6 @@ public class PlayerAttack : MonoBehaviour
         //Check if the time between attack is greater than 0
         if (timeBetweenAttack > 0)
         {
-            Debug.Log("Wait until you are ready to attack");
             //Exit the function as we don't want to change weapon inbetween attacking
             return;
         }
@@ -69,8 +68,14 @@ public class PlayerAttack : MonoBehaviour
         //Record the old weapon
         Weapon oldWeapon = currentWeapon;
 
+        //Remove all the stat modifiers from the old weapon
+        player.strength.RemoveAllModifiersFromSource(currentWeapon);
+
         //Change the weapon on the character
         currentWeapon = newWeapon;
+
+        //Add the modifiers of the new weapon to the character
+        player.strength.AddModifier(new StatModifier(currentWeapon.damageAddition, StatModType.Flat));
 
         //Update the model on the character
         PositionWeapon(currentWeapon);
@@ -99,7 +104,7 @@ public class PlayerAttack : MonoBehaviour
 
             if(hitEnemy != null){
                 //Damage the enemy
-                hitEnemy.TakeDamage(currentWeapon.damage);
+                hitEnemy.TakeDamage((int) player.strength.Value);
             }
         }
     }

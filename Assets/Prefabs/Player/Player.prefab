@@ -980,7 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff79a5239897c340b3bd6d4fd783e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
   fallSpeed: 0.981
   playerCam: {fileID: 0}
   blockRotationPlayer: 0
@@ -1006,6 +1005,10 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
   maxHealth:
     BaseValue: 100
+  strength:
+    BaseValue: 10
+  speed:
+    BaseValue: 4
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   setMaxHealthEvent: {fileID: 11400000, guid: 6e854de7573fa464c9956e011665c3bc, type: 2}
   setHealthEvent: {fileID: 11400000, guid: 67eb7229a9629f34885ba0d691bbc5ce, type: 2}

@@ -18,7 +18,7 @@ MonoBehaviour:
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
   sellPrice: 300
   maxStack: 1
-  damage: 40
+  damageAddition: 15
   attackSpeed: 2
   range: 0.75
   weaponModel: {fileID: 3561857164473382715, guid: 786b30d76b75e76428496cfcb1f0ee11,

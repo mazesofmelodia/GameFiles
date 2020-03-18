@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement Values")]
-    [SerializeField] private float moveSpeed = 4f;              //Movement speed
     [SerializeField] private float fallSpeed = 0.981f;          //How fast the player falls
 
     [Header("Camera Controls")]
@@ -104,6 +103,6 @@ public class PlayerController : MonoBehaviour
 		}
 
         //Move the controller in the desiredMoveDirection taking the moveSpeed and Time into account
-        controller.Move(desiredMoveDirection * Time.deltaTime * moveSpeed);
+        controller.Move(desiredMoveDirection * Time.deltaTime * player.speed.Value);
     }
 }

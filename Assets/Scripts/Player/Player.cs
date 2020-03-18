@@ -22,7 +22,12 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip deathSound;  //Death Sound on player
 
     [Header("Character Stats")]
-    public CharacterStat maxHealth;   //Max Health of the player
+    public CharacterStat maxHealth;     //Max Health of the player
+    public CharacterStat strength;      //Base damage of player
+    public CharacterStat speed;         //Player speed
+
+    //List of stat buffs on the player
+    private List<StatBuff> statBuffs = new List<StatBuff>();
 
     [Header("Event Data")]
     [SerializeField] private AudioClipEvent playSFXEvent;
@@ -58,6 +63,13 @@ public class Player : MonoBehaviour
     private void Update()
     {
         InventoryToggle();
+
+        //If there are stat buffs on the player
+        if(statBuffs.Count != 0)
+        {
+            //Update the stat buffs
+            StatBuffsTick();
+        }
     }
 
     public void TakeDamage(int damageAmount){
@@ -144,6 +156,64 @@ public class Player : MonoBehaviour
 
                 //Change player state to inventory
                 playerState = PlayerState.Active;
+            }
+        }
+    }
+
+    public void AddBuff(StatBuff newBuff)
+    {
+        StatBuff buffToAdd = new StatBuff(newBuff.StatType, newBuff.ModType, newBuff.BuffValue, newBuff.Duration);
+        //Define a new stat modifier
+        StatModifier newBuffModifier = buffToAdd.GetBuffModifier();
+
+        switch (buffToAdd.StatType)
+        {
+            case StatType.Strength:
+                //Add the modifier value to the strength stat
+                strength.AddModifier(newBuffModifier);
+
+                //Add the stat buff to the list of stat buffs
+                statBuffs.Add(buffToAdd);
+                break;
+            case StatType.Speed:
+                //Add the modifier to the speed stat
+                speed.AddModifier(newBuffModifier);
+
+                //Add the modifier to the list of stat buffs
+                statBuffs.Add(buffToAdd);
+                break;
+        }
+    }
+
+    private void StatBuffsTick()
+    {
+        //Loop through all of the buffs in reverse
+        for (int i = statBuffs.Count - 1; i >= 0; i--)
+        {
+            //Reduce the duration of the stat buff overtime
+            statBuffs[i].Duration -= Time.deltaTime;
+
+            //If the duration is less than or equal to 0
+            if(statBuffs[i].Duration <= 0)
+            {
+                //Check the stat type of the buff
+                switch (statBuffs[i].StatType)
+                {
+                    case StatType.Strength:
+                        //Remove all modifiers from the stat
+                        strength.RemoveAllModifiersFromSource(statBuffs[i]);
+
+                        //Remove the buff from the list
+                        statBuffs.Remove(statBuffs[i]);
+                        break;
+                    case StatType.Speed:
+                        //Remove all modifiers from the stat
+                        speed.RemoveAllModifiersFromSource(statBuffs[i]);
+
+                        //Remove the buff from the list
+                        statBuffs.Remove(statBuffs[i]);
+                        break;
+                }
             }
         }
     }

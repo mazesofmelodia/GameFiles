@@ -94,6 +94,7 @@ public class RoomController : MonoBehaviour
 
                 navMeshEvent.Raise();
             }
+
             //Exit the function
             return;
         }
@@ -207,8 +208,6 @@ public class RoomController : MonoBehaviour
         }
     }
 
-
-
     public void RegisterRoom(Room room)
     {
         //Check if a room is not at the location
@@ -261,5 +260,11 @@ public class RoomController : MonoBehaviour
     {
         //Checks if there is a room at a given coordinate
         return loadedRooms.Find(item => item.X == x && item.Y == y);
+    }
+
+    public void ClearRooms()
+    {
+        //Remove all loaded rooms
+        loadedRooms.Clear();
     }
 }

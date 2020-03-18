@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Consumable Item", menuName ="Inventory/Consumable")]
-public class ConsumableItem : InventoryItem
+[CreateAssetMenu(fileName = "New Stat Buff Item", menuName = "Inventory/StatBuff")]
+public class StatBuffItem : InventoryItem
 {
-    [Header("Consumable Data")]
+    [Header("Buff Item Details")]
     [SerializeField] private string useText = "Use item";
-    [SerializeField] private int recoverValue;              //Recovery value
-    [SerializeField] private IntEvent restoreEvent;         //Event called to restore the player
+    [SerializeField] private StatBuff statBuff;             //Stat buff
     [SerializeField] ItemSlotEvent useItemEvent;            //Event to use the item
+    [SerializeField] StatBuffEvent buffEvent;               //Stat buff event
 
     public override string GetInfoDisplayText()
     {
@@ -21,7 +21,7 @@ public class ConsumableItem : InventoryItem
         textBuilder.Append(Rarity.name).AppendLine();
 
         //Append the use text to the string builder, color of text is dependent on use/rarity
-        textBuilder.Append("<color=green>Use: ").Append(useText).Append("</color>").AppendLine();
+        textBuilder.Append("<color=blue>Use: ").Append(useText).Append("</color>").AppendLine();
 
         //Append the max stack and sell price to the text
         textBuilder.Append("Max Stack: ").Append(MaxStack).AppendLine();
@@ -32,10 +32,11 @@ public class ConsumableItem : InventoryItem
 
     public override void UseItem()
     {
-        //Raise the restore item event
-        restoreEvent.Raise(recoverValue);
+        //Call stat buff event
+        buffEvent.Raise(statBuff);
 
         //Call event to use item
         useItemEvent.Raise(new ItemSlot(this, 1));
     }
+
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Weapon : InventoryItem
 {
     [Header("Weapon Details")]
-    public int damage;                      //Weapon Damage
+    public int damageAddition;                      //Weapon Damage
     public float attackSpeed;               //Time between attacks
     public float range;                     //Attack Range of weapon
     public GameObject weaponModel;          //Weapon model
@@ -23,7 +23,7 @@ public class Weapon : InventoryItem
         textBuilder.Append(Rarity.name).AppendLine();
 
         //Append the use text to the string builder, color of text is dependent on use/rarity
-        textBuilder.Append("<color=red>Damage: ").Append(damage.ToString()).Append("</color>").AppendLine();
+        textBuilder.Append("<color=red>Damage: +").Append(damageAddition.ToString()).Append("</color>").AppendLine();
         textBuilder.Append("<color=red>Attack Speed: ").Append(attackSpeed.ToString()).Append("</color>").AppendLine();
         textBuilder.Append("<color=red>Range: ").Append(range.ToString()).Append("</color>").AppendLine();
 
