@@ -16,9 +16,9 @@ MonoBehaviour:
   numberOfCrawlers: 2
   iterationMin: 10
   iterationMax: 20
-  startRoomPrefab: {fileID: 1544045279223225553, guid: 83ed6a6057cbecf4b8171695b4b3b09c,
+  startRoomPrefab: {fileID: 2325781639443582811, guid: be92cf3d9ce02a44ebc8b02920f0d6c7,
     type: 3}
-  endRoomPrefab: {fileID: 6068073274723879728, guid: 0dc42c380ab955b4c9201ee53a56b62f,
+  endRoomPrefab: {fileID: 2325781639443582811, guid: 099b8f009ec1ab041bea6da990db98bb,
     type: 3}
   shopRoomPrefab: {fileID: 8849219775660177922, guid: 86debdd6b7b352d42bce810ab329f926,
     type: 3}
@@ -26,4 +26,5 @@ MonoBehaviour:
   - {fileID: 2325781639443582811, guid: 2b131b469e188bc458cd3bf81429c0b7, type: 3}
   - {fileID: 2325781639443582811, guid: f626b54ec0222e6499879c72c5b65506, type: 3}
   - {fileID: 2325781639443582811, guid: df045a57c4b545c4baba3f95cc9f5b11, type: 3}
+  - {fileID: 2325781639443582811, guid: d9da253a47103e04a9c8a8e9b4e379ea, type: 3}
   - {fileID: 2325781639443582811, guid: 97c13dcb29f8ce746ae37540c721ef7a, type: 3}
