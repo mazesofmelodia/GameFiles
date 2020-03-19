@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Text;
 
 public enum StatType
 {
+    MaxHealth,
     Strength,
     Speed
 }
@@ -29,5 +31,26 @@ public class StatBuff
     {
         //Create a new stat modifier and return it
         return new StatModifier(BuffValue, ModType, this);
+    }
+
+    public string GetUpgradeInfo()
+    {
+        //Create a string builder
+        StringBuilder textBuilder = new StringBuilder();
+
+        switch (ModType)
+        {
+            case StatModType.Flat:
+                textBuilder.Append("Increases ").Append(StatType).Append(" by ").Append(BuffValue).AppendLine();
+                break;
+            case StatModType.PercentAdd:
+                textBuilder.Append("Increases ").Append(StatType).Append(" by ").Append(BuffValue * 100).Append("%").AppendLine();
+                break;
+            case StatModType.PercentMult:
+                textBuilder.Append("Increases ").Append(StatType).Append(" by ").Append(BuffValue * 100).Append("%").AppendLine();
+                break;
+        }
+
+        return textBuilder.ToString();
     }
 }

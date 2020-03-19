@@ -160,6 +160,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Function to add a permaanent stat upgrade
+    public void UpgradeStat(StatBuff newUpgrade)
+    {
+        //Get the stat modifier
+        StatModifier newStatMod = newUpgrade.GetBuffModifier();
+
+        switch (newUpgrade.StatType)
+        {
+            case StatType.MaxHealth:
+                //Add the modifier to health
+                maxHealth.AddModifier(newStatMod);
+                //Update the health UI
+                setMaxHealthEvent.Raise((int)maxHealth.Value);
+                break;
+            case StatType.Strength:
+                //Add the modifier to strength
+                strength.AddModifier(newStatMod);
+                break;
+            case StatType.Speed:
+                //Add the modifier to speed
+                speed.AddModifier(newStatMod);
+                break;
+        }
+    }
+
+    //Function to add a temporary stat upgrade
     public void AddBuff(StatBuff newBuff)
     {
         StatBuff buffToAdd = new StatBuff(newBuff.StatType, newBuff.ModType, newBuff.BuffValue, newBuff.Duration);
@@ -168,6 +194,13 @@ public class Player : MonoBehaviour
 
         switch (buffToAdd.StatType)
         {
+            case StatType.MaxHealth:
+                //Add the modifier to the max health stat
+                maxHealth.AddModifier(newBuffModifier);
+
+                //Add the stat buff to the list of stat buffs
+                statBuffs.Add(buffToAdd);
+                break;
             case StatType.Strength:
                 //Add the modifier value to the strength stat
                 strength.AddModifier(newBuffModifier);
@@ -199,6 +232,26 @@ public class Player : MonoBehaviour
                 //Check the stat type of the buff
                 switch (statBuffs[i].StatType)
                 {
+                    case StatType.MaxHealth:
+                        //Remove all modifiers from this buff
+                        maxHealth.RemoveAllModifiersFromSource(statBuffs[i]);
+
+                        //Remove the buff from the list
+                        statBuffs.Remove(statBuffs[i]);
+
+                        //adjust the max health in the ui
+                        setMaxHealthEvent.Raise((int)maxHealth.Value);
+
+                        //If the player's current health is higher than the max health
+                        if(health > maxHealth.Value)
+                        {
+                            //Clamp the current health to the max health value
+                            health = Mathf.Clamp(health, 0, (int) maxHealth.Value);
+
+                            //Update the health ui
+                            setHealthEvent.Raise(health);
+                        }
+                        break;
                     case StatType.Strength:
                         //Remove all modifiers from the stat
                         strength.RemoveAllModifiersFromSource(statBuffs[i]);

@@ -66,4 +66,24 @@ public class TreasureItemInteract : MonoBehaviour
         //Rebuild the layout of the window
         LayoutRebuilder.ForceRebuildLayoutImmediate(popupObject);
     }
+
+    public void DisplayUpgradeInfo(StatBuff statBuff)
+    {
+        //Create a new string builder
+        StringBuilder builder = new StringBuilder();
+
+        //Get the colored text of the item
+        builder.Append("<size=35>").Append("Blessing of ").Append(statBuff.StatType.ToString()).Append("</size>\n");
+
+        builder.Append(statBuff.GetUpgradeInfo()).AppendLine();
+
+        //Set the text based on the built text
+        infoText.text = builder.ToString();
+
+        //Activate the popup object
+        popupCanvasObject.SetActive(true);
+
+        //Rebuild the layout of the window
+        LayoutRebuilder.ForceRebuildLayoutImmediate(popupObject);
+    }
 }

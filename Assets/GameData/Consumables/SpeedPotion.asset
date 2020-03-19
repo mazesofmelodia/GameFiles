@@ -20,7 +20,7 @@ MonoBehaviour:
   maxStack: 3
   useText: Increases Speed by 50% for 10 seconds.
   statBuff:
-    StatType: 1
+    StatType: 2
     ModType: 200
     BuffValue: 0.5
     Duration: 10
