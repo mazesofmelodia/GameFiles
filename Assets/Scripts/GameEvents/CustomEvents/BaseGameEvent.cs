@@ -8,6 +8,7 @@ public abstract class BaseGameEvent<T> : ScriptableObject
 
     public void Raise(T item)
     {
+        //Debug.Log($"{name}: Number of event listeners {eventListeners.Count}");
         //Loop through all event listeners
         for (int i = eventListeners.Count - 1; i >= 0; i--)
         {

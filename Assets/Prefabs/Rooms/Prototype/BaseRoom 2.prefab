@@ -19266,8 +19266,8 @@ MonoBehaviour:
   Y: 0
   enemyPrefab: {fileID: 5507736335536202150, guid: aa287dece1e0cb74c95a697207bb7a47,
     type: 3}
-  spawnPoints:
-  - {fileID: 0}
+  spawnPoints: []
+  specialRoom: 0
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}

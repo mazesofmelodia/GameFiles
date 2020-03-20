@@ -6,13 +6,14 @@ using UnityEngine.EventSystems;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private AudioClip menuMusic;           //Music to play for menu scene
-    [SerializeField] private LevelLoader levelLoader;       //Level Loader
     [SerializeField] private GameObject menuPanel;          //Menu panel
     [SerializeField] private GameObject optionsPanel;       //Options panel
     [SerializeField] private GameObject scoreBoardPanel;    //High Scores Panel
 
     [Header("Event data")]
     [SerializeField] private AudioClipEvent playMusicEvent;
+    [SerializeField] private StringEvent levelChangeEvent;
+    [SerializeField] private VoidEvent quitGameEvent;
 
     [Header("Objects to highlight for Event system")]
     [SerializeField] private GameObject firstMenuButton;        //First menu button to highlight
@@ -25,6 +26,21 @@ public class MenuManager : MonoBehaviour
 
     [Header("Scoreboard")]
     [SerializeField] private Scoreboard scoreboard;             //Scoreboard object
+
+    private void Awake()
+    {
+        //Check if there is a player game object in the scene
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if(playerObject != null)
+        {
+            //Set player spawned to false
+            PlayerSpawner.PlayerSpawned = false;
+
+            //Destroy the object
+            Destroy(playerObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +55,12 @@ public class MenuManager : MonoBehaviour
     public void StartGame(string levelName)
     {
         //Load the given level
-        levelLoader.LoadLevel(levelName);
+        levelChangeEvent.Raise(levelName);
     }
 
     public void QuitGame(){
         //Call the level loader to quit the game
-        levelLoader.QuitGame();
+        quitGameEvent.Raise();
     }
 
     public void OpenOptions()

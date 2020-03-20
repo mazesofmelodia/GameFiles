@@ -28,12 +28,31 @@ public class PlayerController : MonoBehaviour
     {
         //Get the player component
         player = GetComponent<Player>();
-        //Set the main camera as the main camera, I'll need to change this later
-        playerCam = Camera.main;
+
+        GetCameraRef();
+
         //Get the character controller component
         controller = GetComponent<CharacterController>();
         //Get the animator component
         //anim = GetComponent<Animator>();
+    }
+
+    public void GetCameraRef()
+    {
+        //Set the main camera as the main camera
+        playerCam = Camera.main;
+    }
+
+    public void SetPosition(Transform newPosition)
+    {
+        //Disable the character controller
+        controller.enabled = false;
+
+        //Change the character position
+        this.gameObject.transform.position = newPosition.position;
+
+        //Enable the character controller
+        controller.enabled = true;
     }
 
     // Update is called once per frame

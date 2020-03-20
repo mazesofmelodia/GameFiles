@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     //[SerializeField] private int maxHealth = 100;
     [SerializeField] private int score = 0;
+    [SerializeField] private Transform cameraTarget;    //Target for the game camera
     [SerializeField] private AudioClip damageSound; //Damage sound on player
     [SerializeField] private AudioClip deathSound;  //Death Sound on player
 
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
     [SerializeField] private VoidEvent loseGameEvent;
     [SerializeField] private VoidEvent toggleInventoryEvent;
     [SerializeField] private InventoryEvent inventoryEvent;
+    [SerializeField] private TransformEvent setCameraRefEvent;
 
     private int health;
 
@@ -51,13 +53,23 @@ public class Player : MonoBehaviour
 
         //Get reference to animator component
         //anim = GetComponent<Animator>();
+
+        StartLevel();
+        
+    }
+
+    public void StartLevel()
+    {
         //Set up the player UI
-        setMaxHealthEvent.Raise((int) maxHealth.Value);
+        setMaxHealthEvent.Raise((int)maxHealth.Value);
         setHealthEvent.Raise(health);
         setScoreEvent.Raise(score);
 
         //Link the player inventory to any relevant components
         inventoryEvent.Raise(inventory);
+
+        //Set up the reference to the camera
+        setCameraRefEvent.Raise(cameraTarget);
     }
 
     private void Update()

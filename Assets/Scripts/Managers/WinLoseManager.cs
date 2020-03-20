@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class WinLoseManager : MonoBehaviour
 {
     [Header("Level Loader")]
-    [SerializeField] private LevelLoader levelLoader;
-    [SerializeField] private string startLevelName;
-    [SerializeField] private string menuLevelName;
+    [SerializeField] private string startLevelName;             //Start level name
+    [SerializeField] private string menuLevelName;              //Menu level name
+    [SerializeField] private StringEvent levelChangeEvent;      //Change level Event
 
     [Header("UI")]
     [SerializeField] private GameObject endScreenPanel;         //Screen that appears at the end of the game
@@ -123,7 +123,7 @@ public class WinLoseManager : MonoBehaviour
         Time.timeScale = 1;
 
         //Call the Level loader and load the first level
-        levelLoader.LoadLevel(startLevelName);
+        levelChangeEvent.Raise(startLevelName);
     }
 
     public void QuitToMenu()
@@ -131,6 +131,6 @@ public class WinLoseManager : MonoBehaviour
         Time.timeScale = 1;
 
         //Call the level loader and load the menu scene
-        levelLoader.LoadLevel(menuLevelName);
+        levelChangeEvent.Raise(menuLevelName);
     }
 }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MazeTest.unity
     guid: ee11843451064ee49a3a24da11db8aeb
+  - enabled: 1
+    path: Assets/Scenes/MazeTest2.unity
+    guid: 3b8f0ae8db7be2b409b57a05726d1331
   m_configObjects: {}

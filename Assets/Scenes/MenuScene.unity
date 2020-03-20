@@ -1478,11 +1478,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 4c07c5b329487be4b95ccbded96980d7, type: 3}
-  levelLoader: {fileID: 1376826604}
   menuPanel: {fileID: 1978522776}
   optionsPanel: {fileID: 2084519350}
   scoreBoardPanel: {fileID: 1672706215}
   playMusicEvent: {fileID: 11400000, guid: 41f46456945db1d45a6b743aea842c12, type: 2}
+  levelChangeEvent: {fileID: 11400000, guid: d2d4c8f2e529f6547b6909c6b55bece3, type: 2}
+  quitGameEvent: {fileID: 11400000, guid: 1c41ffe049247254682f9bfc00093be4, type: 2}
   firstMenuButton: {fileID: 285541745}
   secondMenuButton: {fileID: 437825068}
   firstOptionButton: {fileID: 1177545703}
@@ -1811,18 +1812,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1501967670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1376826604 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5429845868997116094, guid: f9a50bdd95ec7ea40af87331c72fe7c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 5167722772472532761}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e234dbdfa2757148baab885522d03af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1406789478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3282,6 +3271,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8399519660494884166, guid: 1cb16f5ae4cdb314280b53031648f011,
+        type: 3}
+      propertyPath: m_Name
+      value: BackButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8813013263390697894, guid: 1cb16f5ae4cdb314280b53031648f011,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3386,11 +3380,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399519660494884166, guid: 1cb16f5ae4cdb314280b53031648f011,
-        type: 3}
-      propertyPath: m_Name
-      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 8399519660494884164, guid: 1cb16f5ae4cdb314280b53031648f011,
         type: 3}

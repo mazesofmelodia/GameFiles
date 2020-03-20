@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PauseManager : MonoBehaviour
 {
-    [SerializeField] private LevelLoader levelLoader;   //Level Loader Object
+    [SerializeField] private StringEvent levelChangeEvent;  //Event to call for changing levels
     [SerializeField] private GameObject pauseScreen;    //Pause Screen
     [SerializeField] private GameObject optionsScreen;  //Options Screen
 
@@ -94,7 +94,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
 
         //Fade to the menu scene
-        levelLoader.LoadLevel(menuLevelName);
+        levelChangeEvent.Raise(menuLevelName);
     }
 
     //Function called when the player wins or loses
