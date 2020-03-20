@@ -23,8 +23,7 @@ MonoBehaviour:
   shopRoomPrefab: {fileID: 8849219775660177922, guid: 86debdd6b7b352d42bce810ab329f926,
     type: 3}
   randomRoomPrefabs:
-  - {fileID: 2325781639443582811, guid: 2b131b469e188bc458cd3bf81429c0b7, type: 3}
-  - {fileID: 2325781639443582811, guid: f626b54ec0222e6499879c72c5b65506, type: 3}
-  - {fileID: 2325781639443582811, guid: df045a57c4b545c4baba3f95cc9f5b11, type: 3}
-  - {fileID: 2325781639443582811, guid: d9da253a47103e04a9c8a8e9b4e379ea, type: 3}
-  - {fileID: 2325781639443582811, guid: 97c13dcb29f8ce746ae37540c721ef7a, type: 3}
+  - {fileID: 2325781639443582811, guid: f3fed960d33a3a04c94dbcb31246a4db, type: 3}
+  - {fileID: 2325781639443582811, guid: a5616f5bd4afaa240a633c0ab8a25335, type: 3}
+  - {fileID: 2325781639443582811, guid: 5600ea7c20e9b45439467dbcbc5be0a7, type: 3}
+  - {fileID: 2325781639443582811, guid: 89bbd1214bf36c644a43cb87b1da7538, type: 3}
