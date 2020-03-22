@@ -12,6 +12,7 @@ public class UpgradeItem : MonoBehaviour, IInteractable
     [SerializeField] private VoidEvent onDestroyEvent;
     [SerializeField] private StatBuffEvent onApproachEvent;
     [SerializeField] private VoidEvent onDistanceEvent;
+    [SerializeField] private VoidEvent onUpgradeTakenEvent;
 
     public void Interact(GameObject other)
     {
@@ -35,6 +36,9 @@ public class UpgradeItem : MonoBehaviour, IInteractable
 
         //Play the pickup sound
         playSFXEvent.Raise(pickupSound);
+
+        //Call the upgrade taken event
+        onUpgradeTakenEvent.Raise();
 
         //Destroy this object
         Destroy(this.gameObject);

@@ -225,8 +225,8 @@ GameObject:
   - component: {fileID: 4461001878551566290}
   - component: {fileID: 6008552126718818984}
   - component: {fileID: 2562634050210470100}
-  - component: {fileID: 5507736335536202150}
   - component: {fileID: 1261302814}
+  - component: {fileID: -931444011533757902}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -283,37 +283,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.7
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5507736335536202150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843281757326042561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f9d21684007684598c1cdb672a8299, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  damage: 5
-  speed: 2
-  timeBetweenAttacks: 2
-  damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
-  deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
-  agent: {fileID: 1261302814}
-  lootItems:
-  - dropItem: {fileID: 6271746332729622614, guid: eb7a49ac7f4c39544a65cfa5b8c13642,
-      type: 3}
-    dropChance: 50
-  - dropItem: {fileID: 3545523730079268904, guid: 6c0e71cea96f4e243b413c1486cb19c2,
-      type: 3}
-    dropChance: 100
-  itemDropRange: 2
-  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
-  enemyCountEvent: {fileID: 11400000, guid: 97f185738f31ca24fbe26beab57ae253, type: 2}
-  attackPoint: {fileID: 47224316}
-  range: 1
 --- !u!195 &1261302814
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -336,6 +305,42 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-931444011533757902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843281757326042561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da47ef7bc7d6f504093a1dbec787f7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 2
+  damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
+  deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
+  agent: {fileID: 1261302814}
+  attackPoints:
+  - {fileID: 47224316}
+  range: 2
+  combatAction: {fileID: 11400000, guid: 65f80743a18c4294ebbf52cebe78deee, type: 2}
+  maxHealth:
+    BaseValue: 50
+  strength:
+    BaseValue: 5
+  speed:
+    BaseValue: 4
+  lootItems:
+  - dropItem: {fileID: 3545523730079268904, guid: 6c0e71cea96f4e243b413c1486cb19c2,
+      type: 3}
+    dropChance: 100
+  - dropItem: {fileID: 6271746332729622614, guid: eb7a49ac7f4c39544a65cfa5b8c13642,
+      type: 3}
+    dropChance: 50
+  itemDropRange: 2
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
+  enemyCountEvent: {fileID: 11400000, guid: 97f185738f31ca24fbe26beab57ae253, type: 2}
 --- !u!1 &3473614560445480254
 GameObject:
   m_ObjectHideFlags: 0

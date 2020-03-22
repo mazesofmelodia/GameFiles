@@ -1006,6 +1006,7 @@ MonoBehaviour:
   cameraTarget: {fileID: 2043549036502094257}
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
+  combatActions: []
   maxHealth:
     BaseValue: 100
   strength:

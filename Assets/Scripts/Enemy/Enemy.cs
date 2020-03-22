@@ -5,14 +5,24 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private int health;
-    [SerializeField] protected int maxHealth = 100;         //Max health of enemy
-    [SerializeField] protected int damage;                  //Enemy Damage
-    [SerializeField] protected float speed;                 //Enemy Movement Speed
+    protected int health;
+    //[SerializeField] protected int maxHealth = 100;         //Max health of enemy
+    //[SerializeField] protected int damage;                  //Enemy Damage
+    //[SerializeField] protected float speed;                 //Enemy Movement Speed
     [SerializeField] protected float timeBetweenAttacks;    //Time between enemy attacks
-    [SerializeField] private AudioClip damageSound; //Damage sound on player
-    [SerializeField] private AudioClip deathSound;  //Death Sound on player
-    [SerializeField] protected NavMeshAgent agent;    //Enemy Navigation agent
+    [SerializeField] protected AudioClip damageSound;         //Damage sound on player
+    [SerializeField] protected AudioClip deathSound;          //Death Sound on player
+    [SerializeField] protected NavMeshAgent agent;          //Enemy Navigation agent
+    [SerializeField] private Transform[] attackPoints;      //Enemy Attack point
+    [SerializeField] private float range;                   //Enemy attack range
+    [SerializeField] private CombatAction combatAction;
+
+    private float attackTime;                       //Enemy attack time
+
+    [Header("Enemy Stats")]
+    public CharacterStat maxHealth;
+    public CharacterStat strength;
+    public CharacterStat speed;
 
     [Header("Item Drops")]
     //List of Loot from the enemy
@@ -20,7 +30,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float itemDropRange = 2;     //Range of item drops
 
     [Header("Event Data")]
-    [SerializeField] private AudioClipEvent playSFXEvent;
+    [SerializeField] protected AudioClipEvent playSFXEvent;
     [SerializeField] private IntEvent enemyCountEvent;
 
     protected Player playerTarget;                       //Player to target
@@ -32,11 +42,13 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         //Set health to maxHealth
-        health = maxHealth;
+        health = (int)maxHealth.Value;
         //Find the player in scene
         playerTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         //Set the nav agent target to the player
         agent.destination = playerTarget.transform.position;
+        //Set the speed of the agent
+        agent.speed = speed.Value;
         //Get reference to the animator component
         anim = GetComponent<Animator>();
         //Get reference to collider
@@ -44,16 +56,57 @@ public class Enemy : MonoBehaviour
         //Increase the number of enemies in the scene by one
         enemyCountEvent.Raise(1);
     }
+    // Update is called once per frame
+    void Update()
+    {
+        if (isDead)
+        {
+            return;
+        }
+        //Check if there was a player in the scene
+        if (playerTarget.playerState != PlayerState.Dead)
+        {
+            //Turn the enemy towards the player
+            agent.destination = playerTarget.transform.position;
+            //Check if the distance between the enemy and the player is greater than the stop distance
+            if (Vector3.Distance(transform.position, playerTarget.transform.position) > agent.stoppingDistance)
+            {
+                //Toggle enemy animation
+                anim.SetBool("IsMoving", true);
+            }
+            else
+            {
+                //If time passed is greater than attack time
+                if (Time.time >= attackTime)
+                {
+                    //Toggle enemy animation
+                    anim.SetBool("IsMoving", false);
+                    //Start the attack function
+                    Attack();
+                    //Change the attack time to current time + time between attacks
+                    attackTime = Time.time + timeBetweenAttacks;
+                }
+            }
+        }
+        else
+        {
+            //Stop the enemy from moving
+            agent.isStopped = true;
 
-    public void TakeDamage(int damageAmount){
-        //Player takes damage based on damage amount
+            //Play enemy idle animation
+            anim.SetBool("IsMoving", false);
+        }
+    }
+
+    public virtual void TakeDamage(int damageAmount){
+        //Enemy takes damage based on damage amount
         health -= damageAmount;
         //Play damage sound
         playSFXEvent.Raise(damageSound);
 
-        //Check if the player has lost all of their health
+        //Check if the enemy has lost all of their health
         if(health <= 0){
-            //Player is dead
+            //Enemy is dead
             Die();
 
             //Set the isdead bool to true
@@ -62,7 +115,7 @@ public class Enemy : MonoBehaviour
     }
 
     //Enemy has lost all of their health
-    private void Die(){
+    protected virtual void Die(){
         agent.isStopped = true;
 
         //Play the death animation
@@ -107,5 +160,16 @@ public class Enemy : MonoBehaviour
                 Instantiate(lootItem.dropItem, transform.position + randomPos, Quaternion.identity);
             }
         }
+    }
+
+    void Attack()
+    {
+        //Play the attack animation
+        anim.SetTrigger("Attacking");
+    }
+
+    public void HitPlayer()
+    {
+        combatAction?.Invoke(attackPoints, (int)strength.Value, range);
     }
 }
