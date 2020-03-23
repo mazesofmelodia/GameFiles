@@ -19268,7 +19268,7 @@ MonoBehaviour:
   height: 20
   X: 0
   Y: 0
-  enemyPrefab: {fileID: 5507736335536202150, guid: aa287dece1e0cb74c95a697207bb7a47,
+  enemyPrefab: {fileID: -931444011533757902, guid: aa287dece1e0cb74c95a697207bb7a47,
     type: 3}
   spawnPoints: []
   specialRoom: 0

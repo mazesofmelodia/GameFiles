@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4614574540764036158}
   - component: {fileID: 1992188016594801222}
   m_Layer: 8
-  m_Name: Level2Basement 1
+  m_Name: Level2BaseRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14629,7 +14629,7 @@ MonoBehaviour:
   height: 20
   X: 0
   Y: 0
-  enemyPrefab: {fileID: 5507736335536202150, guid: aa287dece1e0cb74c95a697207bb7a47,
+  enemyPrefab: {fileID: -931444011533757902, guid: aa287dece1e0cb74c95a697207bb7a47,
     type: 3}
   spawnPoints:
   - {fileID: 4860671460297710605}
