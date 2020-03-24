@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7012915885788869189}
   - component: {fileID: 2020400343911532659}
   - component: {fileID: 5707589065384621194}
-  - component: {fileID: 2605425951800071774}
   - component: {fileID: 2605425951800071760}
+  - component: {fileID: -2342482692011092658}
   - component: {fileID: 4525086433233169912}
   - component: {fileID: 3797818033707997163}
   - component: {fileID: 9066520554512384311}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: healthcoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,21 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2605425951800071774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84ff5ff923bfde849a8343cd7f5875fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restoreHealthValue: 100
-  pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
-  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
 --- !u!114 &2605425951800071760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +101,22 @@ MonoBehaviour:
   ReverseX: 1
   ReverseY: 0
   ReverseZ: 0
+--- !u!114 &-2342482692011092658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271746332729622614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c145253284b0c744847aeacb24e326e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupValue: 100
+  pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
+  playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
+  pickupEvent: {fileID: 11400000, guid: fea98f541e901024dada5e15e2d5306a, type: 2}
 --- !u!135 &4525086433233169912
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class Weapon : InventoryItem
     public float attackSpeed;               //Time between attacks
     public float range;                     //Attack Range of weapon
     public GameObject weaponModel;          //Weapon model
+    public CombatAction combatAction;       //Combat action of the weapon
+    public AudioClip weaponSound;           //Weapon sound effect
     [SerializeField] private WeaponEvent weaponChangeEvent;   //Event which is called to switch the weapon
     [SerializeField] private ItemSlotEvent useItemEvent;      //Event to use the item
 

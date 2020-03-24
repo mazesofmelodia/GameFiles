@@ -29,6 +29,11 @@ public class Hotbar : MonoBehaviour
         hotbarDisabled = !hotbarDisabled;
     }
 
+    public void DisableHotbar()
+    {
+        hotbarDisabled = false;
+    }
+
     public void SetInventoryReference(Inventory newInventory)
     {
         //Loop through all hotbar slots

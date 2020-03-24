@@ -24,8 +24,11 @@ public class Player : MonoBehaviour
 
     [Header("Character Stats")]
     public CharacterStat maxHealth;     //Max Health of the player
+    public CharacterStat maxMana;       //Max mana of the player
+    public CharacterStat manaRegen;     //Rate of mana regeneration
     public CharacterStat strength;      //Base damage of player
     public CharacterStat speed;         //Player speed
+    public CharacterStat magic;         //Magic Power of the character
 
     //List of stat buffs on the player
     private List<StatBuff> statBuffs = new List<StatBuff>();
@@ -34,6 +37,8 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClipEvent playSFXEvent;
     [SerializeField] private IntEvent setMaxHealthEvent;
     [SerializeField] private IntEvent setHealthEvent;
+    [SerializeField] private IntEvent setMaxManaEvent;
+    [SerializeField] private IntEvent setManaEvent;
     [SerializeField] private IntEvent setScoreEvent;
     [SerializeField] private IntEvent submitScoreEvent;
     [SerializeField] private VoidEvent loseGameEvent;
@@ -41,7 +46,9 @@ public class Player : MonoBehaviour
     [SerializeField] private InventoryEvent inventoryEvent;
     [SerializeField] private TransformEvent setCameraRefEvent;
 
-    private int health;
+    private int health;                 //Current health
+    private int mana;                   //Current mana
+    private float manaRegenTimer = 0;   //Measure for regenerating mana
 
     private void Start() {
         //Hide the mouse cursor and lock it in place
@@ -50,6 +57,9 @@ public class Player : MonoBehaviour
 
         //Set health to maxHealth
         health = (int) maxHealth.Value;
+
+        //Set mana to maxMana
+        mana = (int)maxMana.Value;
 
         //Get reference to animator component
         //anim = GetComponent<Animator>();
@@ -62,6 +72,8 @@ public class Player : MonoBehaviour
     {
         //Set up the player UI
         setMaxHealthEvent.Raise((int)maxHealth.Value);
+        setMaxManaEvent.Raise((int)maxMana.Value);
+        setManaEvent.Raise(mana);
         setHealthEvent.Raise(health);
         setScoreEvent.Raise(score);
 
@@ -74,6 +86,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpendMana(10);
+        }
+
+        ManaRegen();
         InventoryToggle();
 
         //If there are stat buffs on the player
@@ -87,6 +105,8 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount){
         //Player takes damage based on damage amount
         health -= damageAmount;
+        //Clamp the value to make sure it doesn't go below 0
+        health = Mathf.Clamp(health, 0, (int)maxHealth.Value);
         //Play damage sound
         playSFXEvent.Raise(damageSound);
 
@@ -108,6 +128,70 @@ public class Player : MonoBehaviour
 
         //Update the health bar
         setHealthEvent.Raise(health);
+    }
+
+    //Function to get the current health value
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    private void ManaRegen()
+    {
+        //If the mana is equal to the max mana
+        if(mana == maxMana.Value)
+        {
+            //Ignore this function
+            return;
+        }
+
+        //Check if the game was won or if the player is dead
+        if(playerState == PlayerState.Dead || playerState == PlayerState.Win)
+        {
+            return;
+        }
+
+        //Increase the timer over time
+        manaRegenTimer += Time.deltaTime;
+
+        //If a second has passed
+        if(manaRegenTimer >= 1)
+        {
+            //Increase mana by mana regen
+            RecoverMana((int)manaRegen.Value);
+
+            //Set the regen timer back to 0
+            manaRegenTimer = 0;
+        }
+    }
+
+    public void SpendMana(int manaCost)
+    {
+        //Reduce mana by the cost
+        mana -= manaCost;
+
+        //Clamp mana value so it doesn't go below 0
+        mana = Mathf.Clamp(mana, 0, (int)maxMana.Value);
+
+        //Update the mana UI
+        setManaEvent.Raise(mana);
+    }
+
+    public void RecoverMana(int recoverAmount)
+    {
+        //Recover mana
+        mana += recoverAmount;
+        //Clamp mana value so it doesn't go above max mana
+        mana = Mathf.Clamp(mana, 0, (int)maxMana.Value);
+
+        //Update the mana bar
+        setManaEvent.Raise(mana);
+    }
+
+    //Get the current mana value
+    public int GetMana()
+    {
+        return mana;
     }
 
     public void UpdateScore(int scorePoints){

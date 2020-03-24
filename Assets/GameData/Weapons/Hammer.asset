@@ -23,5 +23,7 @@ MonoBehaviour:
   range: 0.75
   weaponModel: {fileID: 3561857164473382715, guid: 786b30d76b75e76428496cfcb1f0ee11,
     type: 3}
+  combatAction: {fileID: 11400000, guid: 8b76ada40ecee64448978761ff661cdf, type: 2}
+  weaponSound: {fileID: 8300000, guid: b5ee594d217775e419e477413a2414a8, type: 3}
   weaponChangeEvent: {fileID: 11400000, guid: 72cd00bd590a104478fccde9c66089cf, type: 2}
   useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}

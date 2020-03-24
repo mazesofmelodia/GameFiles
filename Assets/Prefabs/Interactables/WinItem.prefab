@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8286756692958509747}
   - component: {fileID: 6326700769756577675}
   - component: {fileID: 7184721744523586019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8967498868168934935}
   - component: {fileID: 3938729858770558762}
   - component: {fileID: 3033354464232642881}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WinItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6420259263490021336}
   - component: {fileID: 2934531356843643364}
   - component: {fileID: 3117721128419907598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

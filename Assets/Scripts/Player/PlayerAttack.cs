@@ -8,10 +8,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackSpeed; //Attack speed
     [SerializeField] private float range;       //Attack range*/
     [SerializeField] private Weapon currentWeapon;  //Current Weapon the player is holding
-    [SerializeField] private AudioClip attackSound; //Sound that plays when the player attacks
 
     [Space]
-    [SerializeField] private Transform attackPoint; //For melee attacks
+    [SerializeField] private Transform[] attackPoints; //For melee attacks
     [SerializeField] private Transform weaponPoint; //Point to move the weapon Towards
 
     [Header("Event Data")]
@@ -42,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
                 //Play the attacking animation
                 player.anim.SetTrigger("Attacking");
                 //Play attack sound
-                playSFXEvent.Raise(attackSound);
+                playSFXEvent.Raise(currentWeapon.weaponSound);
 
                 //Set time between attack to be the attack speed value
                 timeBetweenAttack = currentWeapon.attackSpeed;
@@ -93,20 +92,8 @@ public class PlayerAttack : MonoBehaviour
     //Function activated as part of an animation event
     public void Attack(){
 
-        //Emit a sphere to hurt objects in the scene
-        Collider[] attackedObjects = Physics.OverlapSphere(attackPoint.position, currentWeapon.range);
-
-        //Loop through all hit objects
-        for (int i = 0; i < attackedObjects.Length; i++)
-        {
-            //Check if the hit object has an Enemy stats component
-            Enemy hitEnemy = attackedObjects[i].GetComponent<Enemy>();
-
-            if(hitEnemy != null){
-                //Damage the enemy
-                hitEnemy.TakeDamage((int) player.strength.Value);
-            }
-        }
+        //Call the weapon combat action
+        currentWeapon.combatAction.Invoke(attackPoints, (int) player.strength.Value, currentWeapon.range);
     }
 
     private void PositionWeapon(Weapon weaponToPosition, float scaleFactor = 0.005f){
