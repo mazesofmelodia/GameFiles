@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private AudioClip menuMusic;           //Music to play for menu scene
     [SerializeField] private GameObject menuPanel;          //Menu panel
+    [SerializeField] private GameObject charactersPanel;    //Character select panel
     [SerializeField] private GameObject optionsPanel;       //Options panel
     [SerializeField] private GameObject scoreBoardPanel;    //High Scores Panel
 
@@ -18,6 +19,8 @@ public class MenuManager : MonoBehaviour
     [Header("Objects to highlight for Event system")]
     [SerializeField] private GameObject firstMenuButton;        //First menu button to highlight
     [SerializeField] private GameObject secondMenuButton;       //Second menu Button to highlight
+    [SerializeField] private GameObject thirdMenuButton;        //Third menu Button to highlight
+    [SerializeField] private GameObject firstCharacterButton;   //First character button to highlight
     [SerializeField] private GameObject firstOptionButton;      //First option button to highlight
     [SerializeField] private GameObject firstScoreBoardButton;  //First button to highlight for scoreboard
 
@@ -39,6 +42,9 @@ public class MenuManager : MonoBehaviour
 
             //Destroy the object
             Destroy(playerObject);
+
+            //Set the selected character to null
+            PlayerSpawner.SelectedCharacter = null;
         }
     }
     // Start is called before the first frame update
@@ -63,6 +69,28 @@ public class MenuManager : MonoBehaviour
         quitGameEvent.Raise();
     }
 
+    public void OpenCharacterSelect()
+    {
+        //Hide the menu panel
+        menuPanel.SetActive(false);
+        //Display the characters panel
+        charactersPanel.SetActive(true);
+
+        //Set the first highlighted object to the first character button
+        eventSystem.SetSelectedGameObject(firstCharacterButton);
+    }
+
+    public void CloseCharacterSelect()
+    {
+        //Hide the characters panel
+        charactersPanel.SetActive(false);
+        //Show the menu panel
+        menuPanel.SetActive(true);
+
+        //Set the first highlighted object to the first menu button
+        eventSystem.SetSelectedGameObject(firstMenuButton);
+    }
+
     public void OpenOptions()
     {
         //Hide the menu panel
@@ -82,7 +110,7 @@ public class MenuManager : MonoBehaviour
         menuPanel.SetActive(true);
 
         //Set the first highlighted object to the first menu button
-        eventSystem.SetSelectedGameObject(secondMenuButton);
+        eventSystem.SetSelectedGameObject(thirdMenuButton);
     }
 
     public void OpenScoreBoard()
@@ -107,6 +135,6 @@ public class MenuManager : MonoBehaviour
         menuPanel.SetActive(true);
 
         //Set the first highlighted object to the first menu button
-        eventSystem.SetSelectedGameObject(firstMenuButton);
+        eventSystem.SetSelectedGameObject(secondMenuButton);
     }
 }

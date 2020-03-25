@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : MonoBehaviour
+public class RoomItemSpawner : MonoBehaviour
 {
     //List of item spawn points
     [SerializeField] private List<GameObject> itemSpawnPoints = new List<GameObject>();
 
     //List of shop items
-    [SerializeField] private List<GameObject> shopItems = new List<GameObject>();
+    [SerializeField] private List<GameObject> items = new List<GameObject>();
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour
             foreach (GameObject spawnPoint in itemSpawnPoints)
             {
                 //Select a random item
-                GameObject randomObject = shopItems[Random.Range(0, shopItems.Count)];
+                GameObject randomObject = items[Random.Range(0, items.Count)];
 
                 //Spawn the item at the shop point
                 Instantiate(randomObject, spawnPoint.transform.position, Quaternion.identity);

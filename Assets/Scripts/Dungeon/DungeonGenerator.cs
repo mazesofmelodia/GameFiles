@@ -16,8 +16,9 @@ public class DungeonGenerator : MonoBehaviour
         dungeonRooms = DungeonCrawlerController.GenerateDungeon(generationData);
 
         //Set the boss and shop room for this dungeon
-        RoomController.instance.SetBossRoom(generationData.endRoomPrefab);
-        RoomController.instance.SetShopRoom(generationData.shopRoomPrefab);
+        RoomController.instance.SetBossRoom(generationData.endRoom);
+        RoomController.instance.SetShopRoom(generationData.shopRoom);
+        RoomController.instance.SetTreasureRoom(generationData.treasureRoom);
 
         //Spawn the rooms
         SpawnRooms(dungeonRooms);
@@ -27,7 +28,7 @@ public class DungeonGenerator : MonoBehaviour
     private void SpawnRooms(IEnumerable<Vector2Int> rooms)
     {
         //Load the start room
-        RoomController.instance.LoadRoom(generationData.startRoomPrefab, 0, 0);
+        RoomController.instance.LoadRoom(generationData.startRoom, 0, 0);
 
         //Loop through all location points in dungeon rooms
         foreach (Vector2Int roomLocation in rooms)

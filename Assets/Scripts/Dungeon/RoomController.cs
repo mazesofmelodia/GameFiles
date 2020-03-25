@@ -19,6 +19,7 @@ public class RoomController : MonoBehaviour
     public static RoomController instance;      //Singleton Instance of the Room Controller
 
     private GameObject endRoomObject;
+    private GameObject treasureRoomObject;      //Rooms that will be generated later in the dungeon
     private GameObject shopRoomObject;
 
     RoomInfo currentLoadRoomData;               //Info of room being loaded
@@ -33,6 +34,7 @@ public class RoomController : MonoBehaviour
 
     bool isLoadingRoom = false;                 //Check if a room is being loaded
     bool spawnedBossRoom = false;               //Check if the boss room has spawned
+    bool spawnedTreasureRoom = false;           //Check if the treasure toom has spawned
     bool spawnedShopRoom = false;               //Check if the shop room has been spawned
     bool updatedRooms = false;                  //Check to see if we updated the rooms
 
@@ -75,13 +77,18 @@ public class RoomController : MonoBehaviour
             {
                 SpawnBossRoom(endRoomObject);
             }
+            //Check to see if the treasure room has been spawned
+            else if (!spawnedTreasureRoom)
+            {
+                SpawnTreasureRoom(treasureRoomObject);
+            }
             //Check if the shop room has been spawned
             else if (!spawnedShopRoom)
             {
                 SpawnShopRoom(shopRoomObject);
             }
-            //Check if the boss room has been added but the rooms have not been updated
-            else if(spawnedBossRoom && spawnedShopRoom && !updatedRooms)
+            //Check if the extra rooms have been added but the rooms have not been updated
+            else if(spawnedBossRoom && spawnedShopRoom && spawnedTreasureRoom && !updatedRooms)
             {
                 //Loop through all rooms
                 foreach (Room room in loadedRooms)
@@ -116,6 +123,11 @@ public class RoomController : MonoBehaviour
         endRoomObject = bossRoomPrefab;
     }
 
+    //Sets the treasure room to spawn within the dungeon
+    public void SetTreasureRoom(GameObject treasureRoomPrefab)
+    {
+        treasureRoomObject = treasureRoomPrefab;
+    }
     //Sets the shop room object to spawn within the dungeon
     public void SetShopRoom(GameObject shopRoomPrefab)
     {
@@ -179,7 +191,36 @@ public class RoomController : MonoBehaviour
         }
     }
 
-    public void SpawnShopRoom(GameObject bossRoomObject)
+    public void SpawnTreasureRoom(GameObject treasureRoomSpawn)
+    {
+        //The treasure room has now been spawned
+        spawnedTreasureRoom = true;
+
+        //If the load room queue empty
+        if (loadRoomQueue.Count == 0)
+        {
+            //Set the treasure room to be a room of the selected range
+            //Range is below halfway but after the starting room
+            Room treasureRoom = loadedRooms[Random.Range(1, Mathf.RoundToInt(loadedRooms.Count / 2))];
+
+            //Define a temporary room to record x and y values
+            Room tempRoom = new Room(treasureRoom.X, treasureRoom.Y);
+
+            //Destroy the treasure room
+            Destroy(treasureRoom.gameObject);
+
+            //Find the room to replace by comparing x and y values of the temp room
+            var roomToReplace = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
+
+            //Remove the room from the list
+            loadedRooms.Remove(roomToReplace);
+
+            //Load the treasure room
+            LoadRoom(treasureRoomSpawn, tempRoom.X, tempRoom.Y);
+        }
+    }
+
+    public void SpawnShopRoom(GameObject shopRoomSpawn)
     {
         //The shop room has now been spawned
         spawnedShopRoom = true;
@@ -189,12 +230,12 @@ public class RoomController : MonoBehaviour
         {
             //Set the shop room to be a room of the selected range
             //Range is above halfway but before the boss room
-            Room shopRoom = loadedRooms[Random.Range(Mathf.RoundToInt(loadedRooms.Count / 2), loadedRooms.Count - 2)];
+            Room shopRoom = loadedRooms[Random.Range(Mathf.RoundToInt(loadedRooms.Count / 2), loadedRooms.Count - 1)];
 
             //Define a temporary room to record x and y values
             Room tempRoom = new Room(shopRoom.X, shopRoom.Y);
 
-            //Destroy the boss room
+            //Destroy the shop room
             Destroy(shopRoom.gameObject);
 
             //Find the room to replace by comparing x and y values of the temp room
@@ -203,8 +244,8 @@ public class RoomController : MonoBehaviour
             //Remove the room from the list
             loadedRooms.Remove(roomToReplace);
 
-            //Load the end room
-            LoadRoom(bossRoomObject, tempRoom.X, tempRoom.Y);
+            //Load the shop room
+            LoadRoom(shopRoomSpawn, tempRoom.X, tempRoom.Y);
         }
     }
 

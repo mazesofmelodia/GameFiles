@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+                RotateTowards(playerTarget.transform);
                 //If time passed is greater than attack time
                 if (Time.time >= attackTime)
                 {
@@ -160,6 +161,19 @@ public class Enemy : MonoBehaviour
                 Instantiate(lootItem.dropItem, transform.position + randomPos, Quaternion.identity);
             }
         }
+    }
+
+    //Rotate the enemy towards the player
+    private void RotateTowards(Transform target)
+    {
+        //Get the direction to turn towards
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        //Define the amount of rotation that needs to be applied
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+        //Turn the enemy towards the target
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * agent.angularSpeed);
     }
 
     void Attack()

@@ -86,11 +86,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpendMana(10);
-        }
-
         ManaRegen();
         InventoryToggle();
 
@@ -270,6 +265,16 @@ public class Player : MonoBehaviour
                 //Update the health UI
                 setMaxHealthEvent.Raise((int)maxHealth.Value);
                 break;
+            case StatType.MaxMana:
+                //Add the modifier to mana
+                maxMana.AddModifier(newStatMod);
+                //Update the mana UI
+                setMaxManaEvent.Raise((int)maxMana.Value);
+                break;
+            case StatType.ManaRegen:
+                //Add the modifier to mana regen
+                manaRegen.AddModifier(newStatMod);
+                break;
             case StatType.Strength:
                 //Add the modifier to strength
                 strength.AddModifier(newStatMod);
@@ -277,6 +282,10 @@ public class Player : MonoBehaviour
             case StatType.Speed:
                 //Add the modifier to speed
                 speed.AddModifier(newStatMod);
+                break;
+            case StatType.Magic:
+                //Add the modifier to magic
+                magic.AddModifier(newStatMod);
                 break;
         }
     }
@@ -296,6 +305,26 @@ public class Player : MonoBehaviour
 
                 //Add the stat buff to the list of stat buffs
                 statBuffs.Add(buffToAdd);
+
+                //Update the max health on the ui
+                setMaxHealthEvent.Raise((int)maxHealth.Value);
+                break;
+            case StatType.MaxMana:
+                //Add the modifier to the max mana stat
+                maxMana.AddModifier(newBuffModifier);
+
+                //Add the modifier to the max mana
+                statBuffs.Add(buffToAdd);
+
+                //Update the mana UI
+                setMaxManaEvent.Raise((int)maxMana.Value);
+                break;
+            case StatType.ManaRegen:
+                //Add the modifier to the mana regen stat
+                manaRegen.AddModifier(newBuffModifier);
+
+                //Add the modifier to the list of stat buffs
+                statBuffs.Add(buffToAdd);
                 break;
             case StatType.Strength:
                 //Add the modifier value to the strength stat
@@ -307,6 +336,13 @@ public class Player : MonoBehaviour
             case StatType.Speed:
                 //Add the modifier to the speed stat
                 speed.AddModifier(newBuffModifier);
+
+                //Add the modifier to the list of stat buffs
+                statBuffs.Add(buffToAdd);
+                break;
+            case StatType.Magic:
+                //Add the modifier to the magic stat
+                magic.AddModifier(newBuffModifier);
 
                 //Add the modifier to the list of stat buffs
                 statBuffs.Add(buffToAdd);
@@ -339,14 +375,41 @@ public class Player : MonoBehaviour
                         setMaxHealthEvent.Raise((int)maxHealth.Value);
 
                         //If the player's current health is higher than the max health
-                        if(health > maxHealth.Value)
+                        if (health > maxHealth.Value)
                         {
                             //Clamp the current health to the max health value
-                            health = Mathf.Clamp(health, 0, (int) maxHealth.Value);
+                            health = Mathf.Clamp(health, 0, (int)maxHealth.Value);
 
                             //Update the health ui
                             setHealthEvent.Raise(health);
                         }
+                        break;
+                    case StatType.MaxMana:
+                        //Remove all modifiers from this buff
+                        maxMana.RemoveAllModifiersFromSource(statBuffs[i]);
+
+                        //Remove the buff from the list
+                        statBuffs.Remove(statBuffs[i]);
+
+                        //adjust the max health in the ui
+                        setMaxManaEvent.Raise((int)maxMana.Value);
+
+                        //If the player's current health is higher than the max health
+                        if (mana > maxMana.Value)
+                        {
+                            //Clamp the current health to the max health value
+                            mana = Mathf.Clamp(mana, 0, (int)maxMana.Value);
+
+                            //Update the health ui
+                            setManaEvent.Raise(mana);
+                        }
+                        break;
+                    case StatType.ManaRegen:
+                        //Remove all modifiers from the stat
+                        manaRegen.RemoveAllModifiersFromSource(statBuffs[i]);
+
+                        //Remove the buff from the list
+                        statBuffs.Remove(statBuffs[i]);
                         break;
                     case StatType.Strength:
                         //Remove all modifiers from the stat
@@ -358,6 +421,13 @@ public class Player : MonoBehaviour
                     case StatType.Speed:
                         //Remove all modifiers from the stat
                         speed.RemoveAllModifiersFromSource(statBuffs[i]);
+
+                        //Remove the buff from the list
+                        statBuffs.Remove(statBuffs[i]);
+                        break;
+                    case StatType.Magic:
+                        //Remove all modifiers from the stat
+                        magic.RemoveAllModifiersFromSource(statBuffs[i]);
 
                         //Remove the buff from the list
                         statBuffs.Remove(statBuffs[i]);

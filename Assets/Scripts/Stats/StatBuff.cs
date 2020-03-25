@@ -7,8 +7,11 @@ using System.Text;
 public enum StatType
 {
     MaxHealth,
+    MaxMana,
+    ManaRegen,
     Strength,
-    Speed
+    Speed,
+    Magic
 }
 
 [Serializable]

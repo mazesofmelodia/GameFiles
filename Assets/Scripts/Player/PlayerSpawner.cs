@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;       //Player Prefab Object
+    //The character that the player will play as
+    public static Character SelectedCharacter = null;
+
+
+    [SerializeField] private Character defaultCharacter;       //Fallback character selection
     [SerializeField] private TransformEvent setPlayerPosEvent;
     [SerializeField] private VoidEvent startPlayerEvent;
 
@@ -24,8 +28,14 @@ public class PlayerSpawner : MonoBehaviour
         }
         else
         {
+            if(SelectedCharacter == null)
+            {
+                //Set the default character to be the selected character
+                SelectedCharacter = defaultCharacter;
+            }
+
             //Spawn the player prefab
-            GameObject playerObject = Instantiate(playerPrefab, transform.position, transform.rotation);
+            GameObject playerObject = Instantiate(SelectedCharacter.characterObject, transform.position, transform.rotation);
 
             //Set the player object not to be destroyed on load
             DontDestroyOnLoad(playerObject);

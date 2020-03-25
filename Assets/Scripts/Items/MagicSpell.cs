@@ -25,9 +25,9 @@ public class MagicSpell : InventoryItem
 
         //Append the use text to the string builder, color of text is dependent on use/rarity
         textBuilder.Append("<color=purple>").Append(description).Append("</color>").AppendLine();
-        textBuilder.Append("<color=purple>Base Damage: ").Append(baseDamage.ToString()).AppendLine();
-        textBuilder.Append("<color=purple>Mana Cost: ").Append(manaCost.ToString()).AppendLine();
-        textBuilder.Append("<color=purple>Range: ").Append(range.ToString()).AppendLine();
+        textBuilder.Append("<color=purple>Base Damage: ").Append(baseDamage.ToString()).Append("</color>").AppendLine();
+        textBuilder.Append("<color=purple>Mana Cost: ").Append(manaCost.ToString()).Append("</color>").AppendLine();
+        textBuilder.Append("<color=purple>Range: ").Append(range.ToString()).Append("</color>").AppendLine();
 
         //Append the max stack and sell price to the text
         textBuilder.Append("Sell Price ").Append(SellPrice).AppendLine();
