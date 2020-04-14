@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinHandler : MonoBehaviour
+public class WinHandler : MonoBehaviour, IInteractable
 {
     [SerializeField] private VoidEvent winGameEvent;
 
-    private void OnTriggerEnter(Collider other) {
-        //Check if the object that collided with it was a player
-        if(other.CompareTag("Player")){
+    public void Interact(GameObject other)
+    {
+        //Check if the object that interacted with it was a player
+        if (other.CompareTag("Player"))
+        {
             //Get the player component
             Player player = other.GetComponent<Player>();
 

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class Hotbar : MonoBehaviour
 {
     //Array of hotbar items
     [SerializeField] private HotbarSlot[] hotbarSlots = new HotbarSlot[10];
+    [SerializeField] private TextMeshProUGUI itemText = null;
 
     private int selectedHotbarSlot;         //Which Hotbar was selected
 
@@ -103,5 +105,11 @@ public class Hotbar : MonoBehaviour
 
         //Highlight the selected slot
         hotbarSlots[selectedHotbarSlot].HighlightSlot();
+    }
+
+    public void SetHotbarText(string inputText)
+    {
+        //Changes the text on the hotbar item text based on the input
+        itemText.text = inputText;
     }
 }

@@ -12,6 +12,7 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
 
     //Quantity Text for the hotbar, shows how many items total are in the inventory
     [SerializeField] private TextMeshProUGUI itemQuantityText = null;
+    [SerializeField] private bool highlighted = false;     //Check to see if the slot is highlighted
 
     [Header("Hotbar highlighting")]
     [SerializeField] private Image backgroundImage;
@@ -19,6 +20,7 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
     [SerializeField] private Color defaultColor;
     [SerializeField] private AudioClip highlightSFX;
     [SerializeField] private AudioClipEvent playSFXEvent;
+    [SerializeField] private StringEvent showItemNameEvent;
 
     private HotbarItem slotItem = null;       //Hotbar item this slot is referring to
 
@@ -124,6 +126,12 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
 
     public override void UpdateSlotUI()
     {
+        //If this item slot is highlighted
+        if (highlighted)
+        {
+            ToggleHotbarItemText();
+        }
+
         //If there is no slot item
         if(SlotItem == null)
         {
@@ -184,11 +192,33 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
 
         //Play the highlight sfx event
         playSFXEvent.Raise(highlightSFX);
+
+        //Set the highlighted bool to true
+        highlighted = true;
+
+        //Toggle the hotbar item text
+        ToggleHotbarItemText();
     }
 
     public void UnHighlightSlot()
     {
         //Change the background image color to the default color
         backgroundImage.color = defaultColor;
+
+        //Set the highlighted bool to true
+        highlighted = false;
+    }
+
+    //Manages setting the item hover text on the hotbar
+    private void ToggleHotbarItemText()
+    {
+        if(SlotItem != null)
+        {
+            showItemNameEvent.Raise(SlotItem.ItemName);
+        }
+        else
+        {
+            showItemNameEvent.Raise("");
+        }
     }
 }

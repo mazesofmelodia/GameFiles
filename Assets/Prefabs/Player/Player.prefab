@@ -942,6 +942,7 @@ GameObject:
   - component: {fileID: 533251989}
   - component: {fileID: 5901462977178514486}
   - component: {fileID: 4612251950443047091}
+  - component: {fileID: -8979548422826814511}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1078,7 +1079,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 11400000, guid: 294374065b057084ead9fad333211d30, type: 2}
-  attackSound: {fileID: 8300000, guid: b5ee594d217775e419e477413a2414a8, type: 3}
   attackPoints:
   - {fileID: 332435377}
   weaponPoint: {fileID: 2076179032}
@@ -1358,6 +1358,35 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1693624611}
         m_MethodName: RecoverMana
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &-8979548422826814511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312095819882376753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24185276b74e4ec4b8d98ce2b59f14ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4b0dd02ca1cbea148a02d0b333ec8c25, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1693624611}
+        m_MethodName: UpdateScore
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

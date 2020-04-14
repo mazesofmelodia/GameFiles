@@ -28,30 +28,33 @@ public class Projectile : MonoBehaviour
         {
             case AttackTarget.Player:
                 //Check if the object is tagged player
-                if (other.CompareTag("Player"))
+                if (other.CompareTag("Player") || other.gameObject.layer == LayerMask.NameToLayer("Environment"))
                 {
                     //Get the player component of the object
                     Player player = other.GetComponent<Player>();
 
                     //Apply damage to the player
-                    player.TakeDamage(damage);
+                    player?.TakeDamage(damage);
+
+                    //Destroy the projectile
+                    Despawn();
                 }
                 break;
             case AttackTarget.Enemy:
                 //Check if the object is tagged enemy
-                if (other.CompareTag("Enemy"))
+                if (other.CompareTag("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Environment"))
                 {
                     //Get the enemy component of the object
                     Enemy enemy = other.GetComponent<Enemy>();
 
                     //Apply damage to the enemy
-                    enemy.TakeDamage(damage);
+                    enemy?.TakeDamage(damage);
+
+                    //Destroy the projectile
+                    Despawn();
                 }
                 break;
         }
-
-        //Destroy the projectile
-        Despawn();
     }
 
     private void Despawn()

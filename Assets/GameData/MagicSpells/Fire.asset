@@ -24,3 +24,5 @@ MonoBehaviour:
   range: 2
   combatAction: {fileID: 11400000, guid: 5443d3898d18ffb45b4027e607c43a8b, type: 2}
   spellEvent: {fileID: 11400000, guid: 8274067831aee2f4796abee41ce72b80, type: 2}
+  useItemSound: {fileID: 8300000, guid: 20f2426059717d549bed56da282da266, type: 3}
+  playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

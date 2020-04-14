@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3af8c1af63e695e4cbd40c1c07849c30, type: 3}
-  m_Name: ManaPotion
+  m_Name: SmallHealthPotion
   m_EditorClassIdentifier: 
-  itemName: Mana Potion
-  itemIcon: {fileID: 21300000, guid: 9ef790e8d0cf88b4792791e441e9852d, type: 3}
+  itemName: Health Potion
+  itemIcon: {fileID: 21300000, guid: d568411647925b24ea7c4cca45725298, type: 3}
   scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
-  rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
-  sellPrice: 200
+  rarity: {fileID: 11400000, guid: 364282c6e451cc44fa8c46a7637faea9, type: 2}
+  sellPrice: 50
   maxStack: 5
-  useText: Restores 20 Mana
+  useText: Restores 20 Health
   recoverValue: 20
-  restoreEvent: {fileID: 11400000, guid: 5225379f245627a46b493324e4cda9ad, type: 2}
+  restoreEvent: {fileID: 11400000, guid: fea98f541e901024dada5e15e2d5306a, type: 2}
   useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}
+  useItemSound: {fileID: 8300000, guid: 34b7d0b70a52b1441ba36c69fb354e01, type: 3}
+  playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

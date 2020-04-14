@@ -11,6 +11,8 @@ public class StatBuffItem : InventoryItem
     [SerializeField] private StatBuff statBuff;             //Stat buff
     [SerializeField] ItemSlotEvent useItemEvent;            //Event to use the item
     [SerializeField] StatBuffEvent buffEvent;               //Stat buff event
+    [SerializeField] private AudioClip useItemSound;                //Item use sfx
+    [SerializeField] private AudioClipEvent playUseSoundEvent;  //Event to play the sfx
 
     public override string GetInfoDisplayText()
     {
@@ -37,6 +39,9 @@ public class StatBuffItem : InventoryItem
 
         //Call event to use item
         useItemEvent.Raise(new ItemSlot(this, 1));
+
+        //Play the item use sound
+        playUseSoundEvent.Raise(useItemSound);
     }
 
 }

@@ -13,8 +13,10 @@ public class Weapon : InventoryItem
     public GameObject weaponModel;          //Weapon model
     public CombatAction combatAction;       //Combat action of the weapon
     public AudioClip weaponSound;           //Weapon sound effect
-    [SerializeField] private WeaponEvent weaponChangeEvent;   //Event which is called to switch the weapon
-    [SerializeField] private ItemSlotEvent useItemEvent;      //Event to use the item
+    [SerializeField] private WeaponEvent weaponChangeEvent;     //Event which is called to switch the weapon
+    [SerializeField] private ItemSlotEvent useItemEvent;        //Event to use the item
+    [SerializeField] private AudioClip useItemSound;                //Item use sfx
+    [SerializeField] private AudioClipEvent playUseSoundEvent;  //Event to play the sfx
 
     public override string GetInfoDisplayText()
     {
@@ -39,6 +41,9 @@ public class Weapon : InventoryItem
     {
         //Call event to change weapons
         weaponChangeEvent.Raise(this);
+
+        //Play the item use sound
+        playUseSoundEvent.Raise(useItemSound);
     }
 
     public void RemoveFromInventory()

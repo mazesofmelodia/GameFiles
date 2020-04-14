@@ -14,6 +14,8 @@ public class MagicSpell : InventoryItem
     public CombatAction combatAction;
 
     [SerializeField] private MagicSpellEvent spellEvent;
+    [SerializeField] private AudioClip useItemSound;                //Item use sfx
+    [SerializeField] private AudioClipEvent playUseSoundEvent;  //Event to play the sfx
 
     public override string GetInfoDisplayText()
     {
@@ -39,5 +41,8 @@ public class MagicSpell : InventoryItem
     {
         //Raise the spell event
         spellEvent.Raise(this);
+
+        //Play the item use sound
+        playUseSoundEvent.Raise(useItemSound);
     }
 }

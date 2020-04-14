@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   itemName: Hammer
-  itemIcon: {fileID: 21300000, guid: 208195477f4110045811548f1bee056b, type: 3}
+  itemIcon: {fileID: 21300000, guid: 1e3910412f3d5814cbb11efa31d2c069, type: 3}
   scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
   sellPrice: 300
@@ -27,3 +27,5 @@ MonoBehaviour:
   weaponSound: {fileID: 8300000, guid: b5ee594d217775e419e477413a2414a8, type: 3}
   weaponChangeEvent: {fileID: 11400000, guid: 72cd00bd590a104478fccde9c66089cf, type: 2}
   useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}
+  useItemSound: {fileID: 8300000, guid: 09b67383b5068fa48bc0e3c7d637450b, type: 3}
+  playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

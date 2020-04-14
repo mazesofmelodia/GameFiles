@@ -24,7 +24,6 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI resolutionText;    //Text to represent resolution
 
     [Header("Audio Settings")]
-    [SerializeField] private AudioClip soundTest;   //Sound to play for sound testing
     [SerializeField] private Slider musicSlider;    //Sliders
     [SerializeField] private Slider sfxSlider;
 
@@ -192,9 +191,6 @@ public class SettingsMenu : MonoBehaviour
 
         //Save the sfx volume in PlayerPrefs
         PlayerPrefs.SetFloat("SFXVolume", newVolume);
-
-        //Play a sound to indicate the volume change
-        playSFXEvent.Raise(soundTest);
     }
 
     public void SetQuality(int qualityIndex)

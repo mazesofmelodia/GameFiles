@@ -11,6 +11,8 @@ public class ConsumableItem : InventoryItem
     [SerializeField] private int recoverValue;              //Recovery value
     [SerializeField] private IntEvent restoreEvent;         //Event called to restore the player
     [SerializeField] ItemSlotEvent useItemEvent;            //Event to use the item
+    [SerializeField] private AudioClip useItemSound;                //Item use sfx
+    [SerializeField] private AudioClipEvent playUseSoundEvent;  //Event to play the sfx
 
     public override string GetInfoDisplayText()
     {
@@ -37,5 +39,8 @@ public class ConsumableItem : InventoryItem
 
         //Call event to use item
         useItemEvent.Raise(new ItemSlot(this, 1));
+
+        //Play the item use sound
+        playUseSoundEvent.Raise(useItemSound);
     }
 }
