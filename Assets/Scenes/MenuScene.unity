@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character:
     characterName: Warrior
-    characterObject: {fileID: 7741889492855784672, guid: 022ac03e81367cc479af1c0988961fdc,
+    characterObject: {fileID: 8251287251203677304, guid: ebca5d89b19b46f4c80e22bf913c05ba,
       type: 3}
 --- !u!1 &406459564
 GameObject:
@@ -4549,7 +4549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character:
     characterName: Mage
-    characterObject: {fileID: 2641437456914651906, guid: ea1bf49bbfa2a8e45baf3100fb1c1555,
+    characterObject: {fileID: 5312095819882376753, guid: 534732e1869d52740aed32dd468cf9e8,
       type: 3}
 --- !u!224 &915489342 stripped
 RectTransform:

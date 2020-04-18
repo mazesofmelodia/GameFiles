@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 4612251950443047091}
   - component: {fileID: -8979548422826814511}
   m_Layer: 9
-  m_Name: RougePlayer
+  m_Name: RoguePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   strength:
     BaseValue: 10
   speed:
-    BaseValue: 6
+    BaseValue: 5
   magic:
     BaseValue: 10
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
