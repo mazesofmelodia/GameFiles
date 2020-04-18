@@ -2309,11 +2309,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6686919277263288889, guid: 2713e3a7eb9043b4cb46f4860189b63a,
-        type: 3}
-      propertyPath: defaultCharacter.characterName
-      value: Rogue
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2713e3a7eb9043b4cb46f4860189b63a, type: 3}
 --- !u!1001 &488158837715819382

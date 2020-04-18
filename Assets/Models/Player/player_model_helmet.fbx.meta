@@ -21,7 +21,17 @@ ModelImporter:
   - first:
       74: -1150362023198356550
     second: Helmet|HelmetAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 613b1d68de351d643adfd5b34af9d268, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metaj
+    second: {fileID: 2100000, guid: 8e423280cb90c0541a89ac7e4c8bba34, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -226,7 +236,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -272,7 +282,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
