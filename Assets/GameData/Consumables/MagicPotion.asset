@@ -9,18 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af8c1af63e695e4cbd40c1c07849c30, type: 3}
-  m_Name: SmallManaPotion
+  m_Script: {fileID: 11500000, guid: cfdff4ac2648c9347a4d000658c45e48, type: 3}
+  m_Name: MagicPotion
   m_EditorClassIdentifier: 
-  itemName: Mana Potion
-  itemIcon: {fileID: 21300000, guid: f84d21b3ab2182c4f995961a45170deb, type: 3}
+  itemName: Magic Potion
+  itemIcon: {fileID: 21300000, guid: a2b18cc3a35e37240add9ebe5997b7b8, type: 3}
   scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
-  rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
-  sellPrice: 200
-  maxStack: 5
-  useText: Restores 20 Mana
-  recoverValue: 20
-  restoreEvent: {fileID: 11400000, guid: 5225379f245627a46b493324e4cda9ad, type: 2}
+  rarity: {fileID: 11400000, guid: c9144eca3f271c64caddad81fd5af427, type: 2}
+  sellPrice: 400
+  maxStack: 3
+  useText: Increases Magic by 50% for 20 seconds
+  statBuff:
+    StatType: 5
+    ModType: 200
+    BuffValue: 0.5
+    Duration: 20
   useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}
+  buffEvent: {fileID: 11400000, guid: 09e72c45813ad7e4f90e2a14213faf4c, type: 2}
   useItemSound: {fileID: 8300000, guid: 34b7d0b70a52b1441ba36c69fb354e01, type: 3}
   playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

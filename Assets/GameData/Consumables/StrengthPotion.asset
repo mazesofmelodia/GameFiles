@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdff4ac2648c9347a4d000658c45e48, type: 3}
+  m_Name: StrengthPotion
+  m_EditorClassIdentifier: 
+  itemName: Strength Potion
+  itemIcon: {fileID: 21300000, guid: a5b8e78f51f67d5438588f6788989748, type: 3}
+  scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
+  rarity: {fileID: 11400000, guid: c9144eca3f271c64caddad81fd5af427, type: 2}
+  sellPrice: 400
+  maxStack: 3
+  useText: Increases Strength by 50% for 20 seconds.
+  statBuff:
+    StatType: 3
+    ModType: 200
+    BuffValue: 0.5
+    Duration: 20
+  useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}
+  buffEvent: {fileID: 11400000, guid: 09e72c45813ad7e4f90e2a14213faf4c, type: 2}
+  useItemSound: {fileID: 8300000, guid: 34b7d0b70a52b1441ba36c69fb354e01, type: 3}
+  playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

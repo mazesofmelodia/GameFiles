@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3797818033707997163}
   - component: {fileID: 9066520554512384311}
   m_Layer: 11
-  m_Name: healthcoin
+  m_Name: SmallHealthCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6271746332729622614}
   m_LocalRotation: {x: 0.7071068, y: 0.70710677, z: 0, w: 0}
   m_LocalPosition: {x: 1.35, y: 1, z: 14.699}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.04}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c145253284b0c744847aeacb24e326e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupValue: 100
+  pickupValue: 20
   pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   pickupEvent: {fileID: 11400000, guid: fea98f541e901024dada5e15e2d5306a, type: 2}

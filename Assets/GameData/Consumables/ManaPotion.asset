@@ -9,20 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 272dffd7c7c9b6c46b9936618bd36217, type: 3}
-  m_Name: Fire
+  m_Script: {fileID: 11500000, guid: 3af8c1af63e695e4cbd40c1c07849c30, type: 3}
+  m_Name: ManaPotion
   m_EditorClassIdentifier: 
-  itemName: Fire
-  itemIcon: {fileID: 21300000, guid: 2190f65069d3ef74d95cf859d1ed3f36, type: 3}
+  itemName: Mana Potion
+  itemIcon: {fileID: 21300000, guid: f84d21b3ab2182c4f995961a45170deb, type: 3}
   scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
   sellPrice: 200
-  maxStack: 1
-  description: Shoot a weak fireball
-  baseDamage: 15
-  manaCost: 10
-  range: 2
-  combatAction: {fileID: 11400000, guid: 5443d3898d18ffb45b4027e607c43a8b, type: 2}
-  spellEvent: {fileID: 11400000, guid: 8274067831aee2f4796abee41ce72b80, type: 2}
-  useItemSound: {fileID: 8300000, guid: 20f2426059717d549bed56da282da266, type: 3}
+  maxStack: 5
+  useText: Restores 50 Mana
+  recoverValue: 50
+  restoreEvent: {fileID: 11400000, guid: 5225379f245627a46b493324e4cda9ad, type: 2}
+  useItemEvent: {fileID: 11400000, guid: 38ad9446762990e40a5de382f6cfa7ee, type: 2}
+  useItemSound: {fileID: 8300000, guid: 34b7d0b70a52b1441ba36c69fb354e01, type: 3}
   playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4538981912540248414}
   - component: {fileID: 8618758328348290946}
   m_Layer: 11
-  m_Name: manacoin
+  m_Name: SmallManaCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6719515152605769443}
   m_LocalRotation: {x: 0.7071068, y: 0.70710677, z: 0, w: 0}
   m_LocalPosition: {x: 4.975, y: 0.362, z: -4.1817417}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.04}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c145253284b0c744847aeacb24e326e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupValue: 100
+  pickupValue: 20
   pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   pickupEvent: {fileID: 11400000, guid: 5225379f245627a46b493324e4cda9ad, type: 2}
