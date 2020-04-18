@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     /* Other variables */
     [SerializeField] private AudioClip bgm;         //Reference to background music
     [SerializeField] private AudioClip battleTheme; //Battle theme when there are enemies in the scene
-    [SerializeField] private GameObject winTreasure;    //Treasure to appear when all enemies are defeated
 
     [HideInInspector] public GameState gameState = GameState.Default;     //Current state of the game
 

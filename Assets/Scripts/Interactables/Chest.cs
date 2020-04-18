@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
-{ 
+{
+    [SerializeField] private Transform dropPoint;      //Point items will be dropped from
+
     [Header("Item Drops")]
     //List of Loot from the chest
     [SerializeField] private List<Loot> lootItems = new List<Loot>();
@@ -48,7 +50,7 @@ public class Chest : MonoBehaviour, IInteractable
                 //Make sure the y position is 0
                 randomPos.y = 0;
 
-                Instantiate(lootItem.dropItem, transform.position + randomPos, Quaternion.identity);
+                Instantiate(lootItem.dropItem, dropPoint.position + randomPos, Quaternion.identity);
             }
         }
     }
