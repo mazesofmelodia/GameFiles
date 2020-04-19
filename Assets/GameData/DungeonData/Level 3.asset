@@ -19,12 +19,12 @@ MonoBehaviour:
   startRoom: {fileID: 2325781639443582811, guid: 91b8ffeb70f182c42ab27eb7c169d900,
     type: 3}
   endRoom: {fileID: 2325781639443582811, guid: 095d5b8a01bdc924480aa9e2bc232d8c, type: 3}
-  treasureRoom: {fileID: 8849219775660177922, guid: ce0a22efaba3c1245bf554f2526dccfd,
+  treasureRoom: {fileID: 2325781639443582811, guid: 014573b022aab3b4aa426af404a5c7b8,
     type: 3}
-  shopRoom: {fileID: 8849219775660177922, guid: 86debdd6b7b352d42bce810ab329f926,
+  shopRoom: {fileID: 8849219775660177922, guid: 261b337cd75b8184aa2f6ea8b57826e2,
     type: 3}
   randomRoomPrefabs:
   - {fileID: 2325781639443582811, guid: 71d4ded8cb3dc9244b18903424b7d352, type: 3}
   - {fileID: 2325781639443582811, guid: 5312fa420bbfd4a48904e1e46d27847b, type: 3}
   - {fileID: 2325781639443582811, guid: 378761beb832b414c953da74bb1e3e0e, type: 3}
-  - {fileID: 2325781639443582811, guid: 91b8ffeb70f182c42ab27eb7c169d900, type: 3}
+  - {fileID: 2325781639443582811, guid: 882d8ac9c6bd6e94691e8055ff5c81df, type: 3}

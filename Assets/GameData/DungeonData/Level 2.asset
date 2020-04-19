@@ -16,12 +16,12 @@ MonoBehaviour:
   numberOfCrawlers: 2
   iterationMin: 10
   iterationMax: 20
-  startRoom: {fileID: 2325781639443582811, guid: be92cf3d9ce02a44ebc8b02920f0d6c7,
+  startRoom: {fileID: 2325781639443582811, guid: d6b22e9310ead7f4b900478f6c8a44c1,
     type: 3}
-  endRoom: {fileID: 2325781639443582811, guid: 099b8f009ec1ab041bea6da990db98bb, type: 3}
-  treasureRoom: {fileID: 8849219775660177922, guid: ce0a22efaba3c1245bf554f2526dccfd,
+  endRoom: {fileID: 2325781639443582811, guid: 5b5b30c895556554b9eb24d90141fef1, type: 3}
+  treasureRoom: {fileID: 2325781639443582811, guid: 67dff671009502b4c8bb71d9a3f47ea5,
     type: 3}
-  shopRoom: {fileID: 8849219775660177922, guid: 86debdd6b7b352d42bce810ab329f926,
+  shopRoom: {fileID: 8849219775660177922, guid: 73f2637b9d4fba64987a2df16744d1d7,
     type: 3}
   randomRoomPrefabs:
   - {fileID: 2325781639443582811, guid: f3fed960d33a3a04c94dbcb31246a4db, type: 3}
