@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Sword
   itemIcon: {fileID: 21300000, guid: 5f80f3381e533734a87c10eb5badeefc, type: 3}
-  scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
+  scannerIcon: {fileID: 21300000, guid: 32b044a301c0c9344906a151f9e37a7e, type: 3}
   rarity: {fileID: 11400000, guid: 364282c6e451cc44fa8c46a7637faea9, type: 2}
   sellPrice: 100
   maxStack: 1
-  damageAddition: 0
+  damageAddition: 10
   attackSpeed: 1
   range: 0.75
   weaponModel: {fileID: 2522945504120786247, guid: 4e4c6c64ab5b1fe41bace07c1532e102,

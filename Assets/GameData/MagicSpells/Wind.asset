@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272dffd7c7c9b6c46b9936618bd36217, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: 
+  itemName: Wind Burst
+  itemIcon: {fileID: 21300000, guid: 2190f65069d3ef74d95cf859d1ed3f36, type: 3}
+  scannerIcon: {fileID: 21300000, guid: b7133702b2dfb7b4b87cad54b67d1482, type: 3}
+  rarity: {fileID: 11400000, guid: 57abd6cc965884347b8a043f1e3caeba, type: 2}
+  sellPrice: 600
+  maxStack: 1
+  description: Shoots a powerful burst of wind.
+  baseDamage: 30
+  manaCost: 30
+  range: 3
+  combatAction: {fileID: 11400000, guid: 143bf8cabbc0975409b241cef67925c4, type: 2}
+  spellEvent: {fileID: 11400000, guid: 8274067831aee2f4796abee41ce72b80, type: 2}
+  useItemSound: {fileID: 8300000, guid: 6c2346e1f8a18504d912c6c0c1d498b0, type: 3}
+  playUseSoundEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

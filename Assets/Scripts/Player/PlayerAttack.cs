@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         //Get reference to animator component
         //anim = GetComponent<Animator>();
         //Position the starting weapon of the character
-        PositionWeapon(currentWeapon);
+        SetWeapon(currentWeapon);
     }
 
     // Update is called once per frame
@@ -73,11 +73,8 @@ public class PlayerAttack : MonoBehaviour
         //Change the weapon on the character
         currentWeapon = newWeapon;
 
-        //Add the modifiers of the new weapon to the character
-        player.strength.AddModifier(new StatModifier(currentWeapon.damageAddition, StatModType.Flat));
-
         //Update the model on the character
-        PositionWeapon(currentWeapon);
+        SetWeapon(currentWeapon);
 
         //Define an inventory slot for the old weapon
         ItemSlot oldWeaponItem = new ItemSlot(oldWeapon, 1);
@@ -96,11 +93,14 @@ public class PlayerAttack : MonoBehaviour
         currentWeapon.combatAction.Invoke(attackPoints, (int) player.strength.Value, currentWeapon.range);
     }
 
-    private void PositionWeapon(Weapon weaponToPosition, float scaleFactor = 0.005f){
+    private void SetWeapon(Weapon weaponToPosition, float scaleFactor = 0.005f){
         //Spawn the model at the weaponPoint
         //Will also make the spawned model a child of the weapon point
         currentWeaponModel = Instantiate(weaponToPosition.weaponModel, weaponPoint.position, weaponPoint.rotation, weaponPoint);
         //Change the scale of the object in scene
         currentWeaponModel.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+
+        //Add the modifiers of the new weapon to the character
+        player.strength.AddModifier(new StatModifier(weaponToPosition.damageAddition, StatModType.Flat));
     }
 }

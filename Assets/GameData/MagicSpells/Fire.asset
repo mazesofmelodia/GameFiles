@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272dffd7c7c9b6c46b9936618bd36217, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  itemName: Fire
+  itemName: Fireball
   itemIcon: {fileID: 21300000, guid: 2190f65069d3ef74d95cf859d1ed3f36, type: 3}
-  scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
+  scannerIcon: {fileID: 21300000, guid: 6294aab25b872654f93e58efa7723859, type: 3}
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
   sellPrice: 200
   maxStack: 1
-  description: Shoot a weak fireball
-  baseDamage: 15
+  description: Shoot a weak fireball.
+  baseDamage: 10
   manaCost: 10
-  range: 2
+  range: 3
   combatAction: {fileID: 11400000, guid: 5443d3898d18ffb45b4027e607c43a8b, type: 2}
   spellEvent: {fileID: 11400000, guid: 8274067831aee2f4796abee41ce72b80, type: 2}
   useItemSound: {fileID: 8300000, guid: 20f2426059717d549bed56da282da266, type: 3}

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3412044500002433519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1350,6 +1350,7 @@ MonoBehaviour:
   scoreText: {fileID: 8722356334932035713}
   nameEntry: {fileID: 8722356336083835702}
   submitButton: {fileID: 8634247804350699915}
+  winScanObject: {fileID: 3810362881531653080}
   winSound: {fileID: 8300000, guid: 002d5419490007c4babed3206f78925f, type: 3}
   loseSound: {fileID: 8300000, guid: 2a30d504794306d46bb02b07e4598b88, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}

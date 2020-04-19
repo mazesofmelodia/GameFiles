@@ -20,6 +20,7 @@ public class WinLoseManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;         //Score text
     [SerializeField] private TMP_InputField nameEntry;          //Name entry of the player
     [SerializeField] private Button submitButton;               //Button to submit the score
+    [SerializeField] private GameObject winScanObject;          //Extra image for the player to scan
 
     [Header("Sound effects")]
     [SerializeField] private AudioClip winSound;
@@ -53,6 +54,9 @@ public class WinLoseManager : MonoBehaviour
         {
             //Play the win sound
             playSFXEvent.Raise(winSound);
+
+            //Activate the scanner object
+            winScanObject.SetActive(true);
         }
         else
         {

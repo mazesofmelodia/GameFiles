@@ -6472,7 +6472,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "<b>Gear\xF3id Reilly:</b> Character Model, Crawler Enemy Model Programming,
     Menu Design\n\n<b>Patrick McHugh:</b> Item Models, Music, Sprites, Level Design\n\n<b>Extra
-    Assets</b>: Prodigious Creations, Pi Entertainment Limited, Shadman Kudchikar"
+    Assets</b>: Prodigious Creations, Pi Entertainment Limited, Shadman Kudchikar,
+    Andres Olivella, Frost Forged"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7016,6 +7017,20 @@ MonoBehaviour:
   - {fileID: 1584797237}
   - {fileID: 1633162789}
   - {fileID: 1732105333}
+  exampleScannerImage: {fileID: 2111879307}
+  scannerSprites:
+  - {fileID: 21300000, guid: 3def0e6bbcf2d43408fa046c5651a8d2, type: 3}
+  - {fileID: 21300000, guid: 6294aab25b872654f93e58efa7723859, type: 3}
+  - {fileID: 21300000, guid: 21ed9f3e6ae3fb341bf100aa60dfc4df, type: 3}
+  - {fileID: 21300000, guid: c4434c0fa7d22e24890628460d53e8b7, type: 3}
+  - {fileID: 21300000, guid: 9ed197a65bfda834ca76318f2a8603a0, type: 3}
+  - {fileID: 21300000, guid: d598688a676617642bfc05e67a612f0e, type: 3}
+  - {fileID: 21300000, guid: 9116e82609f7dfb4589e53b35211cb61, type: 3}
+  - {fileID: 21300000, guid: 2bab3ff598129db4582ddf712b503d04, type: 3}
+  - {fileID: 21300000, guid: 0b7a63c05c93d2c48b9cb9d90ee31511, type: 3}
+  - {fileID: 21300000, guid: 32b044a301c0c9344906a151f9e37a7e, type: 3}
+  - {fileID: 21300000, guid: 9881cd008fe4a1c409ffb9dd0d80937c, type: 3}
+  - {fileID: 21300000, guid: b7133702b2dfb7b4b87cad54b67d1482, type: 3}
 --- !u!1 &1336101530
 GameObject:
   m_ObjectHideFlags: 0

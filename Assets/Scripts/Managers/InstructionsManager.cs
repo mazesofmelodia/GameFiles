@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstructionsManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] pages = null;      //List of all the pages in the instructions
+    [SerializeField] private GameObject[] pages = null;         //List of all the pages in the instructions
+    [SerializeField] private Image exampleScannerImage;         //Image to demon
+    [SerializeField] private Sprite[] scannerSprites;           //List of scanner sprites
 
     private int trackerNumber = 0;                               //Number reference to current page
+
+    private void Start()
+    {
+        //Set the example Scanner image to one of the random scanner sprites
+        if(scannerSprites.Length > 0)
+        {
+            exampleScannerImage.sprite = scannerSprites[Random.Range(0, scannerSprites.Length)];
+        }
+    }
 
     public void ShowNextPage()
     {

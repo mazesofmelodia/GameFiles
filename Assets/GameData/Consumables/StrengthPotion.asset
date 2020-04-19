@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Strength Potion
   itemIcon: {fileID: 21300000, guid: a5b8e78f51f67d5438588f6788989748, type: 3}
-  scannerIcon: {fileID: 21300000, guid: c3721c87291f7be408776678abab6251, type: 3}
+  scannerIcon: {fileID: 21300000, guid: 0b7a63c05c93d2c48b9cb9d90ee31511, type: 3}
   rarity: {fileID: 11400000, guid: c9144eca3f271c64caddad81fd5af427, type: 2}
   sellPrice: 400
   maxStack: 3
