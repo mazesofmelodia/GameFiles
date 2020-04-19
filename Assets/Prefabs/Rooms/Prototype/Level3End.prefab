@@ -19618,7 +19618,7 @@ PrefabInstance:
     - target: {fileID: 1133812131646184610, guid: 8c7b458d431657345a65f78c562f700f,
         type: 3}
       propertyPath: m_Name
-      value: SpawnPoint (2)
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 9010797621929666735, guid: 8c7b458d431657345a65f78c562f700f,
         type: 3}
@@ -19679,7 +19679,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: -931444011533757902, guid: aa287dece1e0cb74c95a697207bb7a47,
+      objectReference: {fileID: 3244151242251921775, guid: 25350fcf33dbc8a468fc5bae978991a9,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7b458d431657345a65f78c562f700f, type: 3}

@@ -14449,6 +14449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextLevelPortal
       objectReference: {fileID: 0}
+    - target: {fileID: 3623242549368075176, guid: ffbe8f70197c1fe429699692866cbca6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2515903029344041814, guid: ffbe8f70197c1fe429699692866cbca6,
         type: 3}
       propertyPath: m_LocalPosition.x
