@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   itemName: Fireball
-  itemIcon: {fileID: 21300000, guid: 2190f65069d3ef74d95cf859d1ed3f36, type: 3}
+  itemIcon: {fileID: 21300000, guid: 80efe28bddff5de44980292c0c9df8a0, type: 3}
   scannerIcon: {fileID: 21300000, guid: 6294aab25b872654f93e58efa7723859, type: 3}
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
   sellPrice: 200

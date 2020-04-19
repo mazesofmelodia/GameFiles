@@ -16,7 +16,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: f84d21b3ab2182c4f995961a45170deb, type: 3}
   scannerIcon: {fileID: 21300000, guid: 9116e82609f7dfb4589e53b35211cb61, type: 3}
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
-  sellPrice: 200
+  sellPrice: 100
   maxStack: 5
   useText: Restores 50 Mana
   recoverValue: 50

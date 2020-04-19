@@ -16,7 +16,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 061669226b49a7b4b91a2f6b32adc96e, type: 3}
   scannerIcon: {fileID: 21300000, guid: 2bab3ff598129db4582ddf712b503d04, type: 3}
   rarity: {fileID: 11400000, guid: c9144eca3f271c64caddad81fd5af427, type: 2}
-  sellPrice: 200
+  sellPrice: 150
   maxStack: 3
   useText: Increases Speed by 25% for 30 seconds.
   statBuff:

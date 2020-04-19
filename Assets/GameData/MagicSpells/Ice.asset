@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   itemName: Ice Spike
-  itemIcon: {fileID: 21300000, guid: 2190f65069d3ef74d95cf859d1ed3f36, type: 3}
+  itemIcon: {fileID: 21300000, guid: 296e1399c62ad8c4fbaa736851c91ccb, type: 3}
   scannerIcon: {fileID: 21300000, guid: 9ed197a65bfda834ca76318f2a8603a0, type: 3}
-  rarity: {fileID: 11400000, guid: a611caa60cfea8a4e906a60a6eefcffb, type: 2}
+  rarity: {fileID: 11400000, guid: 57abd6cc965884347b8a043f1e3caeba, type: 2}
   sellPrice: 400
   maxStack: 1
   description: Shoots an icicle spike.
