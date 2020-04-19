@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy Wind Attack
   m_EditorClassIdentifier: 
   target: 0
-  projectile: {fileID: 3143795285954240091, guid: d8475afc85b13e8439819c617c9a6478,
+  projectile: {fileID: 1702413570707991613, guid: 70b181eed55ed3a41a9aeb0a1f47a45b,
     type: 3}
