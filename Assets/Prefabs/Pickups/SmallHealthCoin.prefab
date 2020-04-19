@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6271746332729622614
+--- !u!1 &3609388859216218750
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,14 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7012915885788869189}
-  - component: {fileID: 2020400343911532659}
-  - component: {fileID: 5707589065384621194}
-  - component: {fileID: 2605425951800071760}
-  - component: {fileID: -2342482692011092658}
-  - component: {fileID: 4525086433233169912}
-  - component: {fileID: 3797818033707997163}
-  - component: {fileID: 9066520554512384311}
+  - component: {fileID: 309756424316205165}
+  - component: {fileID: 8725582907848786523}
+  - component: {fileID: 3038792887749312162}
   m_Layer: 11
   m_Name: SmallHealthCoin
   m_TagString: Untagged
@@ -23,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7012915885788869189
+--- !u!4 &309756424316205165
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
-  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: 0, w: 0}
-  m_LocalPosition: {x: 1.35, y: 1, z: 14.699}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
+  m_GameObject: {fileID: 3609388859216218750}
+  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6295010716378401727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90}
---- !u!33 &2020400343911532659
+--- !u!33 &8725582907848786523
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 3609388859216218750}
   m_Mesh: {fileID: 2534964839176971238, guid: 4c02f305dc00658448ce8a536e9b389c, type: 3}
---- !u!23 &5707589065384621194
+--- !u!23 &3038792887749312162
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 3609388859216218750}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,13 +77,49 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2605425951800071760
+--- !u!1 &6295010716378401721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6295010716378401727}
+  - component: {fileID: 6295010716378401726}
+  - component: {fileID: 6295010716378401725}
+  - component: {fileID: 6295010716378401724}
+  - component: {fileID: 6295010716378401723}
+  - component: {fileID: 6295010716378401722}
+  m_Layer: 11
+  m_Name: SmallHealthCoin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6295010716378401727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295010716378401721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.728, y: 0.36, z: 6.094488}
+  m_LocalScale: {x: 0.20000012, y: 0.20000012, z: 0.020000022}
+  m_Children:
+  - {fileID: 309756424316205165}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6295010716378401726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 6295010716378401721}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42a80950b43bea84ebd658f4de45409d, type: 3}
@@ -98,16 +129,16 @@ MonoBehaviour:
   ForwardX: 0
   ForwardY: 0
   ForwardZ: 0
-  ReverseX: 1
-  ReverseY: 0
+  ReverseX: 0
+  ReverseY: 1
   ReverseZ: 0
---- !u!114 &
+--- !u!114 &6295010716378401725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 6295010716378401721}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c145253284b0c744847aeacb24e326e, type: 3}
@@ -117,39 +148,39 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   pickupEvent: {fileID: 11400000, guid: fea98f541e901024dada5e15e2d5306a, type: 2}
---- !u!135 &4525086433233169912
+--- !u!135 &6295010716378401724
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 6295010716378401721}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &3797818033707997163
+--- !u!135 &6295010716378401723
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 6295010716378401721}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &9066520554512384311
+--- !u!54 &6295010716378401722
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271746332729622614}
+  m_GameObject: {fileID: 6295010716378401721}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
