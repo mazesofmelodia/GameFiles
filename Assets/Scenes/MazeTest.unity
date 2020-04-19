@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 4705697251650689498, guid: 9c0949a5438cbaf439bdc49590c71928,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4705697251650689498, guid: 9c0949a5438cbaf439bdc49590c71928,
         type: 3}
@@ -1460,7 +1460,7 @@ PrefabInstance:
     - target: {fileID: 5167722772750567119, guid: f9a50bdd95ec7ea40af87331c72fe7c7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5167722772750567119, guid: f9a50bdd95ec7ea40af87331c72fe7c7,
         type: 3}
@@ -1523,7 +1523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgm: {fileID: 8300000, guid: 9e820c451d9247b4ebd8488dc6aad607, type: 3}
   battleTheme: {fileID: 8300000, guid: 9707588369c4a7648a3b99b3725cdd5d, type: 3}
-  winTreasure: {fileID: 0}
   gameState: 0
   playMusicEvent: {fileID: 11400000, guid: 41f46456945db1d45a6b743aea842c12, type: 2}
   playMusicCrossfadeEvent: {fileID: 11400000, guid: 70bbcb6432b3095448907600307232f7,
@@ -1796,7 +1795,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1216837892
 MonoBehaviour:
@@ -1891,7 +1890,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628115689
 GameObject:
@@ -1935,7 +1934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1917590874
 PrefabInstance:
@@ -2500,7 +2499,7 @@ PrefabInstance:
     - target: {fileID: 9137677121772915001, guid: bafd02970db859449a1656f0d1575448,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9137677121772915001, guid: bafd02970db859449a1656f0d1575448,
         type: 3}
