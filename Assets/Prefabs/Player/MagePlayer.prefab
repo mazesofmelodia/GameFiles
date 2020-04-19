@@ -131,7 +131,7 @@ MonoBehaviour:
   manaRegen:
     BaseValue: 2
   strength:
-    BaseValue: 8
+    BaseValue: 6
   speed:
     BaseValue: 4
   magic:

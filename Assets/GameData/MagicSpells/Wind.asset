@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Wind Burst
   itemIcon: {fileID: 21300000, guid: 2190f65069d3ef74d95cf859d1ed3f36, type: 3}
   scannerIcon: {fileID: 21300000, guid: b7133702b2dfb7b4b87cad54b67d1482, type: 3}
-  rarity: {fileID: 11400000, guid: 57abd6cc965884347b8a043f1e3caeba, type: 2}
+  rarity: {fileID: 11400000, guid: a611caa60cfea8a4e906a60a6eefcffb, type: 2}
   sellPrice: 600
   maxStack: 1
   description: Shoots a powerful burst of wind.

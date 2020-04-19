@@ -18,10 +18,11 @@ MonoBehaviour:
   rarity: {fileID: 11400000, guid: cbbae19aa909b6d46b61200c1eceae65, type: 2}
   sellPrice: 200
   maxStack: 1
-  damageAddition: 5
+  damageAddition: 4
   attackSpeed: 0.6
   range: 0.75
-  weaponModel: {fileID: 0}
+  weaponModel: {fileID: 1289166430374043537, guid: c2b4aa4bf67518b408b6f6dbde2e5159,
+    type: 3}
   combatAction: {fileID: 11400000, guid: 8b76ada40ecee64448978761ff661cdf, type: 2}
   weaponSound: {fileID: 8300000, guid: b5ee594d217775e419e477413a2414a8, type: 3}
   weaponChangeEvent: {fileID: 11400000, guid: 72cd00bd590a104478fccde9c66089cf, type: 2}
