@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 1910137075147082087}
   - component: {fileID: 8439399953907383199}
   m_Layer: 8
-  m_Name: ShopRoom 1
+  m_Name: TreasureRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13585,7 +13585,25 @@ MonoBehaviour:
   itemSpawnPoints:
   - {fileID: 7731606298102488409}
   items:
-  - {fileID: 8482660591488160192, guid: a73ec72924b1f1b4082fe33c48be1077, type: 3}
+  - {fileID: 5542540301101763930, guid: 69ce578caa057404a9fc27bb30e58e15, type: 3}
+  - {fileID: 1956911714752887949, guid: a88471aca4e52c44182f35a10efef363, type: 3}
+  - {fileID: 6385864079078024134, guid: 693eb6b4217a2504e933fe63233e175f, type: 3}
+  - {fileID: 8089048734628182229, guid: 9b4c4789267d0554aa2539cbb3e1bc41, type: 3}
+  - {fileID: 8089048734628182229, guid: a2966e731b1a1ca45be1509e1ed7654e, type: 3}
+  - {fileID: 8089048734628182229, guid: 66dfb5bb9a98ffb46bfe8972ed013120, type: 3}
+  - {fileID: 6324088146916883927, guid: de9a0ba34b21a974486159e3d3de51f7, type: 3}
+  - {fileID: 5287431276007193900, guid: af9b19a4758abd84db05410d4c8b063f, type: 3}
+  - {fileID: 5287431276007193900, guid: 74f51106da1122144ab92145e149754a, type: 3}
+  - {fileID: 8167464982967562473, guid: 287eb7f359d520c4383e1ade6d68fafb, type: 3}
+  - {fileID: 8167464982967562473, guid: 42ab6fd71a2b67d47a48a4a38a3fbd5a, type: 3}
+  - {fileID: 8167464982967562473, guid: 0c86f2da2300f7a468e84695b58ba5b8, type: 3}
+  - {fileID: 8244336104555587083, guid: c151816433ee04345b0cc3aca878f2c7, type: 3}
+  - {fileID: 8244336104555587083, guid: 3a9b67d2694d1bd41aa0c146e0e08085, type: 3}
+  - {fileID: 1338574444325524907, guid: 641af1150e940eb43a42b5314bb582d5, type: 3}
+  - {fileID: 1338574444325524907, guid: 91b171debd900134090b12e79d99291f, type: 3}
+  - {fileID: 658158559610352568, guid: f76f3d7cc8eb66f4b9c1db055a34b0b2, type: 3}
+  - {fileID: 5758682601839763989, guid: 651c184c294e3fa49843e79815ec37fe, type: 3}
+  - {fileID: 2534292928348467908, guid: f6ab3976811dd7342ac89ce937a6c2f3, type: 3}
 --- !u!1001 &52189027317581610
 PrefabInstance:
   m_ObjectHideFlags: 0

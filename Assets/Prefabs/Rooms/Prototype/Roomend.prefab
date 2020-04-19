@@ -13299,7 +13299,11 @@ MonoBehaviour:
   - {fileID: 4217957307003893961}
   - {fileID: 8243828265890714154}
   items:
-  - {fileID: 3584436195526117379, guid: 74641589996654f4db6ff1bb20f2fa6f, type: 3}
+  - {fileID: 46007828327002753, guid: a647c641cd1a47e45b946ff56c974622, type: 3}
+  - {fileID: 736966957645441214, guid: a71a45629382a3849a195c11c36acb93, type: 3}
+  - {fileID: 3875689244922516021, guid: 8b3f51f7d43887749b5d481c303c9a74, type: 3}
+  - {fileID: 582273702729514343, guid: 9f19a15a14c58404480d72c865bd2bcf, type: 3}
+  - {fileID: 4416005919961546620, guid: c974f0409fec6db4db388b9abb033f24, type: 3}
   endItem: {fileID: 4080819805469418062}
 --- !u!65 &2451587232213114543
 BoxCollider:
@@ -14733,7 +14737,7 @@ PrefabInstance:
     - target: {fileID: 5343993119190529028, guid: 41e38413ac029ed47aa0ae353c8760cb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8967498868168934935, guid: 41e38413ac029ed47aa0ae353c8760cb,
         type: 3}
