@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level 2
   numberOfCrawlers: 2
-  iterationMin: 8
-  iterationMax: 15
-  startRoom: {fileID: 2325781639443582811, guid: d6b22e9310ead7f4b900478f6c8a44c1,
+  iterationMin: 11
+  iterationMax: 18
+  startRoom: {fileID: 2325781639443582811, guid: 91b8ffeb70f182c42ab27eb7c169d900,
     type: 3}
   endRoom: {fileID: 2325781639443582811, guid: 5b5b30c895556554b9eb24d90141fef1, type: 3}
   treasureRoom: {fileID: 2325781639443582811, guid: 67dff671009502b4c8bb71d9a3f47ea5,
