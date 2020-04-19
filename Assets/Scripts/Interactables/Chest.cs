@@ -30,6 +30,9 @@ public class Chest : MonoBehaviour, IInteractable
 
             //Drop the items
             DropItems();
+
+            //Chest is now opened
+            isOpened = true;
         }
     }
 

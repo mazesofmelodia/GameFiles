@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level 2
   numberOfCrawlers: 2
-  iterationMin: 10
-  iterationMax: 20
+  iterationMin: 8
+  iterationMax: 15
   startRoom: {fileID: 2325781639443582811, guid: d6b22e9310ead7f4b900478f6c8a44c1,
     type: 3}
   endRoom: {fileID: 2325781639443582811, guid: 5b5b30c895556554b9eb24d90141fef1, type: 3}

@@ -179,7 +179,7 @@ MonoBehaviour:
     Duration: 0
   pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
-  onDestroyEvent: {fileID: 11400000, guid: 3869d88eb9253664b843684b19f69eb4, type: 2}
+  onDestroyEvent: {fileID: 11400000, guid: 0e0fddc595d0d944da2c16d82ca11089, type: 2}
   onApproachEvent: {fileID: 11400000, guid: 45e2e88b5050b4448945b56f0eb6ad9a, type: 2}
   onDistanceEvent: {fileID: 11400000, guid: fbba48a34e2c5044ca86b723191297c6, type: 2}
   onUpgradeTakenEvent: {fileID: 11400000, guid: 3869d88eb9253664b843684b19f69eb4,
