@@ -112,7 +112,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 4df2673622b27bf4a8a31d686ae38f8b, type: 2}
   - {fileID: 2100000, guid: 7719c12d85494684a9c4174d34eb275a, type: 2}
-  - {fileID: 2100000, guid: 264223b08861d0d4e9515c2270cb83d6, type: 2}
+  - {fileID: 2100000, guid: 02c07345313cb814eb6dcd63462e338a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22657,10 +22657,8 @@ MonoBehaviour:
   height: 20
   X: 0
   Y: 0
-  enemyPrefab: {fileID: -931444011533757902, guid: aa287dece1e0cb74c95a697207bb7a47,
-    type: 3}
   spawnPoints:
-  - {fileID: 4860671460297710605}
+  - {fileID: 0}
   specialRoom: 0
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
