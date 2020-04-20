@@ -19265,7 +19265,8 @@ MonoBehaviour:
   height: 20
   X: 0
   Y: 0
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 2224643145820881648}
   specialRoom: 0
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
@@ -19723,6 +19724,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 458858523044816672}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2224643145820881648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1765890727932749264, guid: 8c7b458d431657345a65f78c562f700f,
+    type: 3}
+  m_PrefabInstance: {fileID: 458858523044816672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91da5e19fa9695243a21d37230d0ea3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &514415693621003681
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22657,8 +22657,7 @@ MonoBehaviour:
   height: 20
   X: 0
   Y: 0
-  spawnPoints:
-  - {fileID: 0}
+  spawnPoints: []
   specialRoom: 0
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}

@@ -190,7 +190,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPoint: {fileID: 2092727496}
-  lootItems: []
+  lootItems:
+  - dropItem: {fileID: 8167464982967562473, guid: 287eb7f359d520c4383e1ade6d68fafb,
+      type: 3}
+    dropChance: 15
+  - dropItem: {fileID: 8244336104555587083, guid: c151816433ee04345b0cc3aca878f2c7,
+      type: 3}
+    dropChance: 15
+  - dropItem: {fileID: 1338574444325524907, guid: 641af1150e940eb43a42b5314bb582d5,
+      type: 3}
+    dropChance: 15
+  - dropItem: {fileID: 8089048734628182229, guid: 9b4c4789267d0554aa2539cbb3e1bc41,
+      type: 3}
+    dropChance: 15
+  - dropItem: {fileID: 5311638482609071940, guid: 895a56eddab761e45bd47e095ce398fd,
+      type: 3}
+    dropChance: 50
+  - dropItem: {fileID: 7663123231666688694, guid: 17091f568eca0204e928e36e5285ce47,
+      type: 3}
+    dropChance: 50
+  - dropItem: {fileID: 6387664492304723245, guid: b1c7873138fef274592d54b01846257c,
+      type: 3}
+    dropChance: 50
   itemDropRange: 2
 --- !u!1 &8549396947277848212
 GameObject:
