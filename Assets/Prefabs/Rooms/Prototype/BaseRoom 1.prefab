@@ -21266,6 +21266,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1765890727932749264, guid: 8c7b458d431657345a65f78c562f700f,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 4701719213219094393, guid: e9f0ea488054e424c8432294ab1a6b39,
+        type: 3}
     - target: {fileID: 9010797621929666735, guid: 8c7b458d431657345a65f78c562f700f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21321,12 +21327,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1765890727932749264, guid: 8c7b458d431657345a65f78c562f700f,
-        type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: -931444011533757902, guid: aa287dece1e0cb74c95a697207bb7a47,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7b458d431657345a65f78c562f700f, type: 3}
 --- !u!114 &2808537527893856626 stripped
