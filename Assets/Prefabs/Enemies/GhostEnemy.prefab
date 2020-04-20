@@ -273,7 +273,16 @@ MonoBehaviour:
     BaseValue: 4
   speed:
     BaseValue: 4
-  lootItems: []
+  lootItems:
+  - dropItem: {fileID: 8521955788811948649, guid: 6c0e71cea96f4e243b413c1486cb19c2,
+      type: 3}
+    dropChance: 100
+  - dropItem: {fileID: 6295010716378401721, guid: eb7a49ac7f4c39544a65cfa5b8c13642,
+      type: 3}
+    dropChance: 50
+  - dropItem: {fileID: 524247714045366445, guid: ec7fabb200150944eb999214719401bd,
+      type: 3}
+    dropChance: 50
   itemDropRange: 2
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   enemyCountEvent: {fileID: 11400000, guid: 97f185738f31ca24fbe26beab57ae253, type: 2}
