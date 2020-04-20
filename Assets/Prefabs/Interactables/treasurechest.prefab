@@ -212,6 +212,18 @@ MonoBehaviour:
   - dropItem: {fileID: 6387664492304723245, guid: b1c7873138fef274592d54b01846257c,
       type: 3}
     dropChance: 50
+  - dropItem: {fileID: 5287431276007193900, guid: af9b19a4758abd84db05410d4c8b063f,
+      type: 3}
+    dropChance: 15
+  - dropItem: {fileID: 2511012241305686958, guid: 5f746759b39e0ab41aad785c0fefa159,
+      type: 3}
+    dropChance: 10
+  - dropItem: {fileID: 7270633487663836200, guid: e0dbf3da866a28e48bc4549ad87ed4f7,
+      type: 3}
+    dropChance: 10
+  - dropItem: {fileID: 8915352643047489483, guid: 568609b0f3795aa4f982bdfe5565c212,
+      type: 3}
+    dropChance: 20
   itemDropRange: 2
 --- !u!1 &8549396947277848212
 GameObject:

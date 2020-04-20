@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupValue: 150
-  pickupSound: {fileID: 8300000, guid: 5d86670defc96bb45aa7486425686423, type: 3}
+  pickupSound: {fileID: 8300000, guid: eb0f087d0a1917044a4401d860af10db, type: 3}
   playSFXEvent: {fileID: 11400000, guid: 66423bb5619b69048b26bb10b37733c8, type: 2}
   pickupEvent: {fileID: 11400000, guid: 4b0dd02ca1cbea148a02d0b333ec8c25, type: 2}
 --- !u!135 &7663123231666688717

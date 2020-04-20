@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
         {
             case AttackTarget.Player:
                 //Check if the object is tagged player
-                if (other.CompareTag("Player") || other.gameObject.layer == LayerMask.NameToLayer("Environment"))
+                if (other.CompareTag("Player"))
                 {
                     //Get the player component of the object
                     Player player = other.GetComponent<Player>();
@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
                 break;
             case AttackTarget.Enemy:
                 //Check if the object is tagged enemy
-                if (other.CompareTag("Enemy") || other.gameObject.layer == LayerMask.NameToLayer("Environment"))
+                if (other.CompareTag("Enemy"))
                 {
                     //Get the enemy component of the object
                     Enemy enemy = other.GetComponent<Enemy>();

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033433902304376113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.349, z: 1.024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2033433902650845950}
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30cc9aa97af796f4a807dc9a5689a77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 1.5
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
   agent: {fileID: 2033433902530355822}
@@ -1545,9 +1545,9 @@ MonoBehaviour:
   range: 4
   combatAction: {fileID: 11400000, guid: 72775197cea8dea4892b51a78964a5d7, type: 2}
   maxHealth:
-    BaseValue: 120
+    BaseValue: 300
   strength:
-    BaseValue: 8
+    BaseValue: 6
   speed:
     BaseValue: 4
   lootItems: []

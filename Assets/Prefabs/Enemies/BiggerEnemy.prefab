@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30cc9aa97af796f4a807dc9a5689a77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 3
+  timeBetweenAttacks: 2
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
   agent: {fileID: 8496286925463690900}
@@ -793,7 +793,7 @@ MonoBehaviour:
   range: 3
   combatAction: {fileID: 11400000, guid: 65f80743a18c4294ebbf52cebe78deee, type: 2}
   maxHealth:
-    BaseValue: 120
+    BaseValue: 200
   strength:
     BaseValue: 8
   speed:
