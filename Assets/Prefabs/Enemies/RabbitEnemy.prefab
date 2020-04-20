@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da47ef7bc7d6f504093a1dbec787f7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 1.5
   damageSound: {fileID: 8300000, guid: 4084b9fe5ed70f94e96478d9668e4302, type: 3}
   deathSound: {fileID: 8300000, guid: 92ae01281ed0e8a4582182a7cbead994, type: 3}
   agent: {fileID: 6402232992578209985}
@@ -426,7 +426,7 @@ MonoBehaviour:
   strength:
     BaseValue: 4
   speed:
-    BaseValue: 4
+    BaseValue: 6
   lootItems:
   - dropItem: {fileID: 8521955788811948649, guid: 6c0e71cea96f4e243b413c1486cb19c2,
       type: 3}

@@ -263,13 +263,13 @@ MonoBehaviour:
   attackPoints:
   - {fileID: 1430911280246083609}
   range: 2
-  combatAction: {fileID: 11400000, guid: ef5a5b5675900f547aa922b1568679b5, type: 2}
+  combatAction: {fileID: 11400000, guid: 00e3b1e60a857eb4284a7803ed9824f9, type: 2}
   maxHealth:
-    BaseValue: 30
+    BaseValue: 60
   strength:
-    BaseValue: 4
+    BaseValue: 5
   speed:
-    BaseValue: 4
+    BaseValue: 3
   lootItems:
   - dropItem: {fileID: 8521955788811948649, guid: 6c0e71cea96f4e243b413c1486cb19c2,
       type: 3}
@@ -484,7 +484,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 0fdc91f7725f6294c86cd3321cd7f2fa, type: 3}
+  - {fileID: 2100000, guid: f7b4d1d097237e54eaf48f1efbfec394, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
