@@ -79,7 +79,7 @@ public class Scoreboard : MonoBehaviour
         for (int i = 0; i < savedScores.highScores.Count; i++)
         {
             //Check if the entry score is greater than this score
-            if(entryData.entryScore > savedScores.highScores[i].entryScore)
+            if(entryData.entryScore >= savedScores.highScores[i].entryScore)
             {
                 //Add the score to that point in the list
                 savedScores.highScores.Insert(i, entryData);
