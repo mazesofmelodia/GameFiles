@@ -9622,7 +9622,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623242549368075176}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
@@ -9639,5 +9639,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e48a8bd6f918de4693cfb2d91be996e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: MazeTest2
+  nextLevelName: MazeTest3
   nextLevelEvent: {fileID: 11400000, guid: d2d4c8f2e529f6547b6909c6b55bece3, type: 2}
